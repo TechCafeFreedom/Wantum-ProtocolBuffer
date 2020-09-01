@@ -10,7 +10,9 @@ service WishListService {
   // やりたいことリスト一覧取得
   rpc GetWishList(google.protobuf.Empty) returns (WishList);
   // やりたいことリスト単体取得
-  rpc GetWishListInfo(GetWishListRequest) returns (WishListInfo);
+  rpc GetWishListInfo(GetWishListRequest) returns (stream WishListInfo);
+  // やりたいことリスト更新（カードの移動やタイトルの変更など：ユーザーアクション）
+  rpc UpdateWishListInfo(WishListInfo) returns (google.protobuf.Empty);
 }
 
 // IDをもとにやりたいことリストを1件取得するためのリクエスト
