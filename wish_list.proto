@@ -1,0 +1,54 @@
+syntax = "proto3";
+package proto_wishlist;
+
+import "user.proto";
+import "google/protobuf/empty.proto";
+
+option go_package = ".;pb";
+
+service WishListService {
+  // やりたいことリスト一覧取得
+  rpc GetWishList(google.protobuf.Empty) returns (WishList);
+  // やりたいことリスト単体取得
+  rpc GetWishListInfo(GetWishListRequest) returns (WishListInfo);
+}
+
+// IDをもとにやりたいことリストを1件取得するためのリクエスト
+message GetWishListRequest {
+  int64 wish_list_id = 1; // やりたいことリストを特定するためのID
+}
+
+// やりたいことリストの一覧（配列）
+message WishList {
+  repeated WishListInfo wish_list = 1; // やりたいことリスト一覧（配列）
+}
+
+// やりたいことリスト情報
+message WishListInfo {
+  int64 wish_list_id = 1; // やりたいことリストを特定するためのID
+  string title = 2;       // やりたいことリストタイトル
+  repeated WishCategoryInfo wish_categories =
+      3; // やりたいことカテゴリー一覧（配列）
+  repeated proto_user.UserInfo authors =
+      4; // 編集権限を持っているユーザー一覧（配列）
+  string invite_url = 5; // 招待リンク
+}
+
+// やりたいことカテゴリー情報
+message WishCategoryInfo {
+  int64 wish_category_id = 1; // やりたいことカテゴリーを特定するためのID
+  string title = 2; // やりたいことカテゴリー名
+  repeated WishCardInfo wish_cards =
+      3; // カテゴリー内のやりたいことカード一覧（配列）
+}
+
+// やりたいことカード情報（wish_card）
+message WishCardInfo {
+  int64 wish_card_id = 1;   // wish_cardを特定するためのID
+  string activity = 2;      // 何をしたいのか
+  string description = 3;   // やりたいことの説明
+  string date = 4;          // いつやりたいか（日付）
+  string done_at = 5;       // 完了日時
+  string place = 6;         // どこでそれをしたいのか
+  repeated string tags = 7; // タグ一覧（配列）
+}
