@@ -15,26 +15,44 @@ service UserService {
 
 // 新規ユーザ作成リクエスト
 message CreateUserRequest {
-  string name = 1;      // 表示名
-  string user_name = 2; // ユーザ名
-  string thumbnail = 3; // アイコンのURL
-  string bio = 4;       // ひとこと
-  int32 gender = 5;     // 性別（1: man, 2: woman, 3: unknown）
-  string phone = 6;     // 電話番号
-  string place = 7;     // 現在地的な。Twitterの真似
-  string birth = 8;     // 生年月日
+  // 表示名
+  string name = 1;
+  // ユーザ名
+  string user_name = 2;
+  // アイコンのURL
+  string thumbnail = 3;
+  // ひとこと
+  string bio = 4;
+  // 性別（1: man, 2: woman, 3: unknown）
+  int32 gender = 5;
+  // 電話番号
+  string phone = 6;
+  // 現在地的な。Twitterの真似
+  string place = 7;
+  // 生年月日
+  string birth = 8;
 }
 
 // ユーザ情報
 message UserInfo {
-  int64 id = 1;         // ユーザーID
-  string name = 2;      // 表示名
-  string user_name = 3; // ユーザ名
-  string thumbnail = 4; // アイコンのURL
-  string bio = 5;       // ひとこと
-  int32 gender = 6;     // 性別（1: man, 2: woman, 3: unknown）
-  string phone = 7;     // 電話番号
-  string place = 8;     // 現在地的な。Twitterの真似
-  string birth = 9;     // 生年月日
-  proto_memory.Memories memories = 10; // ユーザーが過去に投稿した思い出一覧
+  // ユーザーID
+  int64 id = 1;
+  // 表示名
+  string name = 2;
+  // ユーザ名
+  string user_name = 3;
+  // アイコンのURL
+  string thumbnail = 4;
+  // ひとこと
+  string bio = 5;
+  // 性別（1: man, 2: woman, 3: unknown）
+  int32 gender = 6;
+  // 電話番号
+  string phone = 7;
+  // 現在地的な。Twitterの真似
+  string place = 8;
+  // 生年月日
+  string birth = 9;
+  // ユーザーが過去に投稿した思い出一覧
+  proto_memory.Memories memories = 10;
 }

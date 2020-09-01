@@ -15,18 +15,22 @@ service AlbumService {
 
 // アルバム1件取得用リクエスト
 message GetAlbumRequest {
-  int64 album_id = 1; // アルバムを特定するためのID
+  // アルバムを特定するためのID
+  int64 album_id = 1;
 }
 
 // アルバム一覧（配列）
 message Albums {
-  repeated AlbumInfo albums = 1; // アルバム一覧（配列）
+  // アルバム一覧（配列）
+  repeated AlbumInfo albums = 1;
 }
 
 // アルバム情報
 message AlbumInfo {
-  int64 album_id = 1; // アルバムを特定するためのID
-  string title = 2;   // アルバムのタイトル
-  proto_memory.Memories memories =
-      3; // アルバムに保存されている思い出一覧（配列）
+  // アルバムを特定するためのID
+  int64 album_id = 1;
+  // アルバムのタイトル
+  string title = 2;
+  // アルバムに保存されている思い出一覧（配列）
+  proto_memory.Memories memories = 3;
 }
