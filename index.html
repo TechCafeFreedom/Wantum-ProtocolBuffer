@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Protocol Documentation</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Ubuntu:400,700,400italic"/>
+    <style>
+      body {
+        width: 60em;
+        margin: 1em auto;
+        color: #222;
+        font-family: "Ubuntu", sans-serif;
+        padding-bottom: 4em;
+      }
+
+      h1 {
+        font-weight: normal;
+        border-bottom: 1px solid #aaa;
+        padding-bottom: 0.5ex;
+      }
+
+      h2 {
+        border-bottom: 1px solid #aaa;
+        padding-bottom: 0.5ex;
+        margin: 1.5em 0;
+      }
+
+      h3 {
+        font-weight: normal;
+        border-bottom: 1px solid #aaa;
+        padding-bottom: 0.5ex;
+      }
+
+      a {
+        text-decoration: none;
+        color: #567e25;
+      }
+
+      table {
+        width: 100%;
+        font-size: 80%;
+        border-collapse: collapse;
+      }
+
+      thead {
+        font-weight: 700;
+        background-color: #dcdcdc;
+      }
+
+      tbody tr:nth-child(even) {
+        background-color: #fbfbfb;
+      }
+
+      td {
+        border: 1px solid #ccc;
+        padding: 0.5ex 2ex;
+      }
+
+      td p {
+        text-indent: 1em;
+        margin: 0;
+      }
+
+      td p:nth-child(1) {
+        text-indent: 0;  
+      }
+
+       
+      .field-table td:nth-child(1) {  
+        width: 10em;
+      }
+      .field-table td:nth-child(2) {  
+        width: 10em;
+      }
+      .field-table td:nth-child(3) {  
+        width: 6em;
+      }
+      .field-table td:nth-child(4) {  
+        width: auto;
+      }
+
+       
+      .extension-table td:nth-child(1) {  
+        width: 10em;
+      }
+      .extension-table td:nth-child(2) {  
+        width: 10em;
+      }
+      .extension-table td:nth-child(3) {  
+        width: 10em;
+      }
+      .extension-table td:nth-child(4) {  
+        width: 5em;
+      }
+      .extension-table td:nth-child(5) {  
+        width: auto;
+      }
+
+       
+      .enum-table td:nth-child(1) {  
+        width: 10em;
+      }
+      .enum-table td:nth-child(2) {  
+        width: 10em;
+      }
+      .enum-table td:nth-child(3) {  
+        width: auto;
+      }
+
+       
+      .scalar-value-types-table tr {
+        height: 3em;
+      }
+
+       
+      #toc-container ul {
+        list-style-type: none;
+        padding-left: 1em;
+        line-height: 180%;
+        margin: 0;
+      }
+      #toc > li > a {
+        font-weight: bold;
+      }
+
+       
+      .file-heading {
+        width: 100%;
+        display: table;
+        border-bottom: 1px solid #aaa;
+        margin: 4em 0 1.5em 0;
+      }
+      .file-heading h2 {
+        border: none;
+        display: table-cell;
+      }
+      .file-heading a {
+        text-align: right;
+        display: table-cell;
+      }
+
+       
+      .badge {
+        width: 1.6em;
+        height: 1.6em;
+        display: inline-block;
+
+        line-height: 1.6em;
+        text-align: center;
+        font-weight: bold;
+        font-size: 60%;
+
+        color: #89ba48;
+        background-color: #dff0c8;
+
+        margin: 0.5ex 1em 0.5ex -1em;
+        border: 1px solid #fbfbfb;
+        border-radius: 1ex;
+      }
+    </style>
+
+    
+    <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+  </head>
+
+  <body>
+
+    <h1 id="title">Protocol Documentation</h1>
+
+    <h2>Table of Contents</h2>
+
+    <div id="toc-container">
+      <ul id="toc">
+        
+          
+          <li>
+            <a href="#album.proto">album.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#proto_album.AlbumInfo"><span class="badge">M</span>AlbumInfo</a>
+                </li>
+              
+                <li>
+                  <a href="#proto_album.Albums"><span class="badge">M</span>Albums</a>
+                </li>
+              
+                <li>
+                  <a href="#proto_album.GetAlbumRequest"><span class="badge">M</span>GetAlbumRequest</a>
+                </li>
+              
+              
+              
+              
+                <li>
+                  <a href="#proto_album.AlbumService"><span class="badge">S</span>AlbumService</a>
+                </li>
+              
+            </ul>
+          </li>
+        
+          
+          <li>
+            <a href="#memory.proto">memory.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#proto_memory.GetMemoryRequest"><span class="badge">M</span>GetMemoryRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#proto_memory.Memories"><span class="badge">M</span>Memories</a>
+                </li>
+              
+                <li>
+                  <a href="#proto_memory.MemoryCountInfo"><span class="badge">M</span>MemoryCountInfo</a>
+                </li>
+              
+                <li>
+                  <a href="#proto_memory.MemoryInfo"><span class="badge">M</span>MemoryInfo</a>
+                </li>
+              
+              
+              
+              
+                <li>
+                  <a href="#proto_memory.MemoryService"><span class="badge">S</span>MemoryService</a>
+                </li>
+              
+            </ul>
+          </li>
+        
+          
+          <li>
+            <a href="#user.proto">user.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#proto_user.CreateUserRequest"><span class="badge">M</span>CreateUserRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#proto_user.UserInfo"><span class="badge">M</span>UserInfo</a>
+                </li>
+              
+              
+              
+              
+                <li>
+                  <a href="#proto_user.UserService"><span class="badge">S</span>UserService</a>
+                </li>
+              
+            </ul>
+          </li>
+        
+          
+          <li>
+            <a href="#wish_list.proto">wish_list.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#proto_wishlist.GetWishListRequest"><span class="badge">M</span>GetWishListRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#proto_wishlist.WishCardInfo"><span class="badge">M</span>WishCardInfo</a>
+                </li>
+              
+                <li>
+                  <a href="#proto_wishlist.WishCategoryInfo"><span class="badge">M</span>WishCategoryInfo</a>
+                </li>
+              
+                <li>
+                  <a href="#proto_wishlist.WishList"><span class="badge">M</span>WishList</a>
+                </li>
+              
+                <li>
+                  <a href="#proto_wishlist.WishListInfo"><span class="badge">M</span>WishListInfo</a>
+                </li>
+              
+              
+              
+              
+                <li>
+                  <a href="#proto_wishlist.WishListService"><span class="badge">S</span>WishListService</a>
+                </li>
+              
+            </ul>
+          </li>
+        
+        <li><a href="#scalar-value-types">Scalar Value Types</a></li>
+      </ul>
+    </div>
+
+    
+      
+      <div class="file-heading">
+        <h2 id="album.proto">album.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="proto_album.AlbumInfo">AlbumInfo</h3>
+        <p>アルバム情報</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>album_id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>アルバムを特定するためのID </p></td>
+                </tr>
+              
+                <tr>
+                  <td>title</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>アルバムのタイトル </p></td>
+                </tr>
+              
+                <tr>
+                  <td>memories</td>
+                  <td><a href="#proto_memory.Memories">proto_memory.Memories</a></td>
+                  <td></td>
+                  <td><p>アルバムに保存されている思い出一覧（配列） </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="proto_album.Albums">Albums</h3>
+        <p>アルバム一覧（配列）</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>albums</td>
+                  <td><a href="#proto_album.AlbumInfo">AlbumInfo</a></td>
+                  <td>repeated</td>
+                  <td><p>アルバム一覧（配列） </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="proto_album.GetAlbumRequest">GetAlbumRequest</h3>
+        <p>アルバム1件取得用リクエスト</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>album_id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>アルバムを特定するためのID </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+
+      
+
+      
+
+      
+        <h3 id="proto_album.AlbumService">AlbumService</h3>
+        <p></p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Method Name</td><td>Request Type</td><td>Response Type</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>GetAlbum</td>
+                <td><a href="#proto_album.GetAlbumRequest">GetAlbumRequest</a></td>
+                <td><a href="#proto_album.AlbumInfo">AlbumInfo</a></td>
+                <td><p>IDをもとにアルバム1件を取得</p></td>
+              </tr>
+            
+              <tr>
+                <td>GetMyAlbums</td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><a href="#proto_album.Albums">Albums</a></td>
+                <td><p>アルバム一覧情報の取得</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+
+        
+    
+      
+      <div class="file-heading">
+        <h2 id="memory.proto">memory.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="proto_memory.GetMemoryRequest">GetMemoryRequest</h3>
+        <p>思い出情報取得用リクエスト</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>memory_id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>思い出1件を特定するための思い出ID </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="proto_memory.Memories">Memories</h3>
+        <p>思い出一覧情報</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>memory_count</td>
+                  <td><a href="#proto_memory.MemoryCountInfo">MemoryCountInfo</a></td>
+                  <td></td>
+                  <td><p>思い出カウント情報 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>memories</td>
+                  <td><a href="#proto_memory.MemoryInfo">MemoryInfo</a></td>
+                  <td>repeated</td>
+                  <td><p>思い出一覧（配列） </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="proto_memory.MemoryCountInfo">MemoryCountInfo</h3>
+        <p>思い出のカウント情報</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>memories_count</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>過去に投稿した思い出の数 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>published_count</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>公開中の思い出の数 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="proto_memory.MemoryInfo">MemoryInfo</h3>
+        <p>思い出詳細情報</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>memory_id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>思い出ID </p></td>
+                </tr>
+              
+                <tr>
+                  <td>activity</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>やったこと </p></td>
+                </tr>
+              
+                <tr>
+                  <td>date</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>日付 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>description</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>思い出の説明 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>place</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>場所 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>image_urls</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p>投稿されている画像一覧（配列） </p></td>
+                </tr>
+              
+                <tr>
+                  <td>tags</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p>タグ一覧（配列） </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+
+      
+
+      
+
+      
+        <h3 id="proto_memory.MemoryService">MemoryService</h3>
+        <p></p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Method Name</td><td>Request Type</td><td>Response Type</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>GetMemory</td>
+                <td><a href="#proto_memory.GetMemoryRequest">GetMemoryRequest</a></td>
+                <td><a href="#proto_memory.MemoryInfo">MemoryInfo</a></td>
+                <td><p>IDをもとに思い出1件を取得</p></td>
+              </tr>
+            
+              <tr>
+                <td>GetMemories</td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><a href="#proto_memory.Memories">Memories</a></td>
+                <td><p>思い出一覧を取得</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+
+        
+    
+      
+      <div class="file-heading">
+        <h2 id="user.proto">user.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="proto_user.CreateUserRequest">CreateUserRequest</h3>
+        <p>新規ユーザ作成リクエスト</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>表示名 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>user_name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>ユーザ名 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>thumbnail</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>アイコンのURL </p></td>
+                </tr>
+              
+                <tr>
+                  <td>bio</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>ひとこと </p></td>
+                </tr>
+              
+                <tr>
+                  <td>gender</td>
+                  <td><a href="#int32">int32</a></td>
+                  <td></td>
+                  <td><p>性別（1: man, 2: woman, 3: unknown） </p></td>
+                </tr>
+              
+                <tr>
+                  <td>phone</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>電話番号 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>place</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>現在地的な。Twitterの真似 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>birth</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>生年月日 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="proto_user.UserInfo">UserInfo</h3>
+        <p>ユーザ情報</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>ユーザーID </p></td>
+                </tr>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>表示名 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>user_name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>ユーザ名 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>thumbnail</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>アイコンのURL </p></td>
+                </tr>
+              
+                <tr>
+                  <td>bio</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>ひとこと </p></td>
+                </tr>
+              
+                <tr>
+                  <td>gender</td>
+                  <td><a href="#int32">int32</a></td>
+                  <td></td>
+                  <td><p>性別（1: man, 2: woman, 3: unknown） </p></td>
+                </tr>
+              
+                <tr>
+                  <td>phone</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>電話番号 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>place</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>現在地的な。Twitterの真似 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>birth</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>生年月日 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>memories</td>
+                  <td><a href="#proto_memory.Memories">proto_memory.Memories</a></td>
+                  <td></td>
+                  <td><p>ユーザーが過去に投稿した思い出一覧 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+
+      
+
+      
+
+      
+        <h3 id="proto_user.UserService">UserService</h3>
+        <p></p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Method Name</td><td>Request Type</td><td>Response Type</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>CreateUser</td>
+                <td><a href="#proto_user.CreateUserRequest">CreateUserRequest</a></td>
+                <td><a href="#proto_user.UserInfo">UserInfo</a></td>
+                <td><p>新規ユーザ作成</p></td>
+              </tr>
+            
+              <tr>
+                <td>GetMyProfile</td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><a href="#proto_user.UserInfo">UserInfo</a></td>
+                <td><p>ユーザー情報取得（マイページ）</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+
+        
+    
+      
+      <div class="file-heading">
+        <h2 id="wish_list.proto">wish_list.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="proto_wishlist.GetWishListRequest">GetWishListRequest</h3>
+        <p>IDをもとにやりたいことリストを1件取得するためのリクエスト</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>wish_list_id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>やりたいことリストを特定するためのID </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="proto_wishlist.WishCardInfo">WishCardInfo</h3>
+        <p>やりたいことカード情報（wish_card）</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>wish_card_id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>wish_cardを特定するためのID </p></td>
+                </tr>
+              
+                <tr>
+                  <td>activity</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>何をしたいのか </p></td>
+                </tr>
+              
+                <tr>
+                  <td>description</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>やりたいことの説明 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>date</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>いつやりたいか（日付） </p></td>
+                </tr>
+              
+                <tr>
+                  <td>done_at</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>完了日時 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>place</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>どこでそれをしたいのか </p></td>
+                </tr>
+              
+                <tr>
+                  <td>tags</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p>タグ一覧（配列） </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="proto_wishlist.WishCategoryInfo">WishCategoryInfo</h3>
+        <p>やりたいことカテゴリー情報</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>wish_category_id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>やりたいことカテゴリーを特定するためのID </p></td>
+                </tr>
+              
+                <tr>
+                  <td>title</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>やりたいことカテゴリー名 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>wish_cards</td>
+                  <td><a href="#proto_wishlist.WishCardInfo">WishCardInfo</a></td>
+                  <td>repeated</td>
+                  <td><p>カテゴリー内のやりたいことカード一覧（配列） </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="proto_wishlist.WishList">WishList</h3>
+        <p>やりたいことリストの一覧（配列）</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>wish_list</td>
+                  <td><a href="#proto_wishlist.WishListInfo">WishListInfo</a></td>
+                  <td>repeated</td>
+                  <td><p>やりたいことリスト一覧（配列） </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="proto_wishlist.WishListInfo">WishListInfo</h3>
+        <p>やりたいことリスト情報</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>wish_list_id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>やりたいことリストを特定するためのID </p></td>
+                </tr>
+              
+                <tr>
+                  <td>title</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>やりたいことリストタイトル </p></td>
+                </tr>
+              
+                <tr>
+                  <td>wish_categories</td>
+                  <td><a href="#proto_wishlist.WishCategoryInfo">WishCategoryInfo</a></td>
+                  <td>repeated</td>
+                  <td><p>やりたいことカテゴリー一覧（配列） </p></td>
+                </tr>
+              
+                <tr>
+                  <td>authors</td>
+                  <td><a href="#proto_user.UserInfo">proto_user.UserInfo</a></td>
+                  <td>repeated</td>
+                  <td><p>編集権限を持っているユーザー一覧（配列） </p></td>
+                </tr>
+              
+                <tr>
+                  <td>invite_url</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>招待リンク </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+
+      
+
+      
+
+      
+        <h3 id="proto_wishlist.WishListService">WishListService</h3>
+        <p></p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Method Name</td><td>Request Type</td><td>Response Type</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>GetWishList</td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><a href="#proto_wishlist.WishList">WishList</a></td>
+                <td><p>やりたいことリスト一覧取得</p></td>
+              </tr>
+            
+              <tr>
+                <td>GetWishListInfo</td>
+                <td><a href="#proto_wishlist.GetWishListRequest">GetWishListRequest</a></td>
+                <td><a href="#proto_wishlist.WishListInfo">WishListInfo</a></td>
+                <td><p>やりたいことリスト単体取得</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+
+        
+    
+
+    <h2 id="scalar-value-types">Scalar Value Types</h2>
+    <table class="scalar-value-types-table">
+      <thead>
+        <tr><td>.proto Type</td><td>Notes</td><td>C++</td><td>Java</td><td>Python</td><td>Go</td><td>C#</td><td>PHP</td><td>Ruby</td></tr>
+      </thead>
+      <tbody>
+        
+          <tr id="double">
+            <td>double</td>
+            <td></td>
+            <td>double</td>
+            <td>double</td>
+            <td>float</td>
+            <td>float64</td>
+            <td>double</td>
+            <td>float</td>
+            <td>Float</td>
+          </tr>
+        
+          <tr id="float">
+            <td>float</td>
+            <td></td>
+            <td>float</td>
+            <td>float</td>
+            <td>float</td>
+            <td>float32</td>
+            <td>float</td>
+            <td>float</td>
+            <td>Float</td>
+          </tr>
+        
+          <tr id="int32">
+            <td>int32</td>
+            <td>Uses variable-length encoding. Inefficient for encoding negative numbers – if your field is likely to have negative values, use sint32 instead.</td>
+            <td>int32</td>
+            <td>int</td>
+            <td>int</td>
+            <td>int32</td>
+            <td>int</td>
+            <td>integer</td>
+            <td>Bignum or Fixnum (as required)</td>
+          </tr>
+        
+          <tr id="int64">
+            <td>int64</td>
+            <td>Uses variable-length encoding. Inefficient for encoding negative numbers – if your field is likely to have negative values, use sint64 instead.</td>
+            <td>int64</td>
+            <td>long</td>
+            <td>int/long</td>
+            <td>int64</td>
+            <td>long</td>
+            <td>integer/string</td>
+            <td>Bignum</td>
+          </tr>
+        
+          <tr id="uint32">
+            <td>uint32</td>
+            <td>Uses variable-length encoding.</td>
+            <td>uint32</td>
+            <td>int</td>
+            <td>int/long</td>
+            <td>uint32</td>
+            <td>uint</td>
+            <td>integer</td>
+            <td>Bignum or Fixnum (as required)</td>
+          </tr>
+        
+          <tr id="uint64">
+            <td>uint64</td>
+            <td>Uses variable-length encoding.</td>
+            <td>uint64</td>
+            <td>long</td>
+            <td>int/long</td>
+            <td>uint64</td>
+            <td>ulong</td>
+            <td>integer/string</td>
+            <td>Bignum or Fixnum (as required)</td>
+          </tr>
+        
+          <tr id="sint32">
+            <td>sint32</td>
+            <td>Uses variable-length encoding. Signed int value. These more efficiently encode negative numbers than regular int32s.</td>
+            <td>int32</td>
+            <td>int</td>
+            <td>int</td>
+            <td>int32</td>
+            <td>int</td>
+            <td>integer</td>
+            <td>Bignum or Fixnum (as required)</td>
+          </tr>
+        
+          <tr id="sint64">
+            <td>sint64</td>
+            <td>Uses variable-length encoding. Signed int value. These more efficiently encode negative numbers than regular int64s.</td>
+            <td>int64</td>
+            <td>long</td>
+            <td>int/long</td>
+            <td>int64</td>
+            <td>long</td>
+            <td>integer/string</td>
+            <td>Bignum</td>
+          </tr>
+        
+          <tr id="fixed32">
+            <td>fixed32</td>
+            <td>Always four bytes. More efficient than uint32 if values are often greater than 2^28.</td>
+            <td>uint32</td>
+            <td>int</td>
+            <td>int</td>
+            <td>uint32</td>
+            <td>uint</td>
+            <td>integer</td>
+            <td>Bignum or Fixnum (as required)</td>
+          </tr>
+        
+          <tr id="fixed64">
+            <td>fixed64</td>
+            <td>Always eight bytes. More efficient than uint64 if values are often greater than 2^56.</td>
+            <td>uint64</td>
+            <td>long</td>
+            <td>int/long</td>
+            <td>uint64</td>
+            <td>ulong</td>
+            <td>integer/string</td>
+            <td>Bignum</td>
+          </tr>
+        
+          <tr id="sfixed32">
+            <td>sfixed32</td>
+            <td>Always four bytes.</td>
+            <td>int32</td>
+            <td>int</td>
+            <td>int</td>
+            <td>int32</td>
+            <td>int</td>
+            <td>integer</td>
+            <td>Bignum or Fixnum (as required)</td>
+          </tr>
+        
+          <tr id="sfixed64">
+            <td>sfixed64</td>
+            <td>Always eight bytes.</td>
+            <td>int64</td>
+            <td>long</td>
+            <td>int/long</td>
+            <td>int64</td>
+            <td>long</td>
+            <td>integer/string</td>
+            <td>Bignum</td>
+          </tr>
+        
+          <tr id="bool">
+            <td>bool</td>
+            <td></td>
+            <td>bool</td>
+            <td>boolean</td>
+            <td>boolean</td>
+            <td>bool</td>
+            <td>bool</td>
+            <td>boolean</td>
+            <td>TrueClass/FalseClass</td>
+          </tr>
+        
+          <tr id="string">
+            <td>string</td>
+            <td>A string must always contain UTF-8 encoded or 7-bit ASCII text.</td>
+            <td>string</td>
+            <td>String</td>
+            <td>str/unicode</td>
+            <td>string</td>
+            <td>string</td>
+            <td>string</td>
+            <td>String (UTF-8)</td>
+          </tr>
+        
+          <tr id="bytes">
+            <td>bytes</td>
+            <td>May contain any arbitrary sequence of bytes.</td>
+            <td>string</td>
+            <td>ByteString</td>
+            <td>str</td>
+            <td>[]byte</td>
+            <td>ByteString</td>
+            <td>string</td>
+            <td>String (ASCII-8BIT)</td>
+          </tr>
+        
+      </tbody>
+    </table>
+  </body>
+</html>
+
