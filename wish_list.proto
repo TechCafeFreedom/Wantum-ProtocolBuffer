@@ -51,7 +51,7 @@ message WishCategoryInfo {
   repeated WishCardInfo wish_cards = 3;
 }
 
-// やりたいことカード情報（wish_card）
+// やりたいことカード情報
 message WishCardInfo {
   // wish_cardを特定するためのID
   int64 wish_card_id = 1;
