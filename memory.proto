@@ -1,0 +1,41 @@
+syntax = "proto3";
+package proto_memory;
+
+import "google/protobuf/empty.proto";
+
+option go_package = ".;pb";
+
+service MemoryService {
+  // IDをもとに思い出1件を取得
+  rpc GetMemory(GetMemoryRequest) returns (MemoryInfo) {};
+  // 思い出一覧を取得
+  rpc GetMemories(google.protobuf.Empty) returns (Memories) {};
+}
+
+// 思い出情報取得用リクエスト
+message GetMemoryRequest {
+  int64 memory_id = 1; // 思い出1件を特定するための思い出ID
+}
+
+// 思い出一覧情報
+message Memories {
+  MemoryCountInfo memory_count = 1; // 思い出カウント情報
+  repeated MemoryInfo memories = 2; // 思い出一覧（配列）
+}
+
+// 思い出のカウント情報
+message MemoryCountInfo {
+  int64 memories_count = 1;  // 過去に投稿した思い出の数
+  int64 published_count = 2; // 公開中の思い出の数
+}
+
+// 思い出詳細情報
+message MemoryInfo {
+  int64 memory_id = 1;            // 思い出ID
+  string activity = 2;            // やったこと
+  string date = 3;                // 日付
+  string description = 4;         // 思い出の説明
+  string place = 5;               // 場所
+  repeated string image_urls = 6; // 投稿されている画像一覧（配列）
+  repeated string tags = 7;       // タグ一覧（配列）
+}
