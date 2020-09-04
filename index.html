@@ -241,6 +241,10 @@
                 </li>
               
                 <li>
+                  <a href="#proto_user.GetUserRequest"><span class="badge">M</span>GetUserRequest</a>
+                </li>
+              
+                <li>
                   <a href="#proto_user.UserInfo"><span class="badge">M</span>UserInfo</a>
                 </li>
               
@@ -600,13 +604,6 @@
                 <td><p>IDをもとに思い出1件を取得</p></td>
               </tr>
             
-              <tr>
-                <td>GetMemories</td>
-                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
-                <td><a href="#proto_memory.Memories">Memories</a></td>
-                <td><p>思い出一覧を取得</p></td>
-              </tr>
-            
           </tbody>
         </table>
 
@@ -692,6 +689,30 @@
 
         
       
+        <h3 id="proto_user.GetUserRequest">GetUserRequest</h3>
+        <p>ユーザー情報取得リクエスト（ユーザーを特定するためのID情報）</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>user_id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>ユーザーID </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="proto_user.UserInfo">UserInfo</h3>
         <p>ユーザ情報</p>
 
@@ -703,7 +724,7 @@
             <tbody>
               
                 <tr>
-                  <td>id</td>
+                  <td>user_id</td>
                   <td><a href="#int64">int64</a></td>
                   <td></td>
                   <td><p>ユーザーID </p></td>
@@ -805,6 +826,13 @@
                 <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
                 <td><a href="#proto_user.UserInfo">UserInfo</a></td>
                 <td><p>ユーザー情報取得（マイページ）</p></td>
+              </tr>
+            
+              <tr>
+                <td>GetUserProfile</td>
+                <td><a href="#proto_user.GetUserRequest">GetUserRequest</a></td>
+                <td><a href="#proto_user.UserInfo">UserInfo</a></td>
+                <td><p>ユーザー情報取得（他の人のページ）</p></td>
               </tr>
             
           </tbody>
