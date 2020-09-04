@@ -1,15 +1,11 @@
 syntax = "proto3";
 package proto_memory;
 
-import "google/protobuf/empty.proto";
-
 option go_package = ".;pb";
 
 service MemoryService {
   // IDをもとに思い出1件を取得
   rpc GetMemory(GetMemoryRequest) returns (MemoryInfo) {};
-  // 思い出一覧を取得
-  rpc GetMemories(google.protobuf.Empty) returns (Memories) {};
 }
 
 // 思い出情報取得用リクエスト
