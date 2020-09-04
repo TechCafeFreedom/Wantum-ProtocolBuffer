@@ -8,9 +8,9 @@ option go_package = ".;pb";
 
 service AlbumService {
   // IDをもとにアルバム1件を取得
-  rpc GetAlbum(GetAlbumRequest) returns (AlbumInfo);
+  rpc GetAlbum(GetAlbumRequest) returns (AlbumInfo) {};
   // アルバム一覧情報の取得
-  rpc GetMyAlbums(google.protobuf.Empty) returns (Albums);
+  rpc GetMyAlbums(google.protobuf.Empty) returns (Albums) {};
 }
 
 // アルバム1件取得用リクエスト
