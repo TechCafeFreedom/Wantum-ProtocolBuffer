@@ -36,8 +36,8 @@ message MemoryInfo {
   int64 memory_id = 1;
   // やったこと
   string activity = 2;
-  // 日付
-  string date = 3;
+  // 日付(UNIX)
+  int64 date = 3;
   // 思い出の説明
   string description = 4;
   // 場所

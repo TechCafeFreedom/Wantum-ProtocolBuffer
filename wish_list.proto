@@ -67,8 +67,8 @@ message WishCardInfo {
   string activity = 2;
   // やりたいことの説明
   string description = 3;
-  // いつやりたいか（日付）
-  string date = 4;
+  // いつやりたいか（UNIX）
+  int64 date = 4;
   // 完了日時
   string done_at = 5;
   // どこでそれをしたいのか

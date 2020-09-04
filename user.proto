@@ -31,8 +31,8 @@ message CreateUserRequest {
   string phone = 6;
   // 現在地的な。Twitterの真似
   string place = 7;
-  // 生年月日
-  string birth = 8;
+  // 生年月日(UNIX)
+  int64 birth = 8;
 }
 
 // ユーザー情報取得リクエスト（ユーザーを特定するためのID情報）
@@ -59,8 +59,8 @@ message UserInfo {
   string phone = 7;
   // 現在地的な。Twitterの真似
   string place = 8;
-  // 生年月日
-  string birth = 9;
+  // 生年月日(UNIX)
+  int64 birth = 9;
   // ユーザーが過去に投稿した思い出一覧
   proto_memory.Memories memories = 10;
 }
