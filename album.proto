@@ -6,10 +6,20 @@ import "memory.proto";
 option go_package = ".;pb";
 
 service AlbumService {
+  // アルバムの新規作成
+  rpc CreateAlbum(CreateAlbumRequest) returns (AlbumInfo) {};
   // IDをもとにアルバム1件を取得
   rpc GetAlbumInfo(GetAlbumInfoRequest) returns (AlbumInfo) {};
   // アルバム一覧情報の取得
   rpc GetMyAlbums(GetAlbumsRequest) returns (Albums) {};
+  // アルバム名の変更
+  rpc ChangeAlbumTitle(ChangeAlbumTitleRequest) returns (AlbumInfo) {};
+}
+
+// アルバム作成リクエスト
+message CreateAlbumRequest {
+  // アルバム名
+  string title = 1;
 }
 
 // アルバム1件取得用リクエスト
@@ -24,6 +34,14 @@ message GetAlbumsRequest {
   int64 album_id = 1;
   // 最大取得件数
   int64 limit = 2;
+}
+
+// アルバム名変更用リクエスト
+message ChangeAlbumTitleRequest {
+  // 変更したいアルバムのID
+  int64 album_id = 1;
+  // 変更したいアルバム名
+  string title = 2;
 }
 
 // アルバム一覧（配列）

@@ -187,6 +187,14 @@
                 </li>
               
                 <li>
+                  <a href="#proto_album.ChangeAlbumTitleRequest"><span class="badge">M</span>ChangeAlbumTitleRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#proto_album.CreateAlbumRequest"><span class="badge">M</span>CreateAlbumRequest</a>
+                </li>
+              
+                <li>
                   <a href="#proto_album.GetAlbumInfoRequest"><span class="badge">M</span>GetAlbumInfoRequest</a>
                 </li>
               
@@ -375,6 +383,61 @@
 
         
       
+        <h3 id="proto_album.ChangeAlbumTitleRequest">ChangeAlbumTitleRequest</h3>
+        <p>アルバム名変更用リクエスト</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>album_id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>変更したいアルバムのID </p></td>
+                </tr>
+              
+                <tr>
+                  <td>title</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>変更したいアルバム名 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="proto_album.CreateAlbumRequest">CreateAlbumRequest</h3>
+        <p>アルバム作成リクエスト</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>title</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>アルバム名 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="proto_album.GetAlbumInfoRequest">GetAlbumInfoRequest</h3>
         <p>アルバム1件取得用リクエスト</p>
 
@@ -445,6 +508,13 @@
           <tbody>
             
               <tr>
+                <td>CreateAlbum</td>
+                <td><a href="#proto_album.CreateAlbumRequest">CreateAlbumRequest</a></td>
+                <td><a href="#proto_album.AlbumInfo">AlbumInfo</a></td>
+                <td><p>アルバムの新規作成</p></td>
+              </tr>
+            
+              <tr>
                 <td>GetAlbumInfo</td>
                 <td><a href="#proto_album.GetAlbumInfoRequest">GetAlbumInfoRequest</a></td>
                 <td><a href="#proto_album.AlbumInfo">AlbumInfo</a></td>
@@ -456,6 +526,13 @@
                 <td><a href="#proto_album.GetAlbumsRequest">GetAlbumsRequest</a></td>
                 <td><a href="#proto_album.Albums">Albums</a></td>
                 <td><p>アルバム一覧情報の取得</p></td>
+              </tr>
+            
+              <tr>
+                <td>ChangeAlbumTitle</td>
+                <td><a href="#proto_album.ChangeAlbumTitleRequest">ChangeAlbumTitleRequest</a></td>
+                <td><a href="#proto_album.AlbumInfo">AlbumInfo</a></td>
+                <td><p>アルバム名の変更</p></td>
               </tr>
             
           </tbody>
