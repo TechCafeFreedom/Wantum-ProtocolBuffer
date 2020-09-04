@@ -187,7 +187,11 @@
                 </li>
               
                 <li>
-                  <a href="#proto_album.GetAlbumRequest"><span class="badge">M</span>GetAlbumRequest</a>
+                  <a href="#proto_album.GetAlbumInfoRequest"><span class="badge">M</span>GetAlbumInfoRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#proto_album.GetAlbumsRequest"><span class="badge">M</span>GetAlbumsRequest</a>
                 </li>
               
               
@@ -262,6 +266,10 @@
           <li>
             <a href="#wish_list.proto">wish_list.proto</a>
             <ul>
+              
+                <li>
+                  <a href="#proto_wishlist.GetWishListInfoRequest"><span class="badge">M</span>GetWishListInfoRequest</a>
+                </li>
               
                 <li>
                   <a href="#proto_wishlist.GetWishListRequest"><span class="badge">M</span>GetWishListRequest</a>
@@ -367,7 +375,7 @@
 
         
       
-        <h3 id="proto_album.GetAlbumRequest">GetAlbumRequest</h3>
+        <h3 id="proto_album.GetAlbumInfoRequest">GetAlbumInfoRequest</h3>
         <p>アルバム1件取得用リクエスト</p>
 
         
@@ -382,6 +390,37 @@
                   <td><a href="#int64">int64</a></td>
                   <td></td>
                   <td><p>アルバムを特定するためのID </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="proto_album.GetAlbumsRequest">GetAlbumsRequest</h3>
+        <p>アルバム一覧（ID, title)取得用リクエスト</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>album_id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>取得開始位置を知らせるためのアルバムID </p></td>
+                </tr>
+              
+                <tr>
+                  <td>limit</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>最大取得件数 </p></td>
                 </tr>
               
             </tbody>
@@ -406,15 +445,15 @@
           <tbody>
             
               <tr>
-                <td>GetAlbum</td>
-                <td><a href="#proto_album.GetAlbumRequest">GetAlbumRequest</a></td>
+                <td>GetAlbumInfo</td>
+                <td><a href="#proto_album.GetAlbumInfoRequest">GetAlbumInfoRequest</a></td>
                 <td><a href="#proto_album.AlbumInfo">AlbumInfo</a></td>
                 <td><p>IDをもとにアルバム1件を取得</p></td>
               </tr>
             
               <tr>
                 <td>GetMyAlbums</td>
-                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><a href="#proto_album.GetAlbumsRequest">GetAlbumsRequest</a></td>
                 <td><a href="#proto_album.Albums">Albums</a></td>
                 <td><p>アルバム一覧情報の取得</p></td>
               </tr>
@@ -847,7 +886,7 @@
       <p></p>
 
       
-        <h3 id="proto_wishlist.GetWishListRequest">GetWishListRequest</h3>
+        <h3 id="proto_wishlist.GetWishListInfoRequest">GetWishListInfoRequest</h3>
         <p>IDをもとにやりたいことリストを1件取得するためのリクエスト</p>
 
         
@@ -862,6 +901,37 @@
                   <td><a href="#int64">int64</a></td>
                   <td></td>
                   <td><p>やりたいことリストを特定するためのID </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="proto_wishlist.GetWishListRequest">GetWishListRequest</h3>
+        <p>やりたいことリスト（ID, titleのみ）の配列を取得するためのリクエスト</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>wish_list_id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>取得開始位置を知らせるためのやりたいことリストID </p></td>
+                </tr>
+              
+                <tr>
+                  <td>limit</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>最大取得件数 </p></td>
                 </tr>
               
             </tbody>
@@ -1067,14 +1137,14 @@
             
               <tr>
                 <td>GetWishList</td>
-                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><a href="#proto_wishlist.GetWishListRequest">GetWishListRequest</a></td>
                 <td><a href="#proto_wishlist.WishList">WishList</a></td>
                 <td><p>やりたいことリスト一覧取得</p></td>
               </tr>
             
               <tr>
                 <td>GetWishListInfo</td>
-                <td><a href="#proto_wishlist.GetWishListRequest">GetWishListRequest</a></td>
+                <td><a href="#proto_wishlist.GetWishListInfoRequest">GetWishListInfoRequest</a></td>
                 <td><a href="#proto_wishlist.WishListInfo">WishListInfo</a> stream</td>
                 <td><p>やりたいことリスト単体取得</p></td>
               </tr>

@@ -2,21 +2,28 @@ syntax = "proto3";
 package proto_album;
 
 import "memory.proto";
-import "google/protobuf/empty.proto";
 
 option go_package = ".;pb";
 
 service AlbumService {
   // IDをもとにアルバム1件を取得
-  rpc GetAlbum(GetAlbumRequest) returns (AlbumInfo) {};
+  rpc GetAlbumInfo(GetAlbumInfoRequest) returns (AlbumInfo) {};
   // アルバム一覧情報の取得
-  rpc GetMyAlbums(google.protobuf.Empty) returns (Albums) {};
+  rpc GetMyAlbums(GetAlbumsRequest) returns (Albums) {};
 }
 
 // アルバム1件取得用リクエスト
-message GetAlbumRequest {
+message GetAlbumInfoRequest {
   // アルバムを特定するためのID
   int64 album_id = 1;
+}
+
+// アルバム一覧（ID, title)取得用リクエスト
+message GetAlbumsRequest {
+  // 取得開始位置を知らせるためのアルバムID
+  int64 album_id = 1;
+  // 最大取得件数
+  int64 limit = 2;
 }
 
 // アルバム一覧（配列）

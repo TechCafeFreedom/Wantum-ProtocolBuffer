@@ -8,15 +8,23 @@ option go_package = ".;pb";
 
 service WishListService {
   // やりたいことリスト一覧取得
-  rpc GetWishList(google.protobuf.Empty) returns (WishList) {};
+  rpc GetWishList(GetWishListRequest) returns (WishList) {};
   // やりたいことリスト単体取得
-  rpc GetWishListInfo(GetWishListRequest) returns (stream WishListInfo) {};
+  rpc GetWishListInfo(GetWishListInfoRequest) returns (stream WishListInfo) {};
   // やりたいことリスト更新（カードの移動やタイトルの変更など：ユーザーアクション）
   rpc UpdateWishListInfo(WishListInfo) returns (google.protobuf.Empty) {};
 }
 
-// IDをもとにやりたいことリストを1件取得するためのリクエスト
+// やりたいことリスト（ID, titleのみ）の配列を取得するためのリクエスト
 message GetWishListRequest {
+  // 取得開始位置を知らせるためのやりたいことリストID
+  int64 wish_list_id = 1;
+  // 最大取得件数
+  int64 limit = 2;
+}
+
+// IDをもとにやりたいことリストを1件取得するためのリクエスト
+message GetWishListInfoRequest {
   // やりたいことリストを特定するためのID
   int64 wish_list_id = 1;
 }
