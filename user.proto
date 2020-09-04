@@ -35,6 +35,12 @@ message CreateUserRequest {
   string birth = 8;
 }
 
+// ユーザー情報取得リクエスト（ユーザーを特定するためのID情報）
+message GetUserRequest {
+  // ユーザーID
+  int64 user_id = 1;
+}
+
 // ユーザ情報
 message UserInfo {
   // ユーザーID
@@ -57,10 +63,4 @@ message UserInfo {
   string birth = 9;
   // ユーザーが過去に投稿した思い出一覧
   proto_memory.Memories memories = 10;
-}
-
-// ユーザー情報取得リクエスト（ユーザーを特定するためのID情報）
-message GetUserRequest {
-  // ユーザーID
-  int64 user_id = 1;
 }
