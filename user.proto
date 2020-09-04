@@ -37,8 +37,8 @@ message CreateUserRequest {
 
 // ユーザー情報取得リクエスト（ユーザーを特定するためのID情報）
 message GetUserRequest {
-  // ユーザーID
-  int64 user_id = 1;
+  // ユーザー名
+  string user_name = 1;
 }
 
 // ユーザ情報
