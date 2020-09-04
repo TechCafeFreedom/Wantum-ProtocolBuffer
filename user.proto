@@ -11,6 +11,8 @@ service UserService {
   rpc CreateUser(CreateUserRequest) returns (UserInfo) {};
   // ユーザー情報取得（マイページ）
   rpc GetMyProfile(google.protobuf.Empty) returns (UserInfo) {};
+  // ユーザー情報取得（他の人のページ）
+  rpc GetUserProfile(GetUserRequest) returns (UserInfo) {};
 }
 
 // 新規ユーザ作成リクエスト
@@ -36,7 +38,7 @@ message CreateUserRequest {
 // ユーザ情報
 message UserInfo {
   // ユーザーID
-  int64 id = 1;
+  int64 user_id = 1;
   // 表示名
   string name = 2;
   // ユーザ名
@@ -55,4 +57,10 @@ message UserInfo {
   string birth = 9;
   // ユーザーが過去に投稿した思い出一覧
   proto_memory.Memories memories = 10;
+}
+
+// ユーザー情報取得リクエスト（ユーザーを特定するためのID情報）
+message GetUserRequest {
+  // ユーザーID
+  int64 user_id = 1;
 }
