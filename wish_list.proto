@@ -10,6 +10,12 @@ option go_package = ".;pb";
 service WishListService {
   // やりたいことリストの新規作成
   rpc CreateWishListInfo(CreateWishListInfoRequest) returns (WishList) {};
+  // やりたいことカテゴリーの新規作成
+  rpc CreateWishCategoryInfo(CreateWishCategoryInfoRequest)
+      returns (google.protobuf.Empty) {};
+  // やりたいことカードの新規作成
+  rpc CreateWishCardInfo(CreateWishCardInfoRequest)
+      returns (google.protobuf.Empty) {};
   // やりたいことリスト一覧取得
   rpc GetWishList(GetWishListRequest) returns (WishList) {};
   // やりたいことリスト単体取得
@@ -53,6 +59,28 @@ service WishListService {
 message CreateWishListInfoRequest {
   // やりたいことリスト名
   string title = 1;
+}
+
+// やりたいことカテゴリー新規作成リクエスト
+message CreateWishCategoryInfoRequest {
+  // やりたいことリストID
+  int64 wish_list_id = 1;
+  // やりたいことカテゴリー名
+  string title = 2;
+}
+
+// やりたいことカード新規作成リクエスト
+message CreateWishCardInfoRequest {
+  // やりたいことカテゴリーID
+  int64 wish_category_id = 1;
+  // 何をしたいのか
+  string activity = 2;
+  // やりたいことの説明
+  string description = 3;
+  // いつやりたいか（UNIX）
+  int64 date = 4;
+  // どこでそれをしたいのか
+  string place = 5;
 }
 
 // やりたいことリスト（ID, titleのみ）の配列を取得するためのリクエスト

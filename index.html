@@ -350,6 +350,14 @@
                 </li>
               
                 <li>
+                  <a href="#proto_wishlist.CreateWishCardInfoRequest"><span class="badge">M</span>CreateWishCardInfoRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#proto_wishlist.CreateWishCategoryInfoRequest"><span class="badge">M</span>CreateWishCategoryInfoRequest</a>
+                </li>
+              
+                <li>
                   <a href="#proto_wishlist.CreateWishListInfoRequest"><span class="badge">M</span>CreateWishListInfoRequest</a>
                 </li>
               
@@ -1670,6 +1678,89 @@
 
         
       
+        <h3 id="proto_wishlist.CreateWishCardInfoRequest">CreateWishCardInfoRequest</h3>
+        <p>やりたいことカード新規作成リクエスト</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>wish_category_id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>やりたいことカテゴリーID </p></td>
+                </tr>
+              
+                <tr>
+                  <td>activity</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>何をしたいのか </p></td>
+                </tr>
+              
+                <tr>
+                  <td>description</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>やりたいことの説明 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>date</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>いつやりたいか（UNIX） </p></td>
+                </tr>
+              
+                <tr>
+                  <td>place</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>どこでそれをしたいのか </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="proto_wishlist.CreateWishCategoryInfoRequest">CreateWishCategoryInfoRequest</h3>
+        <p>やりたいことカテゴリー新規作成リクエスト</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>wish_list_id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>やりたいことリストID </p></td>
+                </tr>
+              
+                <tr>
+                  <td>title</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>やりたいことカテゴリー名 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="proto_wishlist.CreateWishListInfoRequest">CreateWishListInfoRequest</h3>
         <p>やりたいことリスト新規作成リクエスト</p>
 
@@ -2289,6 +2380,20 @@
                 <td><a href="#proto_wishlist.CreateWishListInfoRequest">CreateWishListInfoRequest</a></td>
                 <td><a href="#proto_wishlist.WishList">WishList</a></td>
                 <td><p>やりたいことリストの新規作成</p></td>
+              </tr>
+            
+              <tr>
+                <td>CreateWishCategoryInfo</td>
+                <td><a href="#proto_wishlist.CreateWishCategoryInfoRequest">CreateWishCategoryInfoRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>やりたいことカテゴリーの新規作成</p></td>
+              </tr>
+            
+              <tr>
+                <td>CreateWishCardInfo</td>
+                <td><a href="#proto_wishlist.CreateWishCardInfoRequest">CreateWishCardInfoRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>やりたいことカードの新規作成</p></td>
               </tr>
             
               <tr>
