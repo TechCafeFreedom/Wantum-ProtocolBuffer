@@ -1,6 +1,7 @@
 syntax = "proto3";
 package proto_memory;
 
+import "tag.proto";
 import "photo.proto";
 option go_package = ".;pb";
 
@@ -18,6 +19,8 @@ service MemoryService {
   rpc CreateMemoryPhotos(CreateMemoryPhotosRequest) returns (MemoryInfo) {};
   // 思い出の写真情報から指定した画像一覧を削除
   rpc DeleteMemoryPhotos(DeleteMemoryPhotosRequest) returns (MemoryInfo) {};
+  // 思い出のタグを新規追加
+  rpc AddMemoryTags(AddMemoryTagsRequest) returns (MemoryInfo) {};
 }
 
 // 思い出情報取得用リクエスト
@@ -76,6 +79,14 @@ message DeleteMemoryPhotosRequest {
   int64 memory_id = 1;
   // 削除したい画像のID一覧（配列）
   repeated int64 photo_ids = 2;
+}
+
+// 思い出にタグを追加するためのリクエスト
+message AddMemoryTagsRequest {
+  // タグを追加する思い出のID
+  int64 memory_id = 1;
+  // 追加したいタグの名前一覧（配列）
+  repeated string tag_names = 2;
 }
 
 // 思い出一覧情報
