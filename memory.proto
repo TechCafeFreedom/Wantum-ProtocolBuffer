@@ -11,6 +11,8 @@ service MemoryService {
   // 思い出自体の削除
   rpc DeleteMemoryInfo(DeleteMemoryInfoRequest)
       returns (google.protobuf.Empty) {};
+  // 思い出の基本情報を更新
+  rpc UpdateMemoryInfo(UpdateMemoryBasicInfoRequest) returns (MemoryInfo) {};
 }
 
 // 思い出情報取得用リクエスト
@@ -39,6 +41,20 @@ message CreateMemoryInfoRequest {
 message DeleteMemoryInfoRequest {
   // 削除する思い出のID
   int64 memory_id = 1;
+}
+
+// 思い出の基本情報更新用リクエスト
+message UpdateMemoryBasicInfoRequest {
+  // 更新する思い出のID
+  int64 memory_id = 1;
+  // やったこと
+  string activity = 2;
+  // 日付(UNIX)
+  int64 date = 3;
+  // 思い出の説明
+  string description = 4;
+  // 場所
+  string place = 5;
 }
 
 // 思い出一覧情報
