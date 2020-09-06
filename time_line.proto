@@ -8,7 +8,7 @@ option go_package = ".;pb";
 
 service TimeLineService {
   // タイムライン情報の取得
-  rpc GetTimeLine(google.protobuf.Empty) returns (TimeLineInfo);
+  rpc GetTimeLine(google.protobuf.Empty) returns (TimeLineInfo) {};
 }
 
 // TODO: タイムライン情報(仮)
