@@ -311,6 +311,25 @@
         
           
           <li>
+            <a href="#time_line.proto">time_line.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#proto_timeline.TimeLineInfo"><span class="badge">M</span>TimeLineInfo</a>
+                </li>
+              
+              
+              
+              
+                <li>
+                  <a href="#proto_timeline.TimeLineService"><span class="badge">S</span>TimeLineService</a>
+                </li>
+              
+            </ul>
+          </li>
+        
+          
+          <li>
             <a href="#user.proto">user.proto</a>
             <ul>
               
@@ -1328,6 +1347,63 @@
       
 
       
+    
+      
+      <div class="file-heading">
+        <h2 id="time_line.proto">time_line.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="proto_timeline.TimeLineInfo">TimeLineInfo</h3>
+        <p>TODO: タイムライン情報(仮)</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>memories</td>
+                  <td><a href="#proto_memory.MemoryInfo">proto_memory.MemoryInfo</a></td>
+                  <td>repeated</td>
+                  <td><p>タイムラインに表示する思い出一覧 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+
+      
+
+      
+
+      
+        <h3 id="proto_timeline.TimeLineService">TimeLineService</h3>
+        <p></p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Method Name</td><td>Request Type</td><td>Response Type</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>GetTimeLine</td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><a href="#proto_timeline.TimeLineInfo">TimeLineInfo</a></td>
+                <td><p>タイムライン情報の取得</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+
+        
     
       
       <div class="file-heading">
