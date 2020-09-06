@@ -12,7 +12,7 @@ service AlbumService {
   // IDをもとにアルバム1件を取得
   rpc GetAlbumInfo(GetAlbumInfoRequest) returns (AlbumInfo) {};
   // アルバム一覧情報の取得
-  rpc GetMyAlbums(GetAlbumsRequest) returns (Albums) {};
+  rpc GetMyAlbums(GetMyAlbumsRequest) returns (Albums) {};
   // アルバム名の変更
   rpc ChangeAlbumTitle(ChangeAlbumTitleRequest) returns (AlbumInfo) {};
   // アルバムの削除
@@ -32,7 +32,7 @@ message GetAlbumInfoRequest {
 }
 
 // アルバム一覧（ID, title)取得用リクエスト
-message GetAlbumsRequest {
+message GetMyAlbumsRequest {
   // 取得開始位置を知らせるためのアルバムID
   int64 album_id = 1;
   // 最大取得件数
