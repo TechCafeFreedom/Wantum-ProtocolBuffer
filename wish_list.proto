@@ -15,6 +15,10 @@ service WishListService {
   rpc GetWishListInfo(GetWishListInfoRequest) returns (stream WishListInfo) {};
   // やりたいことリスト更新（カードの移動やタイトルの変更など：ユーザーアクション）
   rpc UpdateWishListInfo(WishListInfo) returns (google.protobuf.Empty) {};
+  // やりたいことリスト自体の削除
+  rpc DeleteWishListInfo(DeleteWishListInfoRequest)
+      returns (google.protobuf.Empty) {};
+}
 
 // やりたいことリスト新規作成リクエスト
 message CreateWishListInfoRequest {
@@ -33,6 +37,12 @@ message GetWishListRequest {
 // IDをもとにやりたいことリストを1件取得するためのリクエスト
 message GetWishListInfoRequest {
   // やりたいことリストを特定するためのID
+  int64 wish_list_id = 1;
+}
+
+// やりたいことリスト削除用リクエスト
+message DeleteWishListInfoRequest {
+  // 削除したいやりたいことリストのID
   int64 wish_list_id = 1;
 }
 
