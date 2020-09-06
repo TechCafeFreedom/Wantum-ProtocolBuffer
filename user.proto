@@ -22,8 +22,8 @@ message CreateUserRequest {
   string name = 1;
   // ユーザ名
   string user_name = 2;
-  // アイコンのURL
-  string thumbnail = 3;
+  // アイコン画像ファイル
+  bytes thumbnail = 3;
   // ひとこと
   string bio = 4;
   // 性別（1: man, 2: woman, 3: unknown）
