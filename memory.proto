@@ -12,7 +12,7 @@ service MemoryService {
   // IDをもとに思い出1件を取得
   rpc GetMemoryInfo(GetMemoryRequest) returns (MemoryInfo) {};
   // ユーザーが過去に投稿した思い出一覧を取得
-  rpc GetUserMemories(GetUserMemoriesRequest) returns (Memories);
+  rpc GetUserMemories(GetUserMemoriesRequest) returns (Memories) {};
   // 思い出の新規作成
   rpc CreateMemoryInfo(CreateMemoryInfoRequest) returns (MemoryInfo) {};
   // 思い出自体の削除
