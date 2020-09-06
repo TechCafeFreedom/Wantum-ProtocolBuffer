@@ -2,6 +2,7 @@ syntax = "proto3";
 package proto_wishlist;
 
 import "user.proto";
+import "tag.proto";
 import "google/protobuf/empty.proto";
 
 option go_package = ".;pb";
@@ -13,8 +14,36 @@ service WishListService {
   rpc GetWishList(GetWishListRequest) returns (WishList) {};
   // やりたいことリスト単体取得
   rpc GetWishListInfo(GetWishListInfoRequest) returns (stream WishListInfo) {};
-  // やりたいことリスト更新（カードの移動やタイトルの変更など：ユーザーアクション）
-  rpc UpdateWishListInfo(WishListInfo) returns (google.protobuf.Empty) {};
+  // やりたいことリスト名更新
+  rpc UpdateWishListName(UpdateWishListNameRequest)
+      returns (google.protobuf.Empty) {};
+  // やりたいことリストの背景画像更新
+  rpc UpdateWishListBackGroundImage(UpdateWishListBackGroundImageRequest)
+      returns (google.protobuf.Empty) {};
+  // やりたいことカテゴリー、カードの並び順更新
+  rpc UpdateWishCategoryPriority(UpdateWishCategoryAndCardPositionRequest)
+      returns (google.protobuf.Empty) {};
+  // やりたいことカテゴリー名更新
+  rpc UpdateWishCategoryName(UpdateWishCategoryNameRequest)
+      returns (google.protobuf.Empty) {};
+  // やりたいことカード(アクティビティ)の更新
+  rpc UpdateWishCardActivity(UpdateWishCardActivityRequest)
+      returns (google.protobuf.Empty) {};
+  // やりたいことカード(ディスクリプション)の更新
+  rpc UpdateWishCardDescription(UpdateWishCardDescriptionRequest)
+      returns (google.protobuf.Empty) {};
+  // やりたいことカード(日付)の更新
+  rpc UpdateWishCardDate(UpdateWishCardDateRequest)
+      returns (google.protobuf.Empty) {};
+  // やりたいことカード(場所)の更新
+  rpc UpdateWishCardPlace(UpdateWishCardPlaceRequest)
+      returns (google.protobuf.Empty) {};
+  // やりたいことカードのタグを新規追加
+  rpc AddWishCardTags(AddWishCardTagsRequest) returns (google.protobuf.Empty) {
+  };
+  // やりたいことカードのタグを削除
+  rpc DeleteWishCardTags(DeleteWishCardTagsRequest)
+      returns (google.protobuf.Empty) {};
   // やりたいことリスト自体の削除
   rpc DeleteWishListInfo(DeleteWishListInfoRequest)
       returns (google.protobuf.Empty) {};
@@ -38,6 +67,94 @@ message GetWishListRequest {
 message GetWishListInfoRequest {
   // やりたいことリストを特定するためのID
   int64 wish_list_id = 1;
+}
+
+// やりたいことリスト名変更リクエスト
+message UpdateWishListNameRequest {
+  // やりたいことリストID
+  int64 wish_list_id = 1;
+  // 新しいやりたいことリスト名
+  string title = 2;
+}
+
+// やりたいことリスト背景画像変更リクエスト
+message UpdateWishListBackGroundImageRequest {
+  // やりたいことリストID
+  int64 wish_list_id = 1;
+  // 新しい背景画像ファイル
+  bytes background_image = 2;
+}
+
+// やりたいことカテゴリーの並び替えリクエスト
+message UpdateWishCategoryAndCardPositionRequest {
+  // やりたいことリストID
+  int64 wish_list_id = 1;
+  // やりたいことカテゴリーの並び順（IDの配列）
+  repeated WishCategoryAndCardPosition position = 2;
+}
+
+// やりたいことカテゴリーとカードのポジションを表したもの
+message WishCategoryAndCardPosition {
+  // やりたいことカテゴリーID
+  int64 wish_category_id = 1;
+  // やりたいことカテゴリーに所属するカードのID一覧（並び順を表す配列）
+  repeated int64 wish_card_ids = 2;
+}
+
+// やりたいことカテゴリー名更新リクエスト
+message UpdateWishCategoryNameRequest {
+  // やりたいことカテゴリーID
+  int64 wish_category_id = 1;
+  // 新規やりたいことカテゴリー名
+  string title = 2;
+}
+
+// やりたいことカードのアクティビティ更新リクエスト
+message UpdateWishCardActivityRequest {
+  // カードのID
+  int64 wish_card_id = 1;
+  // アクティビティ名
+  string activity = 2;
+}
+
+// やりたいことカードの説明更新リクエスト
+message UpdateWishCardDescriptionRequest {
+  // カードのID
+  int64 wish_card_id = 1;
+  // 説明
+  string description = 2;
+}
+
+// やりたいことカードの日付変更リクエスト
+message UpdateWishCardDateRequest {
+  // カードのID
+  int64 wish_card_id = 1;
+  // 日付
+  string date = 2;
+}
+
+// やりたいことカードの場所変更リクエスト
+message UpdateWishCardPlaceRequest {
+  // カードのID
+  int64 wish_card_id = 1;
+  // 場所
+  string place = 2;
+}
+
+// やりたいことカードに新規タグの追加リクエスト
+message AddWishCardTagsRequest {
+  // タグを追加するやりたいことカードのID
+  int64 wish_card_id = 1;
+  // 追加したいタグの名前一覧（配列）
+  repeated string tag_names = 2;
+}
+
+// やりたいことカードからタグを削除
+message DeleteWishCardTagsRequest {
+  // タグを削除するやりたいことカードのID
+  int64 wish_card_id = 1;
+  // 削除したいタグのID一覧（配列）
+  repeated int64 tag_ids = 2;
 }
 
 // やりたいことリスト削除用リクエスト
@@ -64,6 +181,8 @@ message WishListInfo {
   repeated proto_user.UserInfo authors = 4;
   // 招待リンク
   string invite_url = 5;
+  // 背景画像URL
+  string background_image_url = 6;
 }
 
 // やりたいことカテゴリー情報
