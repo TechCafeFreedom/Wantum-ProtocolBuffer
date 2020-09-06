@@ -35,18 +35,20 @@ message GetMemoryRequest {
 
 // 思い出新規作成リクエスト
 message CreateMemoryInfoRequest {
+  // 投稿した思い出を保存するアルバムのID
+  int64 album_id = 1;
   // やったこと
-  string activity = 1;
+  string activity = 2;
   // 日付(UNIX)
-  int64 date = 2;
+  int64 date = 3;
   // 思い出の説明
-  string description = 3;
+  string description = 4;
   // 場所
-  string place = 4;
+  string place = 5;
   // 投稿されている画像一覧（配列）
-  repeated proto_photo.PhotoInfo photos = 5;
+  repeated proto_photo.PhotoInfo photos = 6;
   // タグ一覧（配列）
-  repeated proto_tag.TagInfo tags = 6;
+  repeated proto_tag.TagInfo tags = 7;
 }
 
 // 思い出削除リクエスト
@@ -129,8 +131,10 @@ message MemoryInfo {
   string description = 4;
   // 場所
   string place = 5;
+  // 作成者
+  proto_user.UserInfo author = 6;
   // 投稿されている画像一覧（配列）
-  repeated proto_photo.PhotoInfo photos = 6;
+  repeated proto_photo.PhotoInfo photos = 7;
   // タグ一覧（配列）
-  repeated proto_tag.TagInfo tags = 7;
+  repeated proto_tag.TagInfo tags = 8;
 }
