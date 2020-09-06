@@ -1,6 +1,7 @@
 syntax = "proto3";
 package proto_memory;
 
+import "photo.proto";
 option go_package = ".;pb";
 
 service MemoryService {
@@ -13,6 +14,8 @@ service MemoryService {
       returns (google.protobuf.Empty) {};
   // 思い出の基本情報を更新
   rpc UpdateMemoryInfo(UpdateMemoryBasicInfoRequest) returns (MemoryInfo) {};
+  // 思い出に新規写真をアップロードする
+  rpc CreateMemoryPhotos(CreateMemoryPhotosRequest) returns (MemoryInfo) {};
 }
 
 // 思い出情報取得用リクエスト
@@ -57,6 +60,14 @@ message UpdateMemoryBasicInfoRequest {
   string place = 5;
 }
 
+// 思い出に新規画像を追加するためのリクエスト
+message CreateMemoryPhotosRequest {
+  // 画像を追加する思い出のID
+  int64 memory_id = 1;
+  // アップロードしたい画像ファイル
+  bytes photo_file = 2;
+}
+
 // 思い出一覧情報
 message Memories {
   // 思い出カウント情報
@@ -86,7 +97,7 @@ message MemoryInfo {
   // 場所
   string place = 5;
   // 投稿されている画像一覧（配列）
-  repeated string image_urls = 6;
+  repeated proto_photo.PhotoInfo photos = 6;
   // タグ一覧（配列）
   repeated string tags = 7;
 }
