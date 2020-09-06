@@ -1,7 +1,6 @@
 syntax = "proto3";
 package proto_user;
 
-import "memory.proto";
 import "google/protobuf/empty.proto";
 
 option go_package = ".;pb";
@@ -85,6 +84,4 @@ message UserInfo {
   string place = 8;
   // 生年月日(UNIX)
   int64 birth = 9;
-  // ユーザーが過去に投稿した思い出一覧
-  proto_memory.Memories memories = 10;
 }
