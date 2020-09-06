@@ -250,6 +250,10 @@
                 </li>
               
                 <li>
+                  <a href="#proto_memory.GetUserMemoriesRequest"><span class="badge">M</span>GetUserMemoriesRequest</a>
+                </li>
+              
+                <li>
                   <a href="#proto_memory.Memories"><span class="badge">M</span>Memories</a>
                 </li>
               
@@ -694,6 +698,13 @@
             <tbody>
               
                 <tr>
+                  <td>album_id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>投稿した思い出を保存するアルバムのID </p></td>
+                </tr>
+              
+                <tr>
                   <td>activity</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
@@ -883,6 +894,30 @@
 
         
       
+        <h3 id="proto_memory.GetUserMemoriesRequest">GetUserMemoriesRequest</h3>
+        <p>ユーザーに紐づく思い出一覧取得用リクエスト</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>user_name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>ユーザー名 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="proto_memory.Memories">Memories</h3>
         <p>思い出一覧情報</p>
 
@@ -991,6 +1026,13 @@
                 </tr>
               
                 <tr>
+                  <td>author</td>
+                  <td><a href="#proto_user.UserInfo">proto_user.UserInfo</a></td>
+                  <td></td>
+                  <td><p>作成者 </p></td>
+                </tr>
+              
+                <tr>
                   <td>photos</td>
                   <td><a href="#proto_photo.PhotoInfo">proto_photo.PhotoInfo</a></td>
                   <td>repeated</td>
@@ -1082,6 +1124,13 @@
                 <td><a href="#proto_memory.GetMemoryRequest">GetMemoryRequest</a></td>
                 <td><a href="#proto_memory.MemoryInfo">MemoryInfo</a></td>
                 <td><p>IDをもとに思い出1件を取得</p></td>
+              </tr>
+            
+              <tr>
+                <td>GetUserMemories</td>
+                <td><a href="#proto_memory.GetUserMemoriesRequest">GetUserMemoriesRequest</a></td>
+                <td><a href="#proto_memory.Memories">Memories</a></td>
+                <td><p>ユーザーが過去に投稿した思い出一覧を取得</p></td>
               </tr>
             
               <tr>
@@ -1483,13 +1532,6 @@
                   <td><a href="#int64">int64</a></td>
                   <td></td>
                   <td><p>生年月日(UNIX) </p></td>
-                </tr>
-              
-                <tr>
-                  <td>memories</td>
-                  <td><a href="#proto_memory.Memories">proto_memory.Memories</a></td>
-                  <td></td>
-                  <td><p>ユーザーが過去に投稿した思い出一覧 </p></td>
                 </tr>
               
             </tbody>
