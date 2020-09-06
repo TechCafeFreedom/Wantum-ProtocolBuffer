@@ -195,6 +195,10 @@
                 </li>
               
                 <li>
+                  <a href="#proto_album.DeleteAlbumRequest"><span class="badge">M</span>DeleteAlbumRequest</a>
+                </li>
+              
+                <li>
                   <a href="#proto_album.GetAlbumInfoRequest"><span class="badge">M</span>GetAlbumInfoRequest</a>
                 </li>
               
@@ -438,6 +442,30 @@
 
         
       
+        <h3 id="proto_album.DeleteAlbumRequest">DeleteAlbumRequest</h3>
+        <p>アルバム削除用リクエスト</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>album_id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>削除したいアルバムのID </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="proto_album.GetAlbumInfoRequest">GetAlbumInfoRequest</h3>
         <p>アルバム1件取得用リクエスト</p>
 
@@ -533,6 +561,13 @@
                 <td><a href="#proto_album.ChangeAlbumTitleRequest">ChangeAlbumTitleRequest</a></td>
                 <td><a href="#proto_album.AlbumInfo">AlbumInfo</a></td>
                 <td><p>アルバム名の変更</p></td>
+              </tr>
+            
+              <tr>
+                <td>DeleteAlbum</td>
+                <td><a href="#proto_album.DeleteAlbumRequest">DeleteAlbumRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>アルバムの削除</p></td>
               </tr>
             
           </tbody>
