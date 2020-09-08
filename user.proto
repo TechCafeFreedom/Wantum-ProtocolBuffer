@@ -76,8 +76,12 @@ message UserInfo {
   string thumbnail = 4;
   // ひとこと
   string bio = 5;
-  // 性別（1: man, 2: woman, 3: unknown）
-  int32 gender = 6;
+  // 性別（0: unknown, 1: man, 2: woman）
+  enum Genger {
+    UNKNOWN = 0;
+    MAN = 1;
+    WOMAN = 2;
+  }
   // 現在地的な。Twitterの真似
   string place = 7;
   // 生年月日(UNIX)
