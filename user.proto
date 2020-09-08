@@ -28,7 +28,7 @@ message CreateUserRequest {
   // ひとこと
   string bio = 4;
   // 性別（1: man, 2: woman, 3: unknown）
-  int32 gender = 5;
+  proto_enums.GenderType gender = 5;
   // 電話番号
   string phone = 6;
   // 現在地的な。Twitterの真似
@@ -56,7 +56,7 @@ message UpdateUserProfileRequest {
   // ひとこと
   string bio = 5;
   // 性別（1: man, 2: woman, 3: unknown）
-  int32 gender = 6;
+  proto_enums.GenderType gender = 6;
   // 電話番号
   string phone = 7;
   // 現在地的な。Twitterの真似
