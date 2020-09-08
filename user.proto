@@ -78,7 +78,7 @@ message UserInfo {
   // ひとこと
   string bio = 5;
   // 性別（0: unknown, 1: man, 2: woman）
-  proto_enums.Gender gender = 6;
+  proto_enums.GenderType gender = 6;
   // 現在地的な。Twitterの真似
   string place = 7;
   // 生年月日(UNIX)

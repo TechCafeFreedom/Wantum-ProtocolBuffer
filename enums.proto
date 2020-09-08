@@ -3,7 +3,7 @@ package proto_enums;
 
 option go_package = ".;pb";
 
-enum Gender {
+enum GenderType {
   UNKNOWN = 0;
   MAN = 1;
   WOMAN = 2;
