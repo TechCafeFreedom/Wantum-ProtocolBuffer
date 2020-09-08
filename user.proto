@@ -1,6 +1,7 @@
 syntax = "proto3";
 package proto_user;
 
+import "enums.proto";
 import "google/protobuf/empty.proto";
 
 option go_package = ".;pb";
@@ -77,15 +78,9 @@ message UserInfo {
   // ひとこと
   string bio = 5;
   // 性別（0: unknown, 1: man, 2: woman）
-  Gender gender = 6;
+  proto_enums.Gender gender = 6;
   // 現在地的な。Twitterの真似
   string place = 7;
   // 生年月日(UNIX)
   int64 birth = 8;
-}
-
-enum Gender {
-  UNKNOWN = 0;
-  MAN = 1;
-  WOMAN = 2;
 }
