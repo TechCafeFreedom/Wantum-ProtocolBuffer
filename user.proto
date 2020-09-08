@@ -78,10 +78,8 @@ message UserInfo {
   string bio = 5;
   // 性別（1: man, 2: woman, 3: unknown）
   int32 gender = 6;
-  // 電話番号
-  string phone = 7;
   // 現在地的な。Twitterの真似
-  string place = 8;
+  string place = 7;
   // 生年月日(UNIX)
-  int64 birth = 9;
+  int64 birth = 8;
 }
