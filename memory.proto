@@ -84,8 +84,8 @@ message UpdateMemoryBasicInfoRequest {
 message CreateMemoryPhotosRequest {
   // 画像を追加する思い出のID
   int64 memory_id = 1;
-  // アップロードしたい画像ファイル
-  bytes photo_file = 2;
+  // アップロードしたい画像ファイル(配列)
+  repeated bytes photo_file = 2;
 }
 
 // 思い出に紐づく画像のうちから指定したものを削除するためのリクエスト
