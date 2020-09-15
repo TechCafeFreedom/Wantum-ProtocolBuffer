@@ -1,0 +1,111 @@
+syntax = "proto3";
+package proto_wishcard;
+
+import "tag.proto";
+import "google/protobuf/empty.proto";
+
+option go_package = ".;pb";
+
+service WishCardService {
+  // やりたいことカードの新規作成
+  rpc CreateWishCardInfo(CreateWishCardInfoRequest)
+      returns (google.protobuf.Empty) {};
+  // やりたいことカード(アクティビティ)の更新
+  rpc UpdateWishCardActivity(UpdateWishCardActivityRequest)
+      returns (google.protobuf.Empty) {};
+  // やりたいことカード(ディスクリプション)の更新
+  rpc UpdateWishCardDescription(UpdateWishCardDescriptionRequest)
+      returns (google.protobuf.Empty) {};
+  // やりたいことカード(日付)の更新
+  rpc UpdateWishCardDate(UpdateWishCardDateRequest)
+      returns (google.protobuf.Empty) {};
+  // やりたいことカード(場所)の更新
+  rpc UpdateWishCardPlace(UpdateWishCardPlaceRequest)
+      returns (google.protobuf.Empty) {};
+  // やりたいことカードのタグを新規追加
+  rpc AddWishCardTags(AddWishCardTagsRequest) returns (google.protobuf.Empty) {
+  };
+  // やりたいことカードのタグを削除
+  rpc DeleteWishCardTags(DeleteWishCardTagsRequest)
+      returns (google.protobuf.Empty) {};
+}
+
+// やりたいことカード新規作成リクエスト
+message CreateWishCardInfoRequest {
+  // やりたいことカテゴリーID
+  int64 wish_category_id = 1;
+  // 何をしたいのか
+  string activity = 2;
+  // やりたいことの説明
+  string description = 3;
+  // いつやりたいか（UNIX）
+  int64 date = 4;
+  // どこでそれをしたいのか
+  string place = 5;
+}
+
+// やりたいことカードのアクティビティ更新リクエスト
+message UpdateWishCardActivityRequest {
+  // カードのID
+  int64 wish_card_id = 1;
+  // アクティビティ名
+  string activity = 2;
+}
+
+// やりたいことカードの説明更新リクエスト
+message UpdateWishCardDescriptionRequest {
+  // カードのID
+  int64 wish_card_id = 1;
+  // 説明
+  string description = 2;
+}
+
+// やりたいことカードの日付変更リクエスト
+message UpdateWishCardDateRequest {
+  // カードのID
+  int64 wish_card_id = 1;
+  // 日付
+  int64 date = 2;
+}
+
+// やりたいことカードの場所変更リクエスト
+message UpdateWishCardPlaceRequest {
+  // カードのID
+  int64 wish_card_id = 1;
+  // 場所
+  string place = 2;
+}
+
+// やりたいことカードに新規タグの追加リクエスト
+message AddWishCardTagsRequest {
+  // タグを追加するやりたいことカードのID
+  int64 wish_card_id = 1;
+  // 追加したいタグの名前一覧（配列）
+  repeated string tag_names = 2;
+}
+
+// やりたいことカードからタグを削除
+message DeleteWishCardTagsRequest {
+  // タグを削除するやりたいことカードのID
+  int64 wish_card_id = 1;
+  // 削除したいタグのID一覧（配列）
+  repeated int64 tag_ids = 2;
+}
+
+// やりたいことカード情報
+message WishCardInfo {
+  // wish_cardを特定するためのID
+  int64 wish_card_id = 1;
+  // 何をしたいのか
+  string activity = 2;
+  // やりたいことの説明
+  string description = 3;
+  // いつやりたいか（UNIX）
+  int64 date = 4;
+  // 完了日時
+  string done_at = 5;
+  // どこでそれをしたいのか
+  string place = 6;
+  // タグ一覧（配列）
+  repeated proto_tag.TagInfo tags = 7;
+}

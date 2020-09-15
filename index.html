@@ -376,27 +376,85 @@
         
           
           <li>
+            <a href="#wish_card.proto">wish_card.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#proto_wishcard.AddWishCardTagsRequest"><span class="badge">M</span>AddWishCardTagsRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#proto_wishcard.CreateWishCardInfoRequest"><span class="badge">M</span>CreateWishCardInfoRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#proto_wishcard.DeleteWishCardTagsRequest"><span class="badge">M</span>DeleteWishCardTagsRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#proto_wishcard.UpdateWishCardActivityRequest"><span class="badge">M</span>UpdateWishCardActivityRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#proto_wishcard.UpdateWishCardDateRequest"><span class="badge">M</span>UpdateWishCardDateRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#proto_wishcard.UpdateWishCardDescriptionRequest"><span class="badge">M</span>UpdateWishCardDescriptionRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#proto_wishcard.UpdateWishCardPlaceRequest"><span class="badge">M</span>UpdateWishCardPlaceRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#proto_wishcard.WishCardInfo"><span class="badge">M</span>WishCardInfo</a>
+                </li>
+              
+              
+              
+              
+                <li>
+                  <a href="#proto_wishcard.WishCardService"><span class="badge">S</span>WishCardService</a>
+                </li>
+              
+            </ul>
+          </li>
+        
+          
+          <li>
+            <a href="#wish_category.proto">wish_category.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#proto_wishcategory.CreateWishCategoryInfoRequest"><span class="badge">M</span>CreateWishCategoryInfoRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#proto_wishcategory.UpdateWishCategoryNameRequest"><span class="badge">M</span>UpdateWishCategoryNameRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#proto_wishcategory.WishCategoryInfo"><span class="badge">M</span>WishCategoryInfo</a>
+                </li>
+              
+              
+              
+              
+                <li>
+                  <a href="#proto_wishcategory.WishCategoryService"><span class="badge">S</span>WishCategoryService</a>
+                </li>
+              
+            </ul>
+          </li>
+        
+          
+          <li>
             <a href="#wish_list.proto">wish_list.proto</a>
             <ul>
               
                 <li>
-                  <a href="#proto_wishlist.AddWishCardTagsRequest"><span class="badge">M</span>AddWishCardTagsRequest</a>
-                </li>
-              
-                <li>
-                  <a href="#proto_wishlist.CreateWishCardInfoRequest"><span class="badge">M</span>CreateWishCardInfoRequest</a>
-                </li>
-              
-                <li>
-                  <a href="#proto_wishlist.CreateWishCategoryInfoRequest"><span class="badge">M</span>CreateWishCategoryInfoRequest</a>
-                </li>
-              
-                <li>
                   <a href="#proto_wishlist.CreateWishListInfoRequest"><span class="badge">M</span>CreateWishListInfoRequest</a>
-                </li>
-              
-                <li>
-                  <a href="#proto_wishlist.DeleteWishCardTagsRequest"><span class="badge">M</span>DeleteWishCardTagsRequest</a>
                 </li>
               
                 <li>
@@ -412,27 +470,7 @@
                 </li>
               
                 <li>
-                  <a href="#proto_wishlist.UpdateWishCardActivityRequest"><span class="badge">M</span>UpdateWishCardActivityRequest</a>
-                </li>
-              
-                <li>
-                  <a href="#proto_wishlist.UpdateWishCardDateRequest"><span class="badge">M</span>UpdateWishCardDateRequest</a>
-                </li>
-              
-                <li>
-                  <a href="#proto_wishlist.UpdateWishCardDescriptionRequest"><span class="badge">M</span>UpdateWishCardDescriptionRequest</a>
-                </li>
-              
-                <li>
-                  <a href="#proto_wishlist.UpdateWishCardPlaceRequest"><span class="badge">M</span>UpdateWishCardPlaceRequest</a>
-                </li>
-              
-                <li>
                   <a href="#proto_wishlist.UpdateWishCategoryAndCardPositionRequest"><span class="badge">M</span>UpdateWishCategoryAndCardPositionRequest</a>
-                </li>
-              
-                <li>
-                  <a href="#proto_wishlist.UpdateWishCategoryNameRequest"><span class="badge">M</span>UpdateWishCategoryNameRequest</a>
                 </li>
               
                 <li>
@@ -444,15 +482,7 @@
                 </li>
               
                 <li>
-                  <a href="#proto_wishlist.WishCardInfo"><span class="badge">M</span>WishCardInfo</a>
-                </li>
-              
-                <li>
                   <a href="#proto_wishlist.WishCategoryAndCardPosition"><span class="badge">M</span>WishCategoryAndCardPosition</a>
-                </li>
-              
-                <li>
-                  <a href="#proto_wishlist.WishCategoryInfo"><span class="badge">M</span>WishCategoryInfo</a>
                 </li>
               
                 <li>
@@ -902,8 +932,8 @@
                 <tr>
                   <td>photo_file</td>
                   <td><a href="#bytes">bytes</a></td>
-                  <td></td>
-                  <td><p>アップロードしたい画像ファイル </p></td>
+                  <td>repeated</td>
+                  <td><p>アップロードしたい画像ファイル(配列) </p></td>
                 </tr>
               
             </tbody>
@@ -1769,12 +1799,12 @@
     
       
       <div class="file-heading">
-        <h2 id="wish_list.proto">wish_list.proto</h2><a href="#title">Top</a>
+        <h2 id="wish_card.proto">wish_card.proto</h2><a href="#title">Top</a>
       </div>
       <p></p>
 
       
-        <h3 id="proto_wishlist.AddWishCardTagsRequest">AddWishCardTagsRequest</h3>
+        <h3 id="proto_wishcard.AddWishCardTagsRequest">AddWishCardTagsRequest</h3>
         <p>やりたいことカードに新規タグの追加リクエスト</p>
 
         
@@ -1805,7 +1835,7 @@
 
         
       
-        <h3 id="proto_wishlist.CreateWishCardInfoRequest">CreateWishCardInfoRequest</h3>
+        <h3 id="proto_wishcard.CreateWishCardInfoRequest">CreateWishCardInfoRequest</h3>
         <p>やりたいことカード新規作成リクエスト</p>
 
         
@@ -1857,7 +1887,303 @@
 
         
       
-        <h3 id="proto_wishlist.CreateWishCategoryInfoRequest">CreateWishCategoryInfoRequest</h3>
+        <h3 id="proto_wishcard.DeleteWishCardTagsRequest">DeleteWishCardTagsRequest</h3>
+        <p>やりたいことカードからタグを削除</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>wish_card_id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>タグを削除するやりたいことカードのID </p></td>
+                </tr>
+              
+                <tr>
+                  <td>tag_ids</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td>repeated</td>
+                  <td><p>削除したいタグのID一覧（配列） </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="proto_wishcard.UpdateWishCardActivityRequest">UpdateWishCardActivityRequest</h3>
+        <p>やりたいことカードのアクティビティ更新リクエスト</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>wish_card_id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>カードのID </p></td>
+                </tr>
+              
+                <tr>
+                  <td>activity</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>アクティビティ名 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="proto_wishcard.UpdateWishCardDateRequest">UpdateWishCardDateRequest</h3>
+        <p>やりたいことカードの日付変更リクエスト</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>wish_card_id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>カードのID </p></td>
+                </tr>
+              
+                <tr>
+                  <td>date</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>日付 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="proto_wishcard.UpdateWishCardDescriptionRequest">UpdateWishCardDescriptionRequest</h3>
+        <p>やりたいことカードの説明更新リクエスト</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>wish_card_id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>カードのID </p></td>
+                </tr>
+              
+                <tr>
+                  <td>description</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>説明 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="proto_wishcard.UpdateWishCardPlaceRequest">UpdateWishCardPlaceRequest</h3>
+        <p>やりたいことカードの場所変更リクエスト</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>wish_card_id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>カードのID </p></td>
+                </tr>
+              
+                <tr>
+                  <td>place</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>場所 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="proto_wishcard.WishCardInfo">WishCardInfo</h3>
+        <p>やりたいことカード情報</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>wish_card_id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>wish_cardを特定するためのID </p></td>
+                </tr>
+              
+                <tr>
+                  <td>activity</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>何をしたいのか </p></td>
+                </tr>
+              
+                <tr>
+                  <td>description</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>やりたいことの説明 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>date</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>いつやりたいか（UNIX） </p></td>
+                </tr>
+              
+                <tr>
+                  <td>done_at</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>完了日時 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>place</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>どこでそれをしたいのか </p></td>
+                </tr>
+              
+                <tr>
+                  <td>tags</td>
+                  <td><a href="#proto_tag.TagInfo">proto_tag.TagInfo</a></td>
+                  <td>repeated</td>
+                  <td><p>タグ一覧（配列） </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+
+      
+
+      
+
+      
+        <h3 id="proto_wishcard.WishCardService">WishCardService</h3>
+        <p></p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Method Name</td><td>Request Type</td><td>Response Type</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>CreateWishCardInfo</td>
+                <td><a href="#proto_wishcard.CreateWishCardInfoRequest">CreateWishCardInfoRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>やりたいことカードの新規作成</p></td>
+              </tr>
+            
+              <tr>
+                <td>UpdateWishCardActivity</td>
+                <td><a href="#proto_wishcard.UpdateWishCardActivityRequest">UpdateWishCardActivityRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>やりたいことカード(アクティビティ)の更新</p></td>
+              </tr>
+            
+              <tr>
+                <td>UpdateWishCardDescription</td>
+                <td><a href="#proto_wishcard.UpdateWishCardDescriptionRequest">UpdateWishCardDescriptionRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>やりたいことカード(ディスクリプション)の更新</p></td>
+              </tr>
+            
+              <tr>
+                <td>UpdateWishCardDate</td>
+                <td><a href="#proto_wishcard.UpdateWishCardDateRequest">UpdateWishCardDateRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>やりたいことカード(日付)の更新</p></td>
+              </tr>
+            
+              <tr>
+                <td>UpdateWishCardPlace</td>
+                <td><a href="#proto_wishcard.UpdateWishCardPlaceRequest">UpdateWishCardPlaceRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>やりたいことカード(場所)の更新</p></td>
+              </tr>
+            
+              <tr>
+                <td>AddWishCardTags</td>
+                <td><a href="#proto_wishcard.AddWishCardTagsRequest">AddWishCardTagsRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>やりたいことカードのタグを新規追加</p></td>
+              </tr>
+            
+              <tr>
+                <td>DeleteWishCardTags</td>
+                <td><a href="#proto_wishcard.DeleteWishCardTagsRequest">DeleteWishCardTagsRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>やりたいことカードのタグを削除</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+
+        
+    
+      
+      <div class="file-heading">
+        <h2 id="wish_category.proto">wish_category.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="proto_wishcategory.CreateWishCategoryInfoRequest">CreateWishCategoryInfoRequest</h3>
         <p>やりたいことカテゴリー新規作成リクエスト</p>
 
         
@@ -1888,6 +2214,115 @@
 
         
       
+        <h3 id="proto_wishcategory.UpdateWishCategoryNameRequest">UpdateWishCategoryNameRequest</h3>
+        <p>やりたいことカテゴリー名更新リクエスト</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>wish_category_id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>やりたいことカテゴリーID </p></td>
+                </tr>
+              
+                <tr>
+                  <td>title</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>新規やりたいことカテゴリー名 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="proto_wishcategory.WishCategoryInfo">WishCategoryInfo</h3>
+        <p>やりたいことカテゴリー情報</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>wish_category_id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>やりたいことカテゴリーを特定するためのID </p></td>
+                </tr>
+              
+                <tr>
+                  <td>title</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>やりたいことカテゴリー名 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>wish_cards</td>
+                  <td><a href="#proto_wishcard.WishCardInfo">proto_wishcard.WishCardInfo</a></td>
+                  <td>repeated</td>
+                  <td><p>カテゴリー内のやりたいことカード一覧（配列） </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+
+      
+
+      
+
+      
+        <h3 id="proto_wishcategory.WishCategoryService">WishCategoryService</h3>
+        <p></p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Method Name</td><td>Request Type</td><td>Response Type</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>CreateWishCategoryInfo</td>
+                <td><a href="#proto_wishcategory.CreateWishCategoryInfoRequest">CreateWishCategoryInfoRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>やりたいことカテゴリーの新規作成</p></td>
+              </tr>
+            
+              <tr>
+                <td>UpdateWishCategoryName</td>
+                <td><a href="#proto_wishcategory.UpdateWishCategoryNameRequest">UpdateWishCategoryNameRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>やりたいことカテゴリー名更新</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+
+        
+    
+      
+      <div class="file-heading">
+        <h2 id="wish_list.proto">wish_list.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
         <h3 id="proto_wishlist.CreateWishListInfoRequest">CreateWishListInfoRequest</h3>
         <p>やりたいことリスト新規作成リクエスト</p>
 
@@ -1903,37 +2338,6 @@
                   <td><a href="#string">string</a></td>
                   <td></td>
                   <td><p>やりたいことリスト名 </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="proto_wishlist.DeleteWishCardTagsRequest">DeleteWishCardTagsRequest</h3>
-        <p>やりたいことカードからタグを削除</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>wish_card_id</td>
-                  <td><a href="#int64">int64</a></td>
-                  <td></td>
-                  <td><p>タグを削除するやりたいことカードのID </p></td>
-                </tr>
-              
-                <tr>
-                  <td>tag_ids</td>
-                  <td><a href="#int64">int64</a></td>
-                  <td>repeated</td>
-                  <td><p>削除したいタグのID一覧（配列） </p></td>
                 </tr>
               
             </tbody>
@@ -2022,130 +2426,6 @@
 
         
       
-        <h3 id="proto_wishlist.UpdateWishCardActivityRequest">UpdateWishCardActivityRequest</h3>
-        <p>やりたいことカードのアクティビティ更新リクエスト</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>wish_card_id</td>
-                  <td><a href="#int64">int64</a></td>
-                  <td></td>
-                  <td><p>カードのID </p></td>
-                </tr>
-              
-                <tr>
-                  <td>activity</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>アクティビティ名 </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="proto_wishlist.UpdateWishCardDateRequest">UpdateWishCardDateRequest</h3>
-        <p>やりたいことカードの日付変更リクエスト</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>wish_card_id</td>
-                  <td><a href="#int64">int64</a></td>
-                  <td></td>
-                  <td><p>カードのID </p></td>
-                </tr>
-              
-                <tr>
-                  <td>date</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>日付 </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="proto_wishlist.UpdateWishCardDescriptionRequest">UpdateWishCardDescriptionRequest</h3>
-        <p>やりたいことカードの説明更新リクエスト</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>wish_card_id</td>
-                  <td><a href="#int64">int64</a></td>
-                  <td></td>
-                  <td><p>カードのID </p></td>
-                </tr>
-              
-                <tr>
-                  <td>description</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>説明 </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="proto_wishlist.UpdateWishCardPlaceRequest">UpdateWishCardPlaceRequest</h3>
-        <p>やりたいことカードの場所変更リクエスト</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>wish_card_id</td>
-                  <td><a href="#int64">int64</a></td>
-                  <td></td>
-                  <td><p>カードのID </p></td>
-                </tr>
-              
-                <tr>
-                  <td>place</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>場所 </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
         <h3 id="proto_wishlist.UpdateWishCategoryAndCardPositionRequest">UpdateWishCategoryAndCardPositionRequest</h3>
         <p>やりたいことカテゴリーの並び替えリクエスト</p>
 
@@ -2168,37 +2448,6 @@
                   <td><a href="#proto_wishlist.WishCategoryAndCardPosition">WishCategoryAndCardPosition</a></td>
                   <td>repeated</td>
                   <td><p>やりたいことカテゴリーの並び順（IDの配列） </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="proto_wishlist.UpdateWishCategoryNameRequest">UpdateWishCategoryNameRequest</h3>
-        <p>やりたいことカテゴリー名更新リクエスト</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>wish_category_id</td>
-                  <td><a href="#int64">int64</a></td>
-                  <td></td>
-                  <td><p>やりたいことカテゴリーID </p></td>
-                </tr>
-              
-                <tr>
-                  <td>title</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>新規やりたいことカテゴリー名 </p></td>
                 </tr>
               
             </tbody>
@@ -2270,72 +2519,6 @@
 
         
       
-        <h3 id="proto_wishlist.WishCardInfo">WishCardInfo</h3>
-        <p>やりたいことカード情報</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>wish_card_id</td>
-                  <td><a href="#int64">int64</a></td>
-                  <td></td>
-                  <td><p>wish_cardを特定するためのID </p></td>
-                </tr>
-              
-                <tr>
-                  <td>activity</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>何をしたいのか </p></td>
-                </tr>
-              
-                <tr>
-                  <td>description</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>やりたいことの説明 </p></td>
-                </tr>
-              
-                <tr>
-                  <td>date</td>
-                  <td><a href="#int64">int64</a></td>
-                  <td></td>
-                  <td><p>いつやりたいか（UNIX） </p></td>
-                </tr>
-              
-                <tr>
-                  <td>done_at</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>完了日時 </p></td>
-                </tr>
-              
-                <tr>
-                  <td>place</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>どこでそれをしたいのか </p></td>
-                </tr>
-              
-                <tr>
-                  <td>tags</td>
-                  <td><a href="#proto_tag.TagInfo">proto_tag.TagInfo</a></td>
-                  <td>repeated</td>
-                  <td><p>タグ一覧（配列） </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
         <h3 id="proto_wishlist.WishCategoryAndCardPosition">WishCategoryAndCardPosition</h3>
         <p>やりたいことカテゴリーとカードのポジションを表したもの</p>
 
@@ -2358,44 +2541,6 @@
                   <td><a href="#int64">int64</a></td>
                   <td>repeated</td>
                   <td><p>やりたいことカテゴリーに所属するカードのID一覧（並び順を表す配列） </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="proto_wishlist.WishCategoryInfo">WishCategoryInfo</h3>
-        <p>やりたいことカテゴリー情報</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>wish_category_id</td>
-                  <td><a href="#int64">int64</a></td>
-                  <td></td>
-                  <td><p>やりたいことカテゴリーを特定するためのID </p></td>
-                </tr>
-              
-                <tr>
-                  <td>title</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>やりたいことカテゴリー名 </p></td>
-                </tr>
-              
-                <tr>
-                  <td>wish_cards</td>
-                  <td><a href="#proto_wishlist.WishCardInfo">WishCardInfo</a></td>
-                  <td>repeated</td>
-                  <td><p>カテゴリー内のやりたいことカード一覧（配列） </p></td>
                 </tr>
               
             </tbody>
@@ -2455,7 +2600,7 @@
               
                 <tr>
                   <td>wish_categories</td>
-                  <td><a href="#proto_wishlist.WishCategoryInfo">WishCategoryInfo</a></td>
+                  <td><a href="#proto_wishcategory.WishCategoryInfo">proto_wishcategory.WishCategoryInfo</a></td>
                   <td>repeated</td>
                   <td><p>やりたいことカテゴリー一覧（配列） </p></td>
                 </tr>
@@ -2510,20 +2655,6 @@
               </tr>
             
               <tr>
-                <td>CreateWishCategoryInfo</td>
-                <td><a href="#proto_wishlist.CreateWishCategoryInfoRequest">CreateWishCategoryInfoRequest</a></td>
-                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
-                <td><p>やりたいことカテゴリーの新規作成</p></td>
-              </tr>
-            
-              <tr>
-                <td>CreateWishCardInfo</td>
-                <td><a href="#proto_wishlist.CreateWishCardInfoRequest">CreateWishCardInfoRequest</a></td>
-                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
-                <td><p>やりたいことカードの新規作成</p></td>
-              </tr>
-            
-              <tr>
                 <td>GetWishList</td>
                 <td><a href="#proto_wishlist.GetWishListRequest">GetWishListRequest</a></td>
                 <td><a href="#proto_wishlist.WishList">WishList</a></td>
@@ -2556,55 +2687,6 @@
                 <td><a href="#proto_wishlist.UpdateWishCategoryAndCardPositionRequest">UpdateWishCategoryAndCardPositionRequest</a></td>
                 <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
                 <td><p>やりたいことカテゴリー、カードの並び順更新</p></td>
-              </tr>
-            
-              <tr>
-                <td>UpdateWishCategoryName</td>
-                <td><a href="#proto_wishlist.UpdateWishCategoryNameRequest">UpdateWishCategoryNameRequest</a></td>
-                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
-                <td><p>やりたいことカテゴリー名更新</p></td>
-              </tr>
-            
-              <tr>
-                <td>UpdateWishCardActivity</td>
-                <td><a href="#proto_wishlist.UpdateWishCardActivityRequest">UpdateWishCardActivityRequest</a></td>
-                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
-                <td><p>やりたいことカード(アクティビティ)の更新</p></td>
-              </tr>
-            
-              <tr>
-                <td>UpdateWishCardDescription</td>
-                <td><a href="#proto_wishlist.UpdateWishCardDescriptionRequest">UpdateWishCardDescriptionRequest</a></td>
-                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
-                <td><p>やりたいことカード(ディスクリプション)の更新</p></td>
-              </tr>
-            
-              <tr>
-                <td>UpdateWishCardDate</td>
-                <td><a href="#proto_wishlist.UpdateWishCardDateRequest">UpdateWishCardDateRequest</a></td>
-                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
-                <td><p>やりたいことカード(日付)の更新</p></td>
-              </tr>
-            
-              <tr>
-                <td>UpdateWishCardPlace</td>
-                <td><a href="#proto_wishlist.UpdateWishCardPlaceRequest">UpdateWishCardPlaceRequest</a></td>
-                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
-                <td><p>やりたいことカード(場所)の更新</p></td>
-              </tr>
-            
-              <tr>
-                <td>AddWishCardTags</td>
-                <td><a href="#proto_wishlist.AddWishCardTagsRequest">AddWishCardTagsRequest</a></td>
-                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
-                <td><p>やりたいことカードのタグを新規追加</p></td>
-              </tr>
-            
-              <tr>
-                <td>DeleteWishCardTags</td>
-                <td><a href="#proto_wishlist.DeleteWishCardTagsRequest">DeleteWishCardTagsRequest</a></td>
-                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
-                <td><p>やりたいことカードのタグを削除</p></td>
               </tr>
             
               <tr>
