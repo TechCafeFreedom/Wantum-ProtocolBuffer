@@ -8,13 +8,13 @@ option go_package = ".;pb";
 
 service UserService {
   // 新規ユーザ作成
-  rpc CreateUser(CreateUserRequest) returns (UserInfo) {};
+  rpc CreateUser(CreateUserRequest) returns (User) {};
   // ユーザー情報取得（マイページ）
-  rpc GetMyProfile(google.protobuf.Empty) returns (UserInfo) {};
+  rpc GetMyProfile(google.protobuf.Empty) returns (User) {};
   // ユーザー情報取得（他の人のページ）
-  rpc GetUserProfile(GetUserRequest) returns (UserInfo) {};
+  rpc GetUserProfile(GetUserRequest) returns (User) {};
   // ユーザー情報更新
-  rpc UpdateUserProfile(UpdateUserProfileRequest) returns (UserInfo) {};
+  rpc UpdateUserProfile(UpdateUserProfileRequest) returns (User) {};
 }
 
 // 新規ユーザ作成リクエスト
@@ -66,7 +66,7 @@ message UpdateUserProfileRequest {
 }
 
 // ユーザ情報
-message UserInfo {
+message User {
   // ユーザーID
   int64 user_id = 1;
   // 表示名
