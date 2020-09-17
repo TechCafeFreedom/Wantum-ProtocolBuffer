@@ -8,11 +8,11 @@ option go_package = ".;pb";
 
 service TimeLineService {
   // タイムライン情報の取得
-  rpc GetTimeLine(google.protobuf.Empty) returns (TimeLineInfo) {};
+  rpc GetTimeLine(google.protobuf.Empty) returns (TimeLine) {};
 }
 
 // TODO: タイムライン情報(仮)
-message TimeLineInfo {
+message TimeLine {
   // タイムラインに表示する思い出一覧
-  repeated proto_memory.MemoryInfo memories = 1;
+  repeated proto_memory.Memory memories = 1;
 }
