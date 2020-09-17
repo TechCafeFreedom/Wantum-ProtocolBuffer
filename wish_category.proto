@@ -8,7 +8,7 @@ option go_package = ".;pb";
 
 service WishCategoryService {
   // やりたいことカテゴリーの新規作成
-  rpc CreateWishCategoryInfo(CreateWishCategoryInfoRequest)
+  rpc CreateWishCategory(CreateWishCategoryRequest)
       returns (google.protobuf.Empty) {};
   // やりたいことカテゴリー名更新
   rpc UpdateWishCategoryName(UpdateWishCategoryNameRequest)
@@ -16,7 +16,7 @@ service WishCategoryService {
 }
 
 // やりたいことカテゴリー新規作成リクエスト
-message CreateWishCategoryInfoRequest {
+message CreateWishCategoryRequest {
   // やりたいことリストID
   int64 wish_list_id = 1;
   // やりたいことカテゴリー名
@@ -32,11 +32,11 @@ message UpdateWishCategoryNameRequest {
 }
 
 // やりたいことカテゴリー情報
-message WishCategoryInfo {
+message WishCategory {
   // やりたいことカテゴリーを特定するためのID
   int64 wish_category_id = 1;
   // やりたいことカテゴリー名
   string title = 2;
   // カテゴリー内のやりたいことカード一覧（配列）
-  repeated proto_wishcard.WishCardInfo wish_cards = 3;
+  repeated proto_wishcard.WishCard wish_cards = 3;
 }
