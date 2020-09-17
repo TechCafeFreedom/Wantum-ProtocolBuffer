@@ -1,0 +1,11 @@
+syntax = "proto3";
+package proto_photo;
+
+option go_package = ".;pb";
+
+message Photo {
+  // 画像のID
+  int64 photo_id = 1;
+  // 画像のURL
+  string photo_url = 2;
+}

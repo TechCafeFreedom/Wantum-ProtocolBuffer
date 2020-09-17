@@ -1,0 +1,86 @@
+syntax = "proto3";
+package proto_user;
+
+import "enums.proto";
+import "google/protobuf/empty.proto";
+
+option go_package = ".;pb";
+
+service UserService {
+  // 新規ユーザ作成
+  rpc CreateUser(CreateUserRequest) returns (User) {};
+  // ユーザー情報取得（マイページ）
+  rpc GetMyProfile(google.protobuf.Empty) returns (User) {};
+  // ユーザー情報取得（他の人のページ）
+  rpc GetUserProfile(GetUserRequest) returns (User) {};
+  // ユーザー情報更新
+  rpc UpdateUserProfile(UpdateUserProfileRequest) returns (User) {};
+}
+
+// 新規ユーザ作成リクエスト
+message CreateUserRequest {
+  // 表示名
+  string name = 1;
+  // ユーザ名
+  string user_name = 2;
+  // アイコン画像ファイル
+  bytes thumbnail = 3;
+  // ひとこと
+  string bio = 4;
+  // 性別（1: man, 2: woman, 3: unknown）
+  proto_enums.GenderType gender = 5;
+  // 電話番号
+  string phone = 6;
+  // 現在地的な。Twitterの真似
+  string place = 7;
+  // 生年月日(UNIX)
+  int64 birth = 8;
+}
+
+// ユーザー情報取得リクエスト（ユーザーを特定するためのID情報）
+message GetUserRequest {
+  // ユーザー名
+  string user_name = 1;
+}
+
+// ユーザー情報更新リクエスト
+message UpdateUserProfileRequest {
+  // 更新したいユーザーのID
+  int64 user_id = 1;
+  // 表示名
+  string name = 2;
+  // ユーザ名
+  string user_name = 3;
+  // アイコンのURL
+  string thumbnail = 4;
+  // ひとこと
+  string bio = 5;
+  // 性別（1: man, 2: woman, 3: unknown）
+  proto_enums.GenderType gender = 6;
+  // 電話番号
+  string phone = 7;
+  // 現在地的な。Twitterの真似
+  string place = 8;
+  // 生年月日(UNIX)
+  int64 birth = 9;
+}
+
+// ユーザ情報
+message User {
+  // ユーザーID
+  int64 user_id = 1;
+  // 表示名
+  string name = 2;
+  // ユーザ名
+  string user_name = 3;
+  // アイコンのURL
+  string thumbnail = 4;
+  // ひとこと
+  string bio = 5;
+  // 性別（0: unknown, 1: man, 2: woman）
+  proto_enums.GenderType gender = 6;
+  // 現在地的な。Twitterの真似
+  string place = 7;
+  // 生年月日(UNIX)
+  int64 birth = 8;
+}

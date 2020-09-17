@@ -1,0 +1,18 @@
+syntax = "proto3";
+package proto_timeline;
+
+import "memory.proto";
+import "google/protobuf/empty.proto";
+
+option go_package = ".;pb";
+
+service TimeLineService {
+  // タイムライン情報の取得
+  rpc GetTimeLine(google.protobuf.Empty) returns (TimeLine) {};
+}
+
+// TODO: タイムライン情報(仮)
+message TimeLine {
+  // タイムラインに表示する思い出一覧
+  repeated proto_memory.Memory memories = 1;
+}

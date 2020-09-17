@@ -1,0 +1,11 @@
+syntax = "proto3";
+package proto_tag;
+
+option go_package = ".;pb";
+
+message Tag {
+  // タグID
+  int64 tag_id = 1;
+  // タグ名
+  string tag_name = 2;
+}

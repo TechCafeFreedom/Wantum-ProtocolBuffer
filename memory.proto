@@ -1,0 +1,148 @@
+syntax = "proto3";
+package proto_memory;
+
+import "tag.proto";
+import "photo.proto";
+import "user.proto";
+import "google/protobuf/empty.proto";
+
+option go_package = ".;pb";
+
+service MemoryService {
+  // IDをもとに思い出1件を取得
+  rpc GetMemory(GetMemoryRequest) returns (Memory) {};
+  // ユーザーが過去に投稿した思い出一覧を取得
+  rpc GetUserMemories(GetUserMemoriesRequest) returns (Memories) {};
+  // 思い出の新規作成
+  rpc CreateMemory(CreateMemoryRequest) returns (Memory) {};
+  // 思い出自体の削除
+  rpc DeleteMemory(DeleteMemoryRequest) returns (google.protobuf.Empty) {};
+  // 思い出の基本情報を更新
+  rpc UpdateMemory(UpdateMemoryRequest) returns (Memory) {};
+  // 思い出に新規写真をアップロードする
+  rpc UploadMemoryPhotos(CreateMemoryPhotosRequest) returns (Memory) {};
+  // 思い出の写真情報から指定した画像一覧を削除
+  rpc DeleteMemoryPhotos(DeleteMemoryPhotosRequest) returns (Memory) {};
+  // 思い出のタグを新規追加
+  rpc AddMemoryTags(AddMemoryTagsRequest) returns (Memory) {};
+  // 思い出のタグを削除
+  rpc DeleteMemoryTags(DeleteMemoryTagsRequest) returns (Memory) {};
+}
+
+// 思い出情報取得用リクエスト
+message GetMemoryRequest {
+  // 思い出1件を特定するための思い出ID
+  int64 memory_id = 1;
+}
+
+// ユーザーに紐づく思い出一覧取得用リクエスト
+message GetUserMemoriesRequest {
+  // ユーザー名
+  string user_name = 1;
+}
+
+// 思い出新規作成リクエスト
+message CreateMemoryRequest {
+  // 投稿した思い出を保存するアルバムのID
+  int64 album_id = 1;
+  // やったこと
+  string activity = 2;
+  // 日付(UNIX)
+  int64 date = 3;
+  // 思い出の説明
+  string description = 4;
+  // 場所
+  string place = 5;
+  // アップロードしたい画像一覧（配列）
+  repeated proto_photo.Photo photos = 6;
+  // タグ一覧（配列）
+  repeated proto_tag.Tag tags = 7;
+}
+
+// 思い出削除リクエスト
+message DeleteMemoryRequest {
+  // 削除する思い出のID
+  int64 memory_id = 1;
+}
+
+// 思い出の基本情報更新用リクエスト
+message UpdateMemoryRequest {
+  // 更新する思い出のID
+  int64 memory_id = 1;
+  // やったこと
+  string activity = 2;
+  // 日付(UNIX)
+  int64 date = 3;
+  // 思い出の説明
+  string description = 4;
+  // 場所
+  string place = 5;
+}
+
+// 思い出に新規画像を追加するためのリクエスト
+message CreateMemoryPhotosRequest {
+  // 画像を追加する思い出のID
+  int64 memory_id = 1;
+  // アップロードしたい画像ファイル(配列)
+  repeated bytes photo_file = 2;
+}
+
+// 思い出に紐づく画像のうちから指定したものを削除するためのリクエスト
+message DeleteMemoryPhotosRequest {
+  // 画像を削除する思い出のID
+  int64 memory_id = 1;
+  // 削除したい画像のID一覧（配列）
+  repeated int64 photo_ids = 2;
+}
+
+// 思い出にタグを追加するためのリクエスト
+message AddMemoryTagsRequest {
+  // タグを追加する思い出のID
+  int64 memory_id = 1;
+  // 追加したいタグの名前一覧（配列）
+  repeated string tag_names = 2;
+}
+
+// 思い出のタグを削除するためのリクエスト
+message DeleteMemoryTagsRequest {
+  // タグを削除する思い出のID
+  int64 memory_id = 1;
+  // 削除したいタグのID一覧（配列）
+  repeated int64 tag_ids = 2;
+}
+
+// 思い出一覧情報
+message Memories {
+  // 思い出カウント情報
+  MemoryCount memory_count = 1;
+  // 思い出一覧（配列）
+  repeated Memory memories = 2;
+}
+
+// 思い出のカウント情報
+message MemoryCount {
+  // 過去に投稿した思い出の数
+  int64 memories_count = 1;
+  // 公開中の思い出の数
+  int64 published_count = 2;
+}
+
+// 思い出詳細情報
+message Memory {
+  // 思い出ID
+  int64 memory_id = 1;
+  // やったこと
+  string activity = 2;
+  // 日付(UNIX)
+  int64 date = 3;
+  // 思い出の説明
+  string description = 4;
+  // 場所
+  string place = 5;
+  // 作成者
+  proto_user.User author = 6;
+  // 投稿されている画像一覧（配列）
+  repeated proto_photo.Photo photos = 7;
+  // タグ一覧（配列）
+  repeated proto_tag.Tag tags = 8;
+}

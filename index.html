@@ -1,0 +1,2896 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Protocol Documentation</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Ubuntu:400,700,400italic"/>
+    <style>
+      body {
+        width: 60em;
+        margin: 1em auto;
+        color: #222;
+        font-family: "Ubuntu", sans-serif;
+        padding-bottom: 4em;
+      }
+
+      h1 {
+        font-weight: normal;
+        border-bottom: 1px solid #aaa;
+        padding-bottom: 0.5ex;
+      }
+
+      h2 {
+        border-bottom: 1px solid #aaa;
+        padding-bottom: 0.5ex;
+        margin: 1.5em 0;
+      }
+
+      h3 {
+        font-weight: normal;
+        border-bottom: 1px solid #aaa;
+        padding-bottom: 0.5ex;
+      }
+
+      a {
+        text-decoration: none;
+        color: #567e25;
+      }
+
+      table {
+        width: 100%;
+        font-size: 80%;
+        border-collapse: collapse;
+      }
+
+      thead {
+        font-weight: 700;
+        background-color: #dcdcdc;
+      }
+
+      tbody tr:nth-child(even) {
+        background-color: #fbfbfb;
+      }
+
+      td {
+        border: 1px solid #ccc;
+        padding: 0.5ex 2ex;
+      }
+
+      td p {
+        text-indent: 1em;
+        margin: 0;
+      }
+
+      td p:nth-child(1) {
+        text-indent: 0;  
+      }
+
+       
+      .field-table td:nth-child(1) {  
+        width: 10em;
+      }
+      .field-table td:nth-child(2) {  
+        width: 10em;
+      }
+      .field-table td:nth-child(3) {  
+        width: 6em;
+      }
+      .field-table td:nth-child(4) {  
+        width: auto;
+      }
+
+       
+      .extension-table td:nth-child(1) {  
+        width: 10em;
+      }
+      .extension-table td:nth-child(2) {  
+        width: 10em;
+      }
+      .extension-table td:nth-child(3) {  
+        width: 10em;
+      }
+      .extension-table td:nth-child(4) {  
+        width: 5em;
+      }
+      .extension-table td:nth-child(5) {  
+        width: auto;
+      }
+
+       
+      .enum-table td:nth-child(1) {  
+        width: 10em;
+      }
+      .enum-table td:nth-child(2) {  
+        width: 10em;
+      }
+      .enum-table td:nth-child(3) {  
+        width: auto;
+      }
+
+       
+      .scalar-value-types-table tr {
+        height: 3em;
+      }
+
+       
+      #toc-container ul {
+        list-style-type: none;
+        padding-left: 1em;
+        line-height: 180%;
+        margin: 0;
+      }
+      #toc > li > a {
+        font-weight: bold;
+      }
+
+       
+      .file-heading {
+        width: 100%;
+        display: table;
+        border-bottom: 1px solid #aaa;
+        margin: 4em 0 1.5em 0;
+      }
+      .file-heading h2 {
+        border: none;
+        display: table-cell;
+      }
+      .file-heading a {
+        text-align: right;
+        display: table-cell;
+      }
+
+       
+      .badge {
+        width: 1.6em;
+        height: 1.6em;
+        display: inline-block;
+
+        line-height: 1.6em;
+        text-align: center;
+        font-weight: bold;
+        font-size: 60%;
+
+        color: #89ba48;
+        background-color: #dff0c8;
+
+        margin: 0.5ex 1em 0.5ex -1em;
+        border: 1px solid #fbfbfb;
+        border-radius: 1ex;
+      }
+    </style>
+
+    
+    <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+  </head>
+
+  <body>
+
+    <h1 id="title">Protocol Documentation</h1>
+
+    <h2>Table of Contents</h2>
+
+    <div id="toc-container">
+      <ul id="toc">
+        
+          
+          <li>
+            <a href="#album.proto">album.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#proto_album.Album"><span class="badge">M</span>Album</a>
+                </li>
+              
+                <li>
+                  <a href="#proto_album.Albums"><span class="badge">M</span>Albums</a>
+                </li>
+              
+                <li>
+                  <a href="#proto_album.ChangeAlbumTitleRequest"><span class="badge">M</span>ChangeAlbumTitleRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#proto_album.CreateAlbumRequest"><span class="badge">M</span>CreateAlbumRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#proto_album.DeleteAlbumRequest"><span class="badge">M</span>DeleteAlbumRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#proto_album.GetAlbumRequest"><span class="badge">M</span>GetAlbumRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#proto_album.GetMyAlbumsRequest"><span class="badge">M</span>GetMyAlbumsRequest</a>
+                </li>
+              
+              
+              
+              
+                <li>
+                  <a href="#proto_album.AlbumService"><span class="badge">S</span>AlbumService</a>
+                </li>
+              
+            </ul>
+          </li>
+        
+          
+          <li>
+            <a href="#enums.proto">enums.proto</a>
+            <ul>
+              
+              
+                <li>
+                  <a href="#proto_enums.GenderType"><span class="badge">E</span>GenderType</a>
+                </li>
+              
+              
+              
+            </ul>
+          </li>
+        
+          
+          <li>
+            <a href="#memory.proto">memory.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#proto_memory.AddMemoryTagsRequest"><span class="badge">M</span>AddMemoryTagsRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#proto_memory.CreateMemoryPhotosRequest"><span class="badge">M</span>CreateMemoryPhotosRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#proto_memory.CreateMemoryRequest"><span class="badge">M</span>CreateMemoryRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#proto_memory.DeleteMemoryPhotosRequest"><span class="badge">M</span>DeleteMemoryPhotosRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#proto_memory.DeleteMemoryRequest"><span class="badge">M</span>DeleteMemoryRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#proto_memory.DeleteMemoryTagsRequest"><span class="badge">M</span>DeleteMemoryTagsRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#proto_memory.GetMemoryRequest"><span class="badge">M</span>GetMemoryRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#proto_memory.GetUserMemoriesRequest"><span class="badge">M</span>GetUserMemoriesRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#proto_memory.Memories"><span class="badge">M</span>Memories</a>
+                </li>
+              
+                <li>
+                  <a href="#proto_memory.Memory"><span class="badge">M</span>Memory</a>
+                </li>
+              
+                <li>
+                  <a href="#proto_memory.MemoryCount"><span class="badge">M</span>MemoryCount</a>
+                </li>
+              
+                <li>
+                  <a href="#proto_memory.UpdateMemoryRequest"><span class="badge">M</span>UpdateMemoryRequest</a>
+                </li>
+              
+              
+              
+              
+                <li>
+                  <a href="#proto_memory.MemoryService"><span class="badge">S</span>MemoryService</a>
+                </li>
+              
+            </ul>
+          </li>
+        
+          
+          <li>
+            <a href="#photo.proto">photo.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#proto_photo.Photo"><span class="badge">M</span>Photo</a>
+                </li>
+              
+              
+              
+              
+            </ul>
+          </li>
+        
+          
+          <li>
+            <a href="#tag.proto">tag.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#proto_tag.Tag"><span class="badge">M</span>Tag</a>
+                </li>
+              
+              
+              
+              
+            </ul>
+          </li>
+        
+          
+          <li>
+            <a href="#time_line.proto">time_line.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#proto_timeline.TimeLine"><span class="badge">M</span>TimeLine</a>
+                </li>
+              
+              
+              
+              
+                <li>
+                  <a href="#proto_timeline.TimeLineService"><span class="badge">S</span>TimeLineService</a>
+                </li>
+              
+            </ul>
+          </li>
+        
+          
+          <li>
+            <a href="#user.proto">user.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#proto_user.CreateUserRequest"><span class="badge">M</span>CreateUserRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#proto_user.GetUserRequest"><span class="badge">M</span>GetUserRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#proto_user.UpdateUserProfileRequest"><span class="badge">M</span>UpdateUserProfileRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#proto_user.User"><span class="badge">M</span>User</a>
+                </li>
+              
+              
+              
+              
+                <li>
+                  <a href="#proto_user.UserService"><span class="badge">S</span>UserService</a>
+                </li>
+              
+            </ul>
+          </li>
+        
+          
+          <li>
+            <a href="#wish_board.proto">wish_board.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#proto_wishboard.CreateWishBoardRequest"><span class="badge">M</span>CreateWishBoardRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#proto_wishboard.DeleteWishBoardRequest"><span class="badge">M</span>DeleteWishBoardRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#proto_wishboard.GetWishBoardListRequest"><span class="badge">M</span>GetWishBoardListRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#proto_wishboard.GetWishBoardRequest"><span class="badge">M</span>GetWishBoardRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#proto_wishboard.UpdateWishBoardBackGroundImageRequest"><span class="badge">M</span>UpdateWishBoardBackGroundImageRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#proto_wishboard.UpdateWishBoardNameRequest"><span class="badge">M</span>UpdateWishBoardNameRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#proto_wishboard.UpdateWishCategoryAndCardPositionRequest"><span class="badge">M</span>UpdateWishCategoryAndCardPositionRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#proto_wishboard.WishBoard"><span class="badge">M</span>WishBoard</a>
+                </li>
+              
+                <li>
+                  <a href="#proto_wishboard.WishBoardList"><span class="badge">M</span>WishBoardList</a>
+                </li>
+              
+                <li>
+                  <a href="#proto_wishboard.WishCategoryAndCardPosition"><span class="badge">M</span>WishCategoryAndCardPosition</a>
+                </li>
+              
+              
+              
+              
+                <li>
+                  <a href="#proto_wishboard.WishBoardService"><span class="badge">S</span>WishBoardService</a>
+                </li>
+              
+            </ul>
+          </li>
+        
+          
+          <li>
+            <a href="#wish_card.proto">wish_card.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#proto_wishcard.AddWishCardTagsRequest"><span class="badge">M</span>AddWishCardTagsRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#proto_wishcard.CreateWishCardRequest"><span class="badge">M</span>CreateWishCardRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#proto_wishcard.DeleteWishCardTagsRequest"><span class="badge">M</span>DeleteWishCardTagsRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#proto_wishcard.UpdateWishCardActivityRequest"><span class="badge">M</span>UpdateWishCardActivityRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#proto_wishcard.UpdateWishCardDateRequest"><span class="badge">M</span>UpdateWishCardDateRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#proto_wishcard.UpdateWishCardDescriptionRequest"><span class="badge">M</span>UpdateWishCardDescriptionRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#proto_wishcard.UpdateWishCardPlaceRequest"><span class="badge">M</span>UpdateWishCardPlaceRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#proto_wishcard.WishCard"><span class="badge">M</span>WishCard</a>
+                </li>
+              
+              
+              
+              
+                <li>
+                  <a href="#proto_wishcard.WishCardService"><span class="badge">S</span>WishCardService</a>
+                </li>
+              
+            </ul>
+          </li>
+        
+          
+          <li>
+            <a href="#wish_category.proto">wish_category.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#proto_wishcategory.CreateWishCategoryRequest"><span class="badge">M</span>CreateWishCategoryRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#proto_wishcategory.UpdateWishCategoryNameRequest"><span class="badge">M</span>UpdateWishCategoryNameRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#proto_wishcategory.WishCategory"><span class="badge">M</span>WishCategory</a>
+                </li>
+              
+              
+              
+              
+                <li>
+                  <a href="#proto_wishcategory.WishCategoryService"><span class="badge">S</span>WishCategoryService</a>
+                </li>
+              
+            </ul>
+          </li>
+        
+        <li><a href="#scalar-value-types">Scalar Value Types</a></li>
+      </ul>
+    </div>
+
+    
+      
+      <div class="file-heading">
+        <h2 id="album.proto">album.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="proto_album.Album">Album</h3>
+        <p>アルバム情報</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>album_id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>アルバムを特定するためのID </p></td>
+                </tr>
+              
+                <tr>
+                  <td>title</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>アルバムのタイトル </p></td>
+                </tr>
+              
+                <tr>
+                  <td>memories</td>
+                  <td><a href="#proto_memory.Memories">proto_memory.Memories</a></td>
+                  <td></td>
+                  <td><p>アルバムに保存されている思い出一覧（配列） </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="proto_album.Albums">Albums</h3>
+        <p>アルバム一覧（配列）</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>albums</td>
+                  <td><a href="#proto_album.Album">Album</a></td>
+                  <td>repeated</td>
+                  <td><p>アルバム一覧（配列） </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="proto_album.ChangeAlbumTitleRequest">ChangeAlbumTitleRequest</h3>
+        <p>アルバム名変更用リクエスト</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>album_id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>変更したいアルバムのID </p></td>
+                </tr>
+              
+                <tr>
+                  <td>title</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>変更したいアルバム名 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="proto_album.CreateAlbumRequest">CreateAlbumRequest</h3>
+        <p>アルバム作成リクエスト</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>title</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>アルバム名 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="proto_album.DeleteAlbumRequest">DeleteAlbumRequest</h3>
+        <p>アルバム削除用リクエスト</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>album_id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>削除したいアルバムのID </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="proto_album.GetAlbumRequest">GetAlbumRequest</h3>
+        <p>アルバム1件取得用リクエスト</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>album_id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>アルバムを特定するためのID </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="proto_album.GetMyAlbumsRequest">GetMyAlbumsRequest</h3>
+        <p>アルバム一覧（ID, title)取得用リクエスト</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>album_id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>取得開始位置を知らせるためのアルバムID </p></td>
+                </tr>
+              
+                <tr>
+                  <td>limit</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>最大取得件数 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+
+      
+
+      
+
+      
+        <h3 id="proto_album.AlbumService">AlbumService</h3>
+        <p></p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Method Name</td><td>Request Type</td><td>Response Type</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>CreateAlbum</td>
+                <td><a href="#proto_album.CreateAlbumRequest">CreateAlbumRequest</a></td>
+                <td><a href="#proto_album.Album">Album</a></td>
+                <td><p>アルバムの新規作成</p></td>
+              </tr>
+            
+              <tr>
+                <td>GetAlbum</td>
+                <td><a href="#proto_album.GetAlbumRequest">GetAlbumRequest</a></td>
+                <td><a href="#proto_album.Album">Album</a></td>
+                <td><p>IDをもとにアルバム1件を取得</p></td>
+              </tr>
+            
+              <tr>
+                <td>GetMyAlbums</td>
+                <td><a href="#proto_album.GetMyAlbumsRequest">GetMyAlbumsRequest</a></td>
+                <td><a href="#proto_album.Albums">Albums</a></td>
+                <td><p>アルバム一覧情報の取得</p></td>
+              </tr>
+            
+              <tr>
+                <td>ChangeAlbumTitle</td>
+                <td><a href="#proto_album.ChangeAlbumTitleRequest">ChangeAlbumTitleRequest</a></td>
+                <td><a href="#proto_album.Album">Album</a></td>
+                <td><p>アルバム名の変更</p></td>
+              </tr>
+            
+              <tr>
+                <td>DeleteAlbum</td>
+                <td><a href="#proto_album.DeleteAlbumRequest">DeleteAlbumRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>アルバムの削除</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+
+        
+    
+      
+      <div class="file-heading">
+        <h2 id="enums.proto">enums.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+
+      
+        <h3 id="proto_enums.GenderType">GenderType</h3>
+        <p>性別タイプ</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>UNKNOWN</td>
+                <td>0</td>
+                <td><p>不明・その他</p></td>
+              </tr>
+            
+              <tr>
+                <td>MAN</td>
+                <td>1</td>
+                <td><p>男性</p></td>
+              </tr>
+            
+              <tr>
+                <td>WOMAN</td>
+                <td>2</td>
+                <td><p>女性</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+
+      
+
+      
+    
+      
+      <div class="file-heading">
+        <h2 id="memory.proto">memory.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="proto_memory.AddMemoryTagsRequest">AddMemoryTagsRequest</h3>
+        <p>思い出にタグを追加するためのリクエスト</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>memory_id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>タグを追加する思い出のID </p></td>
+                </tr>
+              
+                <tr>
+                  <td>tag_names</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p>追加したいタグの名前一覧（配列） </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="proto_memory.CreateMemoryPhotosRequest">CreateMemoryPhotosRequest</h3>
+        <p>思い出に新規画像を追加するためのリクエスト</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>memory_id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>画像を追加する思い出のID </p></td>
+                </tr>
+              
+                <tr>
+                  <td>photo_file</td>
+                  <td><a href="#bytes">bytes</a></td>
+                  <td>repeated</td>
+                  <td><p>アップロードしたい画像ファイル(配列) </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="proto_memory.CreateMemoryRequest">CreateMemoryRequest</h3>
+        <p>思い出新規作成リクエスト</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>album_id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>投稿した思い出を保存するアルバムのID </p></td>
+                </tr>
+              
+                <tr>
+                  <td>activity</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>やったこと </p></td>
+                </tr>
+              
+                <tr>
+                  <td>date</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>日付(UNIX) </p></td>
+                </tr>
+              
+                <tr>
+                  <td>description</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>思い出の説明 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>place</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>場所 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>photos</td>
+                  <td><a href="#proto_photo.Photo">proto_photo.Photo</a></td>
+                  <td>repeated</td>
+                  <td><p>アップロードしたい画像一覧（配列） </p></td>
+                </tr>
+              
+                <tr>
+                  <td>tags</td>
+                  <td><a href="#proto_tag.Tag">proto_tag.Tag</a></td>
+                  <td>repeated</td>
+                  <td><p>タグ一覧（配列） </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="proto_memory.DeleteMemoryPhotosRequest">DeleteMemoryPhotosRequest</h3>
+        <p>思い出に紐づく画像のうちから指定したものを削除するためのリクエスト</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>memory_id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>画像を削除する思い出のID </p></td>
+                </tr>
+              
+                <tr>
+                  <td>photo_ids</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td>repeated</td>
+                  <td><p>削除したい画像のID一覧（配列） </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="proto_memory.DeleteMemoryRequest">DeleteMemoryRequest</h3>
+        <p>思い出削除リクエスト</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>memory_id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>削除する思い出のID </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="proto_memory.DeleteMemoryTagsRequest">DeleteMemoryTagsRequest</h3>
+        <p>思い出のタグを削除するためのリクエスト</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>memory_id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>タグを削除する思い出のID </p></td>
+                </tr>
+              
+                <tr>
+                  <td>tag_ids</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td>repeated</td>
+                  <td><p>削除したいタグのID一覧（配列） </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="proto_memory.GetMemoryRequest">GetMemoryRequest</h3>
+        <p>思い出情報取得用リクエスト</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>memory_id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>思い出1件を特定するための思い出ID </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="proto_memory.GetUserMemoriesRequest">GetUserMemoriesRequest</h3>
+        <p>ユーザーに紐づく思い出一覧取得用リクエスト</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>user_name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>ユーザー名 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="proto_memory.Memories">Memories</h3>
+        <p>思い出一覧情報</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>memory_count</td>
+                  <td><a href="#proto_memory.MemoryCount">MemoryCount</a></td>
+                  <td></td>
+                  <td><p>思い出カウント情報 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>memories</td>
+                  <td><a href="#proto_memory.Memory">Memory</a></td>
+                  <td>repeated</td>
+                  <td><p>思い出一覧（配列） </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="proto_memory.Memory">Memory</h3>
+        <p>思い出詳細情報</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>memory_id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>思い出ID </p></td>
+                </tr>
+              
+                <tr>
+                  <td>activity</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>やったこと </p></td>
+                </tr>
+              
+                <tr>
+                  <td>date</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>日付(UNIX) </p></td>
+                </tr>
+              
+                <tr>
+                  <td>description</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>思い出の説明 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>place</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>場所 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>author</td>
+                  <td><a href="#proto_user.User">proto_user.User</a></td>
+                  <td></td>
+                  <td><p>作成者 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>photos</td>
+                  <td><a href="#proto_photo.Photo">proto_photo.Photo</a></td>
+                  <td>repeated</td>
+                  <td><p>投稿されている画像一覧（配列） </p></td>
+                </tr>
+              
+                <tr>
+                  <td>tags</td>
+                  <td><a href="#proto_tag.Tag">proto_tag.Tag</a></td>
+                  <td>repeated</td>
+                  <td><p>タグ一覧（配列） </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="proto_memory.MemoryCount">MemoryCount</h3>
+        <p>思い出のカウント情報</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>memories_count</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>過去に投稿した思い出の数 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>published_count</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>公開中の思い出の数 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="proto_memory.UpdateMemoryRequest">UpdateMemoryRequest</h3>
+        <p>思い出の基本情報更新用リクエスト</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>memory_id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>更新する思い出のID </p></td>
+                </tr>
+              
+                <tr>
+                  <td>activity</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>やったこと </p></td>
+                </tr>
+              
+                <tr>
+                  <td>date</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>日付(UNIX) </p></td>
+                </tr>
+              
+                <tr>
+                  <td>description</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>思い出の説明 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>place</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>場所 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+
+      
+
+      
+
+      
+        <h3 id="proto_memory.MemoryService">MemoryService</h3>
+        <p></p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Method Name</td><td>Request Type</td><td>Response Type</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>GetMemory</td>
+                <td><a href="#proto_memory.GetMemoryRequest">GetMemoryRequest</a></td>
+                <td><a href="#proto_memory.Memory">Memory</a></td>
+                <td><p>IDをもとに思い出1件を取得</p></td>
+              </tr>
+            
+              <tr>
+                <td>GetUserMemories</td>
+                <td><a href="#proto_memory.GetUserMemoriesRequest">GetUserMemoriesRequest</a></td>
+                <td><a href="#proto_memory.Memories">Memories</a></td>
+                <td><p>ユーザーが過去に投稿した思い出一覧を取得</p></td>
+              </tr>
+            
+              <tr>
+                <td>CreateMemory</td>
+                <td><a href="#proto_memory.CreateMemoryRequest">CreateMemoryRequest</a></td>
+                <td><a href="#proto_memory.Memory">Memory</a></td>
+                <td><p>思い出の新規作成</p></td>
+              </tr>
+            
+              <tr>
+                <td>DeleteMemory</td>
+                <td><a href="#proto_memory.DeleteMemoryRequest">DeleteMemoryRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>思い出自体の削除</p></td>
+              </tr>
+            
+              <tr>
+                <td>UpdateMemory</td>
+                <td><a href="#proto_memory.UpdateMemoryRequest">UpdateMemoryRequest</a></td>
+                <td><a href="#proto_memory.Memory">Memory</a></td>
+                <td><p>思い出の基本情報を更新</p></td>
+              </tr>
+            
+              <tr>
+                <td>UploadMemoryPhotos</td>
+                <td><a href="#proto_memory.CreateMemoryPhotosRequest">CreateMemoryPhotosRequest</a></td>
+                <td><a href="#proto_memory.Memory">Memory</a></td>
+                <td><p>思い出に新規写真をアップロードする</p></td>
+              </tr>
+            
+              <tr>
+                <td>DeleteMemoryPhotos</td>
+                <td><a href="#proto_memory.DeleteMemoryPhotosRequest">DeleteMemoryPhotosRequest</a></td>
+                <td><a href="#proto_memory.Memory">Memory</a></td>
+                <td><p>思い出の写真情報から指定した画像一覧を削除</p></td>
+              </tr>
+            
+              <tr>
+                <td>AddMemoryTags</td>
+                <td><a href="#proto_memory.AddMemoryTagsRequest">AddMemoryTagsRequest</a></td>
+                <td><a href="#proto_memory.Memory">Memory</a></td>
+                <td><p>思い出のタグを新規追加</p></td>
+              </tr>
+            
+              <tr>
+                <td>DeleteMemoryTags</td>
+                <td><a href="#proto_memory.DeleteMemoryTagsRequest">DeleteMemoryTagsRequest</a></td>
+                <td><a href="#proto_memory.Memory">Memory</a></td>
+                <td><p>思い出のタグを削除</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+
+        
+    
+      
+      <div class="file-heading">
+        <h2 id="photo.proto">photo.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="proto_photo.Photo">Photo</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>photo_id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>画像のID </p></td>
+                </tr>
+              
+                <tr>
+                  <td>photo_url</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>画像のURL </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+
+      
+
+      
+
+      
+    
+      
+      <div class="file-heading">
+        <h2 id="tag.proto">tag.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="proto_tag.Tag">Tag</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>tag_id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>タグID </p></td>
+                </tr>
+              
+                <tr>
+                  <td>tag_name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>タグ名 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+
+      
+
+      
+
+      
+    
+      
+      <div class="file-heading">
+        <h2 id="time_line.proto">time_line.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="proto_timeline.TimeLine">TimeLine</h3>
+        <p>TODO: タイムライン情報(仮)</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>memories</td>
+                  <td><a href="#proto_memory.Memory">proto_memory.Memory</a></td>
+                  <td>repeated</td>
+                  <td><p>タイムラインに表示する思い出一覧 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+
+      
+
+      
+
+      
+        <h3 id="proto_timeline.TimeLineService">TimeLineService</h3>
+        <p></p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Method Name</td><td>Request Type</td><td>Response Type</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>GetTimeLine</td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><a href="#proto_timeline.TimeLine">TimeLine</a></td>
+                <td><p>タイムライン情報の取得</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+
+        
+    
+      
+      <div class="file-heading">
+        <h2 id="user.proto">user.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="proto_user.CreateUserRequest">CreateUserRequest</h3>
+        <p>新規ユーザ作成リクエスト</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>表示名 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>user_name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>ユーザ名 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>thumbnail</td>
+                  <td><a href="#bytes">bytes</a></td>
+                  <td></td>
+                  <td><p>アイコン画像ファイル </p></td>
+                </tr>
+              
+                <tr>
+                  <td>bio</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>ひとこと </p></td>
+                </tr>
+              
+                <tr>
+                  <td>gender</td>
+                  <td><a href="#proto_enums.GenderType">proto_enums.GenderType</a></td>
+                  <td></td>
+                  <td><p>性別（1: man, 2: woman, 3: unknown） </p></td>
+                </tr>
+              
+                <tr>
+                  <td>phone</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>電話番号 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>place</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>現在地的な。Twitterの真似 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>birth</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>生年月日(UNIX) </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="proto_user.GetUserRequest">GetUserRequest</h3>
+        <p>ユーザー情報取得リクエスト（ユーザーを特定するためのID情報）</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>user_name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>ユーザー名 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="proto_user.UpdateUserProfileRequest">UpdateUserProfileRequest</h3>
+        <p>ユーザー情報更新リクエスト</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>user_id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>更新したいユーザーのID </p></td>
+                </tr>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>表示名 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>user_name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>ユーザ名 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>thumbnail</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>アイコンのURL </p></td>
+                </tr>
+              
+                <tr>
+                  <td>bio</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>ひとこと </p></td>
+                </tr>
+              
+                <tr>
+                  <td>gender</td>
+                  <td><a href="#proto_enums.GenderType">proto_enums.GenderType</a></td>
+                  <td></td>
+                  <td><p>性別（1: man, 2: woman, 3: unknown） </p></td>
+                </tr>
+              
+                <tr>
+                  <td>phone</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>電話番号 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>place</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>現在地的な。Twitterの真似 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>birth</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>生年月日(UNIX) </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="proto_user.User">User</h3>
+        <p>ユーザ情報</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>user_id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>ユーザーID </p></td>
+                </tr>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>表示名 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>user_name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>ユーザ名 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>thumbnail</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>アイコンのURL </p></td>
+                </tr>
+              
+                <tr>
+                  <td>bio</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>ひとこと </p></td>
+                </tr>
+              
+                <tr>
+                  <td>gender</td>
+                  <td><a href="#proto_enums.GenderType">proto_enums.GenderType</a></td>
+                  <td></td>
+                  <td><p>性別（0: unknown, 1: man, 2: woman） </p></td>
+                </tr>
+              
+                <tr>
+                  <td>place</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>現在地的な。Twitterの真似 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>birth</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>生年月日(UNIX) </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+
+      
+
+      
+
+      
+        <h3 id="proto_user.UserService">UserService</h3>
+        <p></p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Method Name</td><td>Request Type</td><td>Response Type</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>CreateUser</td>
+                <td><a href="#proto_user.CreateUserRequest">CreateUserRequest</a></td>
+                <td><a href="#proto_user.User">User</a></td>
+                <td><p>新規ユーザ作成</p></td>
+              </tr>
+            
+              <tr>
+                <td>GetMyProfile</td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><a href="#proto_user.User">User</a></td>
+                <td><p>ユーザー情報取得（マイページ）</p></td>
+              </tr>
+            
+              <tr>
+                <td>GetUserProfile</td>
+                <td><a href="#proto_user.GetUserRequest">GetUserRequest</a></td>
+                <td><a href="#proto_user.User">User</a></td>
+                <td><p>ユーザー情報取得（他の人のページ）</p></td>
+              </tr>
+            
+              <tr>
+                <td>UpdateUserProfile</td>
+                <td><a href="#proto_user.UpdateUserProfileRequest">UpdateUserProfileRequest</a></td>
+                <td><a href="#proto_user.User">User</a></td>
+                <td><p>ユーザー情報更新</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+
+        
+    
+      
+      <div class="file-heading">
+        <h2 id="wish_board.proto">wish_board.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="proto_wishboard.CreateWishBoardRequest">CreateWishBoardRequest</h3>
+        <p>やりたいことボード新規作成リクエスト</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>title</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>やりたいことボード名 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="proto_wishboard.DeleteWishBoardRequest">DeleteWishBoardRequest</h3>
+        <p>やりたいことボード削除用リクエスト</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>wish_list_id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>削除したいやりたいことボードのID </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="proto_wishboard.GetWishBoardListRequest">GetWishBoardListRequest</h3>
+        <p>やりたいことボード（ID, titleのみ）の配列を取得するためのリクエスト</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>wish_list_id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>取得開始位置を知らせるためのやりたいことボードID </p></td>
+                </tr>
+              
+                <tr>
+                  <td>limit</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>最大取得件数 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="proto_wishboard.GetWishBoardRequest">GetWishBoardRequest</h3>
+        <p>IDをもとにやりたいことボードを1件取得するためのリクエスト</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>wish_list_id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>やりたいことボードを特定するためのID </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="proto_wishboard.UpdateWishBoardBackGroundImageRequest">UpdateWishBoardBackGroundImageRequest</h3>
+        <p>やりたいことボード背景画像変更リクエスト</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>wish_list_id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>やりたいことボードID </p></td>
+                </tr>
+              
+                <tr>
+                  <td>background_image</td>
+                  <td><a href="#bytes">bytes</a></td>
+                  <td></td>
+                  <td><p>新しい背景画像ファイル </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="proto_wishboard.UpdateWishBoardNameRequest">UpdateWishBoardNameRequest</h3>
+        <p>やりたいことボード名変更リクエスト</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>wish_list_id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>やりたいことボードID </p></td>
+                </tr>
+              
+                <tr>
+                  <td>title</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>新しいやりたいことボード名 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="proto_wishboard.UpdateWishCategoryAndCardPositionRequest">UpdateWishCategoryAndCardPositionRequest</h3>
+        <p>やりたいことカテゴリーの並び替えリクエスト</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>wish_list_id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>やりたいことボードID </p></td>
+                </tr>
+              
+                <tr>
+                  <td>position</td>
+                  <td><a href="#proto_wishboard.WishCategoryAndCardPosition">WishCategoryAndCardPosition</a></td>
+                  <td>repeated</td>
+                  <td><p>やりたいことカテゴリーの並び順（IDの配列） </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="proto_wishboard.WishBoard">WishBoard</h3>
+        <p>やりたいことボード情報</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>wish_list_id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>やりたいことボードを特定するためのID </p></td>
+                </tr>
+              
+                <tr>
+                  <td>title</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>やりたいことボードタイトル </p></td>
+                </tr>
+              
+                <tr>
+                  <td>wish_categories</td>
+                  <td><a href="#proto_wishcategory.WishCategory">proto_wishcategory.WishCategory</a></td>
+                  <td>repeated</td>
+                  <td><p>やりたいことカテゴリー一覧（配列） </p></td>
+                </tr>
+              
+                <tr>
+                  <td>authors</td>
+                  <td><a href="#proto_user.User">proto_user.User</a></td>
+                  <td>repeated</td>
+                  <td><p>編集権限を持っているユーザー一覧（配列） </p></td>
+                </tr>
+              
+                <tr>
+                  <td>invite_url</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>招待リンク </p></td>
+                </tr>
+              
+                <tr>
+                  <td>background_image_url</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>背景画像URL </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="proto_wishboard.WishBoardList">WishBoardList</h3>
+        <p>やりたいことボードの一覧（配列）</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>wish_list</td>
+                  <td><a href="#proto_wishboard.WishBoard">WishBoard</a></td>
+                  <td>repeated</td>
+                  <td><p>やりたいことボード一覧（配列） </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="proto_wishboard.WishCategoryAndCardPosition">WishCategoryAndCardPosition</h3>
+        <p>やりたいことカテゴリーとカードのポジションを表したもの</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>wish_category_id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>やりたいことカテゴリーID </p></td>
+                </tr>
+              
+                <tr>
+                  <td>wish_card_ids</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td>repeated</td>
+                  <td><p>やりたいことカテゴリーに所属するカードのID一覧（並び順を表す配列） </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+
+      
+
+      
+
+      
+        <h3 id="proto_wishboard.WishBoardService">WishBoardService</h3>
+        <p></p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Method Name</td><td>Request Type</td><td>Response Type</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>CreateWishBoard</td>
+                <td><a href="#proto_wishboard.CreateWishBoardRequest">CreateWishBoardRequest</a></td>
+                <td><a href="#proto_wishboard.WishBoard">WishBoard</a></td>
+                <td><p>やりたいことボードの新規作成</p></td>
+              </tr>
+            
+              <tr>
+                <td>GetWishBoardList</td>
+                <td><a href="#proto_wishboard.GetWishBoardListRequest">GetWishBoardListRequest</a></td>
+                <td><a href="#proto_wishboard.WishBoardList">WishBoardList</a></td>
+                <td><p>やりたいことボード一覧取得</p></td>
+              </tr>
+            
+              <tr>
+                <td>GetWishBoard</td>
+                <td><a href="#proto_wishboard.GetWishBoardRequest">GetWishBoardRequest</a></td>
+                <td><a href="#proto_wishboard.WishBoard">WishBoard</a> stream</td>
+                <td><p>やりたいことボード単体取得</p></td>
+              </tr>
+            
+              <tr>
+                <td>UpdateWishBoardName</td>
+                <td><a href="#proto_wishboard.UpdateWishBoardNameRequest">UpdateWishBoardNameRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>やりたいことボード名更新</p></td>
+              </tr>
+            
+              <tr>
+                <td>UpdateWishBoardBackGroundImage</td>
+                <td><a href="#proto_wishboard.UpdateWishBoardBackGroundImageRequest">UpdateWishBoardBackGroundImageRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>やりたいことボードの背景画像更新</p></td>
+              </tr>
+            
+              <tr>
+                <td>UpdateWishCategoryPriority</td>
+                <td><a href="#proto_wishboard.UpdateWishCategoryAndCardPositionRequest">UpdateWishCategoryAndCardPositionRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>やりたいことカテゴリー、カードの並び順更新</p></td>
+              </tr>
+            
+              <tr>
+                <td>DeleteWishBoard</td>
+                <td><a href="#proto_wishboard.DeleteWishBoardRequest">DeleteWishBoardRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>やりたいことボード自体の削除</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+
+        
+    
+      
+      <div class="file-heading">
+        <h2 id="wish_card.proto">wish_card.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="proto_wishcard.AddWishCardTagsRequest">AddWishCardTagsRequest</h3>
+        <p>やりたいことカードに新規タグの追加リクエスト</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>wish_card_id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>タグを追加するやりたいことカードのID </p></td>
+                </tr>
+              
+                <tr>
+                  <td>tag_names</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p>追加したいタグの名前一覧（配列） </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="proto_wishcard.CreateWishCardRequest">CreateWishCardRequest</h3>
+        <p>やりたいことカード新規作成リクエスト</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>wish_category_id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>やりたいことカテゴリーID </p></td>
+                </tr>
+              
+                <tr>
+                  <td>activity</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>何をしたいのか </p></td>
+                </tr>
+              
+                <tr>
+                  <td>description</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>やりたいことの説明 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>date</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>いつやりたいか（UNIX） </p></td>
+                </tr>
+              
+                <tr>
+                  <td>place</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>どこでそれをしたいのか </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="proto_wishcard.DeleteWishCardTagsRequest">DeleteWishCardTagsRequest</h3>
+        <p>やりたいことカードからタグを削除</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>wish_card_id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>タグを削除するやりたいことカードのID </p></td>
+                </tr>
+              
+                <tr>
+                  <td>tag_ids</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td>repeated</td>
+                  <td><p>削除したいタグのID一覧（配列） </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="proto_wishcard.UpdateWishCardActivityRequest">UpdateWishCardActivityRequest</h3>
+        <p>やりたいことカードのアクティビティ更新リクエスト</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>wish_card_id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>カードのID </p></td>
+                </tr>
+              
+                <tr>
+                  <td>activity</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>アクティビティ名 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="proto_wishcard.UpdateWishCardDateRequest">UpdateWishCardDateRequest</h3>
+        <p>やりたいことカードの日付変更リクエスト</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>wish_card_id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>カードのID </p></td>
+                </tr>
+              
+                <tr>
+                  <td>date</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>日付 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="proto_wishcard.UpdateWishCardDescriptionRequest">UpdateWishCardDescriptionRequest</h3>
+        <p>やりたいことカードの説明更新リクエスト</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>wish_card_id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>カードのID </p></td>
+                </tr>
+              
+                <tr>
+                  <td>description</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>説明 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="proto_wishcard.UpdateWishCardPlaceRequest">UpdateWishCardPlaceRequest</h3>
+        <p>やりたいことカードの場所変更リクエスト</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>wish_card_id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>カードのID </p></td>
+                </tr>
+              
+                <tr>
+                  <td>place</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>場所 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="proto_wishcard.WishCard">WishCard</h3>
+        <p>やりたいことカード情報</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>wish_card_id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>wish_cardを特定するためのID </p></td>
+                </tr>
+              
+                <tr>
+                  <td>activity</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>何をしたいのか </p></td>
+                </tr>
+              
+                <tr>
+                  <td>description</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>やりたいことの説明 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>date</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>いつやりたいか（UNIX） </p></td>
+                </tr>
+              
+                <tr>
+                  <td>done_at</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>完了日時 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>place</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>どこでそれをしたいのか </p></td>
+                </tr>
+              
+                <tr>
+                  <td>tags</td>
+                  <td><a href="#proto_tag.Tag">proto_tag.Tag</a></td>
+                  <td>repeated</td>
+                  <td><p>タグ一覧（配列） </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+
+      
+
+      
+
+      
+        <h3 id="proto_wishcard.WishCardService">WishCardService</h3>
+        <p></p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Method Name</td><td>Request Type</td><td>Response Type</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>CreateWishCardInfo</td>
+                <td><a href="#proto_wishcard.CreateWishCardRequest">CreateWishCardRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>やりたいことカードの新規作成</p></td>
+              </tr>
+            
+              <tr>
+                <td>UpdateWishCardActivity</td>
+                <td><a href="#proto_wishcard.UpdateWishCardActivityRequest">UpdateWishCardActivityRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>やりたいことカード(アクティビティ)の更新</p></td>
+              </tr>
+            
+              <tr>
+                <td>UpdateWishCardDescription</td>
+                <td><a href="#proto_wishcard.UpdateWishCardDescriptionRequest">UpdateWishCardDescriptionRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>やりたいことカード(ディスクリプション)の更新</p></td>
+              </tr>
+            
+              <tr>
+                <td>UpdateWishCardDate</td>
+                <td><a href="#proto_wishcard.UpdateWishCardDateRequest">UpdateWishCardDateRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>やりたいことカード(日付)の更新</p></td>
+              </tr>
+            
+              <tr>
+                <td>UpdateWishCardPlace</td>
+                <td><a href="#proto_wishcard.UpdateWishCardPlaceRequest">UpdateWishCardPlaceRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>やりたいことカード(場所)の更新</p></td>
+              </tr>
+            
+              <tr>
+                <td>AddWishCardTags</td>
+                <td><a href="#proto_wishcard.AddWishCardTagsRequest">AddWishCardTagsRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>やりたいことカードのタグを新規追加</p></td>
+              </tr>
+            
+              <tr>
+                <td>DeleteWishCardTags</td>
+                <td><a href="#proto_wishcard.DeleteWishCardTagsRequest">DeleteWishCardTagsRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>やりたいことカードのタグを削除</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+
+        
+    
+      
+      <div class="file-heading">
+        <h2 id="wish_category.proto">wish_category.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="proto_wishcategory.CreateWishCategoryRequest">CreateWishCategoryRequest</h3>
+        <p>やりたいことカテゴリー新規作成リクエスト</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>wish_list_id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>やりたいことリストID </p></td>
+                </tr>
+              
+                <tr>
+                  <td>title</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>やりたいことカテゴリー名 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="proto_wishcategory.UpdateWishCategoryNameRequest">UpdateWishCategoryNameRequest</h3>
+        <p>やりたいことカテゴリー名更新リクエスト</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>wish_category_id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>やりたいことカテゴリーID </p></td>
+                </tr>
+              
+                <tr>
+                  <td>title</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>新規やりたいことカテゴリー名 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="proto_wishcategory.WishCategory">WishCategory</h3>
+        <p>やりたいことカテゴリー情報</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>wish_category_id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>やりたいことカテゴリーを特定するためのID </p></td>
+                </tr>
+              
+                <tr>
+                  <td>title</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>やりたいことカテゴリー名 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>wish_cards</td>
+                  <td><a href="#proto_wishcard.WishCard">proto_wishcard.WishCard</a></td>
+                  <td>repeated</td>
+                  <td><p>カテゴリー内のやりたいことカード一覧（配列） </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+
+      
+
+      
+
+      
+        <h3 id="proto_wishcategory.WishCategoryService">WishCategoryService</h3>
+        <p></p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Method Name</td><td>Request Type</td><td>Response Type</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>CreateWishCategory</td>
+                <td><a href="#proto_wishcategory.CreateWishCategoryRequest">CreateWishCategoryRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>やりたいことカテゴリーの新規作成</p></td>
+              </tr>
+            
+              <tr>
+                <td>UpdateWishCategoryName</td>
+                <td><a href="#proto_wishcategory.UpdateWishCategoryNameRequest">UpdateWishCategoryNameRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>やりたいことカテゴリー名更新</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+
+        
+    
+
+    <h2 id="scalar-value-types">Scalar Value Types</h2>
+    <table class="scalar-value-types-table">
+      <thead>
+        <tr><td>.proto Type</td><td>Notes</td><td>C++</td><td>Java</td><td>Python</td><td>Go</td><td>C#</td><td>PHP</td><td>Ruby</td></tr>
+      </thead>
+      <tbody>
+        
+          <tr id="double">
+            <td>double</td>
+            <td></td>
+            <td>double</td>
+            <td>double</td>
+            <td>float</td>
+            <td>float64</td>
+            <td>double</td>
+            <td>float</td>
+            <td>Float</td>
+          </tr>
+        
+          <tr id="float">
+            <td>float</td>
+            <td></td>
+            <td>float</td>
+            <td>float</td>
+            <td>float</td>
+            <td>float32</td>
+            <td>float</td>
+            <td>float</td>
+            <td>Float</td>
+          </tr>
+        
+          <tr id="int32">
+            <td>int32</td>
+            <td>Uses variable-length encoding. Inefficient for encoding negative numbers – if your field is likely to have negative values, use sint32 instead.</td>
+            <td>int32</td>
+            <td>int</td>
+            <td>int</td>
+            <td>int32</td>
+            <td>int</td>
+            <td>integer</td>
+            <td>Bignum or Fixnum (as required)</td>
+          </tr>
+        
+          <tr id="int64">
+            <td>int64</td>
+            <td>Uses variable-length encoding. Inefficient for encoding negative numbers – if your field is likely to have negative values, use sint64 instead.</td>
+            <td>int64</td>
+            <td>long</td>
+            <td>int/long</td>
+            <td>int64</td>
+            <td>long</td>
+            <td>integer/string</td>
+            <td>Bignum</td>
+          </tr>
+        
+          <tr id="uint32">
+            <td>uint32</td>
+            <td>Uses variable-length encoding.</td>
+            <td>uint32</td>
+            <td>int</td>
+            <td>int/long</td>
+            <td>uint32</td>
+            <td>uint</td>
+            <td>integer</td>
+            <td>Bignum or Fixnum (as required)</td>
+          </tr>
+        
+          <tr id="uint64">
+            <td>uint64</td>
+            <td>Uses variable-length encoding.</td>
+            <td>uint64</td>
+            <td>long</td>
+            <td>int/long</td>
+            <td>uint64</td>
+            <td>ulong</td>
+            <td>integer/string</td>
+            <td>Bignum or Fixnum (as required)</td>
+          </tr>
+        
+          <tr id="sint32">
+            <td>sint32</td>
+            <td>Uses variable-length encoding. Signed int value. These more efficiently encode negative numbers than regular int32s.</td>
+            <td>int32</td>
+            <td>int</td>
+            <td>int</td>
+            <td>int32</td>
+            <td>int</td>
+            <td>integer</td>
+            <td>Bignum or Fixnum (as required)</td>
+          </tr>
+        
+          <tr id="sint64">
+            <td>sint64</td>
+            <td>Uses variable-length encoding. Signed int value. These more efficiently encode negative numbers than regular int64s.</td>
+            <td>int64</td>
+            <td>long</td>
+            <td>int/long</td>
+            <td>int64</td>
+            <td>long</td>
+            <td>integer/string</td>
+            <td>Bignum</td>
+          </tr>
+        
+          <tr id="fixed32">
+            <td>fixed32</td>
+            <td>Always four bytes. More efficient than uint32 if values are often greater than 2^28.</td>
+            <td>uint32</td>
+            <td>int</td>
+            <td>int</td>
+            <td>uint32</td>
+            <td>uint</td>
+            <td>integer</td>
+            <td>Bignum or Fixnum (as required)</td>
+          </tr>
+        
+          <tr id="fixed64">
+            <td>fixed64</td>
+            <td>Always eight bytes. More efficient than uint64 if values are often greater than 2^56.</td>
+            <td>uint64</td>
+            <td>long</td>
+            <td>int/long</td>
+            <td>uint64</td>
+            <td>ulong</td>
+            <td>integer/string</td>
+            <td>Bignum</td>
+          </tr>
+        
+          <tr id="sfixed32">
+            <td>sfixed32</td>
+            <td>Always four bytes.</td>
+            <td>int32</td>
+            <td>int</td>
+            <td>int</td>
+            <td>int32</td>
+            <td>int</td>
+            <td>integer</td>
+            <td>Bignum or Fixnum (as required)</td>
+          </tr>
+        
+          <tr id="sfixed64">
+            <td>sfixed64</td>
+            <td>Always eight bytes.</td>
+            <td>int64</td>
+            <td>long</td>
+            <td>int/long</td>
+            <td>int64</td>
+            <td>long</td>
+            <td>integer/string</td>
+            <td>Bignum</td>
+          </tr>
+        
+          <tr id="bool">
+            <td>bool</td>
+            <td></td>
+            <td>bool</td>
+            <td>boolean</td>
+            <td>boolean</td>
+            <td>bool</td>
+            <td>bool</td>
+            <td>boolean</td>
+            <td>TrueClass/FalseClass</td>
+          </tr>
+        
+          <tr id="string">
+            <td>string</td>
+            <td>A string must always contain UTF-8 encoded or 7-bit ASCII text.</td>
+            <td>string</td>
+            <td>String</td>
+            <td>str/unicode</td>
+            <td>string</td>
+            <td>string</td>
+            <td>string</td>
+            <td>String (UTF-8)</td>
+          </tr>
+        
+          <tr id="bytes">
+            <td>bytes</td>
+            <td>May contain any arbitrary sequence of bytes.</td>
+            <td>string</td>
+            <td>ByteString</td>
+            <td>str</td>
+            <td>[]byte</td>
+            <td>ByteString</td>
+            <td>string</td>
+            <td>String (ASCII-8BIT)</td>
+          </tr>
+        
+      </tbody>
+    </table>
+  </body>
+</html>
+
