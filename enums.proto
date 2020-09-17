@@ -3,8 +3,9 @@ package proto_enums;
 
 option go_package = ".;pb";
 
+// 性別タイプ
 enum GenderType {
-  UNKNOWN = 0;
-  MAN = 1;
-  WOMAN = 2;
+  UNKNOWN = 0; // 不明・その他
+  MAN = 1;     // 男性
+  WOMAN = 2;   // 女性
 }
