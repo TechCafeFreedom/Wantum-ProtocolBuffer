@@ -53,7 +53,7 @@ message CreateMemoryRequest {
   string description = 4;
   // 場所
   string place = 5;
-  // 投稿されている画像一覧（配列）
+  // アップロードしたい画像一覧（配列）
   repeated proto_photo.Photo photos = 6;
   // タグ一覧（配列）
   repeated proto_tag.Tag tags = 7;
