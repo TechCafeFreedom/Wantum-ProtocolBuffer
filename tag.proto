@@ -3,7 +3,7 @@ package proto_tag;
 
 option go_package = ".;pb";
 
-message TagInfo {
+message Tag {
   // タグID
   int64 tag_id = 1;
   // タグ名
