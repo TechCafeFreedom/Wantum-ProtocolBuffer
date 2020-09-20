@@ -52,7 +52,7 @@ message UpdateUserProfileRequest {
   // ユーザ名
   string user_name = 3;
   // アイコンのURL
-  string thumbnail = 4;
+  bytes thumbnail = 4;
   // ひとこと
   string bio = 5;
   // 性別（1: man, 2: woman, 3: unknown）
