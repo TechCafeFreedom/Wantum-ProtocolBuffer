@@ -14,7 +14,7 @@ service AlbumService {
   // アルバム一覧情報の取得
   rpc GetMyAlbums(GetMyAlbumsRequest) returns (Albums) {};
   // アルバム名の変更
-  rpc ChangeAlbumTitle(ChangeAlbumTitleRequest) returns (Album) {};
+  rpc UpdateAlbumTitle(UpdateAlbumTitleRequest) returns (Album) {};
   // アルバムの削除
   rpc DeleteAlbum(DeleteAlbumRequest) returns (google.protobuf.Empty) {};
 }
@@ -40,7 +40,7 @@ message GetMyAlbumsRequest {
 }
 
 // アルバム名変更用リクエスト
-message ChangeAlbumTitleRequest {
+message UpdateAlbumTitleRequest {
   // 変更したいアルバムのID
   int64 album_id = 1;
   // 変更したいアルバム名
