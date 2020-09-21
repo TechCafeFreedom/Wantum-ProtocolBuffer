@@ -8,8 +8,7 @@ option go_package = ".;pb";
 
 service WishCardService {
   // やりたいことカードの新規作成
-  rpc CreateWishCardInfo(CreateWishCardRequest)
-      returns (google.protobuf.Empty) {};
+  rpc CreateWishCard(CreateWishCardRequest) returns (google.protobuf.Empty) {};
   // やりたいことカード(アクティビティ)の更新
   rpc UpdateWishCardActivity(UpdateWishCardActivityRequest)
       returns (google.protobuf.Empty) {};
