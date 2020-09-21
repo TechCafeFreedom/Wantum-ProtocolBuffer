@@ -18,7 +18,7 @@ service WishBoardService {
   rpc UpdateWishBoardName(UpdateWishBoardNameRequest)
       returns (google.protobuf.Empty) {};
   // やりたいことボードの背景画像更新
-  rpc UpdateWishBoardBackGroundImage(UpdateWishBoardBackGroundImageRequest)
+  rpc UpdateWishBoardBackgroundImage(UpdateWishBoardBackgroundImageRequest)
       returns (google.protobuf.Empty) {};
   // やりたいことカテゴリー、カードの並び順更新
   rpc UpdateWishCategoryPriority(UpdateWishCategoryAndCardPositionRequest)
@@ -57,7 +57,7 @@ message UpdateWishBoardNameRequest {
 }
 
 // やりたいことボード背景画像変更リクエスト
-message UpdateWishBoardBackGroundImageRequest {
+message UpdateWishBoardBackgroundImageRequest {
   // やりたいことボードID
   int64 wish_board_id = 1;
   // 新しい背景画像ファイル
