@@ -10,8 +10,11 @@ service WishCategoryService {
   // やりたいことカテゴリーの新規作成
   rpc CreateWishCategory(CreateWishCategoryRequest)
       returns (google.protobuf.Empty) {};
-  // やりたいことカテゴリー名更新
-  rpc UpdateWishCategoryName(UpdateWishCategoryNameRequest)
+  // やりたいことカテゴリータイトル更新
+  rpc UpdateWishCategoryTitle(UpdateWishCategoryTitleRequest)
+      returns (google.protobuf.Empty) {};
+  // やりたいことカテゴリーの削除
+  rpc DeleteWishCategory(DeleteWishCategoryRequest)
       returns (google.protobuf.Empty) {};
 }
 
@@ -23,12 +26,18 @@ message CreateWishCategoryRequest {
   string title = 2;
 }
 
-// やりたいことカテゴリー名更新リクエスト
-message UpdateWishCategoryNameRequest {
+// やりたいことカテゴリータイトル更新リクエスト
+message UpdateWishCategoryTitleRequest {
   // やりたいことカテゴリーID
   int64 wish_category_id = 1;
-  // 新規やりたいことカテゴリー名
+  // 新規やりたいことカテゴリータイトル
   string title = 2;
+}
+
+// やりたいことカテゴリー削除用リクエスト
+message DeleteWishCategoryRequest {
+  // 削除したいやりたいことカテゴリーのID
+  int64 wish_category_id = 1;
 }
 
 // やりたいことカテゴリー情報

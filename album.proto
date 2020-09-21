@@ -13,8 +13,8 @@ service AlbumService {
   rpc GetAlbum(GetAlbumRequest) returns (Album) {};
   // アルバム一覧情報の取得
   rpc GetMyAlbums(GetMyAlbumsRequest) returns (Albums) {};
-  // アルバム名の変更
-  rpc ChangeAlbumTitle(ChangeAlbumTitleRequest) returns (Album) {};
+  // アルバムタイトルの変更
+  rpc UpdateAlbumTitle(UpdateAlbumTitleRequest) returns (Album) {};
   // アルバムの削除
   rpc DeleteAlbum(DeleteAlbumRequest) returns (google.protobuf.Empty) {};
 }
@@ -39,11 +39,11 @@ message GetMyAlbumsRequest {
   int64 limit = 2;
 }
 
-// アルバム名変更用リクエスト
-message ChangeAlbumTitleRequest {
+// アルバムタイトル変更用リクエスト
+message UpdateAlbumTitleRequest {
   // 変更したいアルバムのID
   int64 album_id = 1;
-  // 変更したいアルバム名
+  // 変更したいアルバムタイトル
   string title = 2;
 }
 

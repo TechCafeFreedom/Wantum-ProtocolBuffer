@@ -8,8 +8,7 @@ option go_package = ".;pb";
 
 service WishCardService {
   // やりたいことカードの新規作成
-  rpc CreateWishCardInfo(CreateWishCardRequest)
-      returns (google.protobuf.Empty) {};
+  rpc CreateWishCard(CreateWishCardRequest) returns (google.protobuf.Empty) {};
   // やりたいことカード(アクティビティ)の更新
   rpc UpdateWishCardActivity(UpdateWishCardActivityRequest)
       returns (google.protobuf.Empty) {};
@@ -28,6 +27,8 @@ service WishCardService {
   // やりたいことカードのタグを削除
   rpc DeleteWishCardTags(DeleteWishCardTagsRequest)
       returns (google.protobuf.Empty) {};
+  // やりたいことカードの削除
+  rpc DeleteWishCard(DeleteWishCardRequest) returns (google.protobuf.Empty) {};
 }
 
 // やりたいことカード新規作成リクエスト
@@ -92,6 +93,12 @@ message DeleteWishCardTagsRequest {
   repeated int64 tag_ids = 2;
 }
 
+// やりたいことカード削除用リクエスト
+message DeleteWishCardRequest {
+  // 削除したいやりたいことカードのID
+  int64 wish_card_id = 1;
+}
+
 // やりたいことカード情報
 message WishCard {
   // wish_cardを特定するためのID
@@ -103,7 +110,7 @@ message WishCard {
   // いつやりたいか（UNIX）
   int64 date = 4;
   // 完了日時
-  string done_at = 5;
+  int64 done_at = 5;
   // どこでそれをしたいのか
   string place = 6;
   // タグ一覧（配列）

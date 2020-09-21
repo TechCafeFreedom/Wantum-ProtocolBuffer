@@ -187,10 +187,6 @@
                 </li>
               
                 <li>
-                  <a href="#proto_album.ChangeAlbumTitleRequest"><span class="badge">M</span>ChangeAlbumTitleRequest</a>
-                </li>
-              
-                <li>
                   <a href="#proto_album.CreateAlbumRequest"><span class="badge">M</span>CreateAlbumRequest</a>
                 </li>
               
@@ -204,6 +200,10 @@
               
                 <li>
                   <a href="#proto_album.GetMyAlbumsRequest"><span class="badge">M</span>GetMyAlbumsRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#proto_album.UpdateAlbumTitleRequest"><span class="badge">M</span>UpdateAlbumTitleRequest</a>
                 </li>
               
               
@@ -330,14 +330,14 @@
             <ul>
               
                 <li>
-                  <a href="#proto_timeline.TimeLine"><span class="badge">M</span>TimeLine</a>
+                  <a href="#proto_timeline.Timeline"><span class="badge">M</span>Timeline</a>
                 </li>
               
               
               
               
                 <li>
-                  <a href="#proto_timeline.TimeLineService"><span class="badge">S</span>TimeLineService</a>
+                  <a href="#proto_timeline.TimelineService"><span class="badge">S</span>TimelineService</a>
                 </li>
               
             </ul>
@@ -396,7 +396,7 @@
                 </li>
               
                 <li>
-                  <a href="#proto_wishboard.UpdateWishBoardBackGroundImageRequest"><span class="badge">M</span>UpdateWishBoardBackGroundImageRequest</a>
+                  <a href="#proto_wishboard.UpdateWishBoardBackgroundImageRequest"><span class="badge">M</span>UpdateWishBoardBackgroundImageRequest</a>
                 </li>
               
                 <li>
@@ -443,6 +443,10 @@
                 </li>
               
                 <li>
+                  <a href="#proto_wishcard.DeleteWishCardRequest"><span class="badge">M</span>DeleteWishCardRequest</a>
+                </li>
+              
+                <li>
                   <a href="#proto_wishcard.DeleteWishCardTagsRequest"><span class="badge">M</span>DeleteWishCardTagsRequest</a>
                 </li>
               
@@ -486,7 +490,11 @@
                 </li>
               
                 <li>
-                  <a href="#proto_wishcategory.UpdateWishCategoryNameRequest"><span class="badge">M</span>UpdateWishCategoryNameRequest</a>
+                  <a href="#proto_wishcategory.DeleteWishCategoryRequest"><span class="badge">M</span>DeleteWishCategoryRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#proto_wishcategory.UpdateWishCategoryTitleRequest"><span class="badge">M</span>UpdateWishCategoryTitleRequest</a>
                 </li>
               
                 <li>
@@ -568,37 +576,6 @@
                   <td><a href="#proto_album.Album">Album</a></td>
                   <td>repeated</td>
                   <td><p>アルバム一覧（配列） </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="proto_album.ChangeAlbumTitleRequest">ChangeAlbumTitleRequest</h3>
-        <p>アルバム名変更用リクエスト</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>album_id</td>
-                  <td><a href="#int64">int64</a></td>
-                  <td></td>
-                  <td><p>変更したいアルバムのID </p></td>
-                </tr>
-              
-                <tr>
-                  <td>title</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>変更したいアルバム名 </p></td>
                 </tr>
               
             </tbody>
@@ -711,6 +688,37 @@
 
         
       
+        <h3 id="proto_album.UpdateAlbumTitleRequest">UpdateAlbumTitleRequest</h3>
+        <p>アルバムタイトル変更用リクエスト</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>album_id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>変更したいアルバムのID </p></td>
+                </tr>
+              
+                <tr>
+                  <td>title</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>変更したいアルバムタイトル </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
 
       
 
@@ -747,10 +755,10 @@
               </tr>
             
               <tr>
-                <td>ChangeAlbumTitle</td>
-                <td><a href="#proto_album.ChangeAlbumTitleRequest">ChangeAlbumTitleRequest</a></td>
+                <td>UpdateAlbumTitle</td>
+                <td><a href="#proto_album.UpdateAlbumTitleRequest">UpdateAlbumTitleRequest</a></td>
                 <td><a href="#proto_album.Album">Album</a></td>
-                <td><p>アルバム名の変更</p></td>
+                <td><p>アルバムタイトルの変更</p></td>
               </tr>
             
               <tr>
@@ -1443,7 +1451,7 @@
       <p></p>
 
       
-        <h3 id="proto_timeline.TimeLine">TimeLine</h3>
+        <h3 id="proto_timeline.Timeline">Timeline</h3>
         <p>TODO: タイムライン情報(仮)</p>
 
         
@@ -1473,7 +1481,7 @@
       
 
       
-        <h3 id="proto_timeline.TimeLineService">TimeLineService</h3>
+        <h3 id="proto_timeline.TimelineService">TimelineService</h3>
         <p></p>
         <table class="enum-table">
           <thead>
@@ -1482,9 +1490,9 @@
           <tbody>
             
               <tr>
-                <td>GetTimeLine</td>
+                <td>GetTimeline</td>
                 <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
-                <td><a href="#proto_timeline.TimeLine">TimeLine</a></td>
+                <td><a href="#proto_timeline.Timeline">Timeline</a></td>
                 <td><p>タイムライン情報の取得</p></td>
               </tr>
             
@@ -1839,7 +1847,7 @@
             <tbody>
               
                 <tr>
-                  <td>wish_list_id</td>
+                  <td>wish_board_id</td>
                   <td><a href="#int64">int64</a></td>
                   <td></td>
                   <td><p>削除したいやりたいことボードのID </p></td>
@@ -1863,7 +1871,7 @@
             <tbody>
               
                 <tr>
-                  <td>wish_list_id</td>
+                  <td>wish_board_id</td>
                   <td><a href="#int64">int64</a></td>
                   <td></td>
                   <td><p>取得開始位置を知らせるためのやりたいことボードID </p></td>
@@ -1894,7 +1902,7 @@
             <tbody>
               
                 <tr>
-                  <td>wish_list_id</td>
+                  <td>wish_board_id</td>
                   <td><a href="#int64">int64</a></td>
                   <td></td>
                   <td><p>やりたいことボードを特定するためのID </p></td>
@@ -1907,7 +1915,7 @@
 
         
       
-        <h3 id="proto_wishboard.UpdateWishBoardBackGroundImageRequest">UpdateWishBoardBackGroundImageRequest</h3>
+        <h3 id="proto_wishboard.UpdateWishBoardBackgroundImageRequest">UpdateWishBoardBackgroundImageRequest</h3>
         <p>やりたいことボード背景画像変更リクエスト</p>
 
         
@@ -1918,7 +1926,7 @@
             <tbody>
               
                 <tr>
-                  <td>wish_list_id</td>
+                  <td>wish_board_id</td>
                   <td><a href="#int64">int64</a></td>
                   <td></td>
                   <td><p>やりたいことボードID </p></td>
@@ -1949,7 +1957,7 @@
             <tbody>
               
                 <tr>
-                  <td>wish_list_id</td>
+                  <td>wish_board_id</td>
                   <td><a href="#int64">int64</a></td>
                   <td></td>
                   <td><p>やりたいことボードID </p></td>
@@ -1980,7 +1988,7 @@
             <tbody>
               
                 <tr>
-                  <td>wish_list_id</td>
+                  <td>wish_board_id</td>
                   <td><a href="#int64">int64</a></td>
                   <td></td>
                   <td><p>やりたいことボードID </p></td>
@@ -2011,7 +2019,7 @@
             <tbody>
               
                 <tr>
-                  <td>wish_list_id</td>
+                  <td>wish_board_id</td>
                   <td><a href="#int64">int64</a></td>
                   <td></td>
                   <td><p>やりたいことボードを特定するためのID </p></td>
@@ -2070,7 +2078,7 @@
             <tbody>
               
                 <tr>
-                  <td>wish_list</td>
+                  <td>wish_board</td>
                   <td><a href="#proto_wishboard.WishBoard">WishBoard</a></td>
                   <td>repeated</td>
                   <td><p>やりたいことボード一覧（配列） </p></td>
@@ -2157,8 +2165,8 @@
               </tr>
             
               <tr>
-                <td>UpdateWishBoardBackGroundImage</td>
-                <td><a href="#proto_wishboard.UpdateWishBoardBackGroundImageRequest">UpdateWishBoardBackGroundImageRequest</a></td>
+                <td>UpdateWishBoardBackgroundImage</td>
+                <td><a href="#proto_wishboard.UpdateWishBoardBackgroundImageRequest">UpdateWishBoardBackgroundImageRequest</a></td>
                 <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
                 <td><p>やりたいことボードの背景画像更新</p></td>
               </tr>
@@ -2263,6 +2271,30 @@
                   <td><a href="#string">string</a></td>
                   <td></td>
                   <td><p>どこでそれをしたいのか </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="proto_wishcard.DeleteWishCardRequest">DeleteWishCardRequest</h3>
+        <p>やりたいことカード削除用リクエスト</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>wish_card_id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>削除したいやりたいことカードのID </p></td>
                 </tr>
               
             </tbody>
@@ -2467,7 +2499,7 @@
               
                 <tr>
                   <td>done_at</td>
-                  <td><a href="#string">string</a></td>
+                  <td><a href="#int64">int64</a></td>
                   <td></td>
                   <td><p>完了日時 </p></td>
                 </tr>
@@ -2508,7 +2540,7 @@
           <tbody>
             
               <tr>
-                <td>CreateWishCardInfo</td>
+                <td>CreateWishCard</td>
                 <td><a href="#proto_wishcard.CreateWishCardRequest">CreateWishCardRequest</a></td>
                 <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
                 <td><p>やりたいことカードの新規作成</p></td>
@@ -2556,6 +2588,13 @@
                 <td><p>やりたいことカードのタグを削除</p></td>
               </tr>
             
+              <tr>
+                <td>DeleteWishCard</td>
+                <td><a href="#proto_wishcard.DeleteWishCardRequest">DeleteWishCardRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>やりたいことカードの削除</p></td>
+              </tr>
+            
           </tbody>
         </table>
 
@@ -2599,8 +2638,32 @@
 
         
       
-        <h3 id="proto_wishcategory.UpdateWishCategoryNameRequest">UpdateWishCategoryNameRequest</h3>
-        <p>やりたいことカテゴリー名更新リクエスト</p>
+        <h3 id="proto_wishcategory.DeleteWishCategoryRequest">DeleteWishCategoryRequest</h3>
+        <p>やりたいことカテゴリー削除用リクエスト</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>wish_category_id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>削除したいやりたいことカテゴリーのID </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="proto_wishcategory.UpdateWishCategoryTitleRequest">UpdateWishCategoryTitleRequest</h3>
+        <p>やりたいことカテゴリータイトル更新リクエスト</p>
 
         
           <table class="field-table">
@@ -2620,7 +2683,7 @@
                   <td>title</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>新規やりたいことカテゴリー名 </p></td>
+                  <td><p>新規やりたいことカテゴリータイトル </p></td>
                 </tr>
               
             </tbody>
@@ -2690,10 +2753,17 @@
               </tr>
             
               <tr>
-                <td>UpdateWishCategoryName</td>
-                <td><a href="#proto_wishcategory.UpdateWishCategoryNameRequest">UpdateWishCategoryNameRequest</a></td>
+                <td>UpdateWishCategoryTitle</td>
+                <td><a href="#proto_wishcategory.UpdateWishCategoryTitleRequest">UpdateWishCategoryTitleRequest</a></td>
                 <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
-                <td><p>やりたいことカテゴリー名更新</p></td>
+                <td><p>やりたいことカテゴリータイトル更新</p></td>
+              </tr>
+            
+              <tr>
+                <td>DeleteWishCategory</td>
+                <td><a href="#proto_wishcategory.DeleteWishCategoryRequest">DeleteWishCategoryRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>やりたいことカテゴリーの削除</p></td>
               </tr>
             
           </tbody>
