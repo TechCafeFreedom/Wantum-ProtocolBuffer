@@ -13,6 +13,9 @@ service WishCategoryService {
   // やりたいことカテゴリー名更新
   rpc UpdateWishCategoryName(UpdateWishCategoryTitleRequest)
       returns (google.protobuf.Empty) {};
+  // やりたいことカテゴリーの削除
+  rpc DeleteWishCategory(DeleteWishCategoryRequest)
+      returns (google.protobuf.Empty) {};
 }
 
 // やりたいことカテゴリー新規作成リクエスト
@@ -29,6 +32,12 @@ message UpdateWishCategoryTitleRequest {
   int64 wish_category_id = 1;
   // 新規やりたいことカテゴリー名
   string title = 2;
+}
+
+// やりたいことカテゴリー削除用リクエスト
+message DeleteWishCategoryRequest {
+  // 削除したいやりたいことカテゴリーのID
+  int64 wish_category_id = 1;
 }
 
 // やりたいことカテゴリー情報
