@@ -27,6 +27,8 @@ service WishCardService {
   // やりたいことカードのタグを削除
   rpc DeleteWishCardTags(DeleteWishCardTagsRequest)
       returns (google.protobuf.Empty) {};
+  // やりたいことカードの削除
+  rpc DeleteWishCard(DeleteWishCardRequest) returns (google.protobuf.Empty) {};
 }
 
 // やりたいことカード新規作成リクエスト
@@ -89,6 +91,12 @@ message DeleteWishCardTagsRequest {
   int64 wish_card_id = 1;
   // 削除したいタグのID一覧（配列）
   repeated int64 tag_ids = 2;
+}
+
+// やりたいことカード削除用リクエスト
+message DeleteWishCardRequest {
+  // 削除したいやりたいことカードのID
+  int64 wish_card_id = 1;
 }
 
 // やりたいことカード情報
