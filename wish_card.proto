@@ -103,7 +103,7 @@ message WishCard {
   // いつやりたいか（UNIX）
   int64 date = 4;
   // 完了日時
-  string done_at = 5;
+  int64 done_at = 5;
   // どこでそれをしたいのか
   string place = 6;
   // タグ一覧（配列）
