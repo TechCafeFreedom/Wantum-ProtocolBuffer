@@ -11,7 +11,7 @@ service WishCategoryService {
   rpc CreateWishCategory(CreateWishCategoryRequest)
       returns (google.protobuf.Empty) {};
   // やりたいことカテゴリー名更新
-  rpc UpdateWishCategoryName(UpdateWishCategoryNameRequest)
+  rpc UpdateWishCategoryName(UpdateWishCategoryTitleRequest)
       returns (google.protobuf.Empty) {};
 }
 
@@ -24,7 +24,7 @@ message CreateWishCategoryRequest {
 }
 
 // やりたいことカテゴリー名更新リクエスト
-message UpdateWishCategoryNameRequest {
+message UpdateWishCategoryTitleRequest {
   // やりたいことカテゴリーID
   int64 wish_category_id = 1;
   // 新規やりたいことカテゴリー名
