@@ -6,13 +6,13 @@ import "google/protobuf/empty.proto";
 
 option go_package = ".;pb";
 
-service TimeLineService {
+service TimelineService {
   // タイムライン情報の取得
-  rpc GetTimeLine(google.protobuf.Empty) returns (TimeLine) {};
+  rpc GetTimeline(google.protobuf.Empty) returns (Timeline) {};
 }
 
 // TODO: タイムライン情報(仮)
-message TimeLine {
+message Timeline {
   // タイムラインに表示する思い出一覧
   repeated proto_memory.Memory memories = 1;
 }
