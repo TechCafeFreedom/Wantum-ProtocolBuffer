@@ -19,19 +19,19 @@ service UserService {
 
 // 新規ユーザ作成リクエスト
 message CreateUserRequest {
-  // 表示名
+  // 表示名 [required, max=50]
   string name = 1;
-  // ユーザ名
+  // ユーザ名 [required, max=20]
   string user_name = 2;
   // アイコン画像ファイル
   bytes thumbnail = 3;
-  // ひとこと
+  // ひとこと [max=100]
   string bio = 4;
-  // 性別（1: man, 2: woman, 3: unknown）
+  // 性別（1: man, 2: woman, 3: unknown） [required]
   proto_enums.GenderType gender = 5;
-  // 電話番号
+  // 電話番号 [max=15]
   string phone = 6;
-  // 現在地的な。Twitterの真似
+  // 現在地的な。Twitterの真似 [max=30]
   string place = 7;
   // 生年月日(UNIX)
   int64 birth = 8;
@@ -39,27 +39,29 @@ message CreateUserRequest {
 
 // ユーザー情報取得リクエスト（ユーザーを特定するためのID情報）
 message GetUserRequest {
-  // ユーザー名
+  // ユーザー名 [required, max=20]
   string user_name = 1;
 }
 
 // ユーザー情報更新リクエスト
 message UpdateUserProfileRequest {
-  // 更新したいユーザーのID
+  // 更新したいユーザーのID [required]
   int64 user_id = 1;
-  // 表示名
+  // 表示名 [required, max=50] ← ユーザー入力がない場合は現在の値を埋め込むこと
   string name = 2;
-  // ユーザ名
+  // ユーザ名 [required, max=20, 他ユーザーと重複していない]
+  // ←ユーザー入力がない場合は現在の値を埋め込むこと
   string user_name = 3;
-  // アイコンのURL
+  // アイコン画像
   bytes thumbnail = 4;
-  // ひとこと
+  // ひとこと [max=100]
   string bio = 5;
-  // 性別（1: man, 2: woman, 3: unknown）
+  // 性別（1: man, 2: woman, 3: unknown） [required]
+  // ←ユーザー入力がない場合は現在の値を埋め込むこと
   proto_enums.GenderType gender = 6;
-  // 電話番号
+  // 電話番号 [max=15]
   string phone = 7;
-  // 現在地的な。Twitterの真似
+  // 現在地的な。Twitterの真似 [max=30]
   string place = 8;
   // 生年月日(UNIX)
   int64 birth = 9;

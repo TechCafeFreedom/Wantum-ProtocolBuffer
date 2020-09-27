@@ -599,7 +599,7 @@
                   <td>title</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>アルバム名 </p></td>
+                  <td><p>アルバム名 [required, max=200] </p></td>
                 </tr>
               
             </tbody>
@@ -623,7 +623,7 @@
                   <td>album_id</td>
                   <td><a href="#int64">int64</a></td>
                   <td></td>
-                  <td><p>削除したいアルバムのID </p></td>
+                  <td><p>削除したいアルバムのID [required] </p></td>
                 </tr>
               
             </tbody>
@@ -647,7 +647,7 @@
                   <td>album_id</td>
                   <td><a href="#int64">int64</a></td>
                   <td></td>
-                  <td><p>アルバムを特定するためのID </p></td>
+                  <td><p>アルバムを特定するためのID [required] </p></td>
                 </tr>
               
             </tbody>
@@ -671,14 +671,14 @@
                   <td>album_id</td>
                   <td><a href="#int64">int64</a></td>
                   <td></td>
-                  <td><p>取得開始位置を知らせるためのアルバムID </p></td>
+                  <td><p>取得開始位置を知らせるためのアルバムID [required] </p></td>
                 </tr>
               
                 <tr>
                   <td>limit</td>
                   <td><a href="#int64">int64</a></td>
                   <td></td>
-                  <td><p>最大取得件数 </p></td>
+                  <td><p>最大取得件数 [default=1, max=20] </p></td>
                 </tr>
               
             </tbody>
@@ -702,14 +702,14 @@
                   <td>album_id</td>
                   <td><a href="#int64">int64</a></td>
                   <td></td>
-                  <td><p>変更したいアルバムのID </p></td>
+                  <td><p>変更したいアルバムのID [required] </p></td>
                 </tr>
               
                 <tr>
                   <td>title</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>変更したいアルバムタイトル </p></td>
+                  <td><p>変更したいアルバムタイトル [required, max=200] </p></td>
                 </tr>
               
             </tbody>
@@ -837,14 +837,14 @@
                   <td>memory_id</td>
                   <td><a href="#int64">int64</a></td>
                   <td></td>
-                  <td><p>タグを追加する思い出のID </p></td>
+                  <td><p>タグを追加する思い出のID [required] </p></td>
                 </tr>
               
                 <tr>
                   <td>tag_names</td>
                   <td><a href="#string">string</a></td>
                   <td>repeated</td>
-                  <td><p>追加したいタグの名前一覧（配列） </p></td>
+                  <td><p>追加したいタグの名前一覧（配列） [required, max_len=20] </p></td>
                 </tr>
               
             </tbody>
@@ -868,14 +868,14 @@
                   <td>memory_id</td>
                   <td><a href="#int64">int64</a></td>
                   <td></td>
-                  <td><p>画像を追加する思い出のID </p></td>
+                  <td><p>画像を追加する思い出のID [required] </p></td>
                 </tr>
               
                 <tr>
                   <td>photo_file</td>
                   <td><a href="#bytes">bytes</a></td>
                   <td>repeated</td>
-                  <td><p>アップロードしたい画像ファイル(配列) </p></td>
+                  <td><p>アップロードしたい画像ファイル(配列) [required, max_len=5] </p></td>
                 </tr>
               
             </tbody>
@@ -899,21 +899,21 @@
                   <td>album_id</td>
                   <td><a href="#int64">int64</a></td>
                   <td></td>
-                  <td><p>投稿した思い出を保存するアルバムのID </p></td>
+                  <td><p>投稿した思い出を保存するアルバムのID [required] </p></td>
                 </tr>
               
                 <tr>
                   <td>activity</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>やったこと </p></td>
+                  <td><p>やったこと [required, max=50] </p></td>
                 </tr>
               
                 <tr>
                   <td>date</td>
                   <td><a href="#int64">int64</a></td>
                   <td></td>
-                  <td><p>日付(UNIX) </p></td>
+                  <td><p>日付(UNIX) [required] </p></td>
                 </tr>
               
                 <tr>
@@ -927,7 +927,7 @@
                   <td>place</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>場所 </p></td>
+                  <td><p>場所 [required, max=200] </p></td>
                 </tr>
               
                 <tr>
@@ -965,14 +965,14 @@
                   <td>memory_id</td>
                   <td><a href="#int64">int64</a></td>
                   <td></td>
-                  <td><p>画像を削除する思い出のID </p></td>
+                  <td><p>画像を削除する思い出のID [required] </p></td>
                 </tr>
               
                 <tr>
                   <td>photo_ids</td>
                   <td><a href="#int64">int64</a></td>
                   <td>repeated</td>
-                  <td><p>削除したい画像のID一覧（配列） </p></td>
+                  <td><p>削除したい画像のID一覧（配列） [required] </p></td>
                 </tr>
               
             </tbody>
@@ -996,7 +996,7 @@
                   <td>memory_id</td>
                   <td><a href="#int64">int64</a></td>
                   <td></td>
-                  <td><p>削除する思い出のID </p></td>
+                  <td><p>削除する思い出のID [required] </p></td>
                 </tr>
               
             </tbody>
@@ -1020,14 +1020,14 @@
                   <td>memory_id</td>
                   <td><a href="#int64">int64</a></td>
                   <td></td>
-                  <td><p>タグを削除する思い出のID </p></td>
+                  <td><p>タグを削除する思い出のID [required] </p></td>
                 </tr>
               
                 <tr>
                   <td>tag_ids</td>
                   <td><a href="#int64">int64</a></td>
                   <td>repeated</td>
-                  <td><p>削除したいタグのID一覧（配列） </p></td>
+                  <td><p>削除したいタグのID一覧（配列） [required] </p></td>
                 </tr>
               
             </tbody>
@@ -1051,7 +1051,7 @@
                   <td>memory_id</td>
                   <td><a href="#int64">int64</a></td>
                   <td></td>
-                  <td><p>思い出1件を特定するための思い出ID </p></td>
+                  <td><p>思い出1件を特定するための思い出ID [required] </p></td>
                 </tr>
               
             </tbody>
@@ -1075,7 +1075,7 @@
                   <td>user_name</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>ユーザー名 </p></td>
+                  <td><p>ユーザー名 [required, max=20] </p></td>
                 </tr>
               
             </tbody>
@@ -1234,35 +1234,35 @@
                   <td>memory_id</td>
                   <td><a href="#int64">int64</a></td>
                   <td></td>
-                  <td><p>更新する思い出のID </p></td>
+                  <td><p>更新する思い出のID [required] </p></td>
                 </tr>
               
                 <tr>
                   <td>activity</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>やったこと </p></td>
+                  <td><p>やったこと [required] ← ユーザー入力がない場合は現在の値を埋め込むこと </p></td>
                 </tr>
               
                 <tr>
                   <td>date</td>
                   <td><a href="#int64">int64</a></td>
                   <td></td>
-                  <td><p>日付(UNIX) </p></td>
+                  <td><p>日付(UNIX) [required] ← ユーザー入力がない場合は現在の値を埋め込むこと </p></td>
                 </tr>
               
                 <tr>
                   <td>description</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>思い出の説明 </p></td>
+                  <td><p>思い出の説明 ← ユーザー入力がない場合は現在の値を埋め込むこと </p></td>
                 </tr>
               
                 <tr>
                   <td>place</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>場所 </p></td>
+                  <td><p>場所 [required, max=200] ← ユーザー入力がない場合は現在の値を埋め込むこと </p></td>
                 </tr>
               
             </tbody>
@@ -1522,14 +1522,14 @@
                   <td>name</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>表示名 </p></td>
+                  <td><p>表示名 [required, max=50] </p></td>
                 </tr>
               
                 <tr>
                   <td>user_name</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>ユーザ名 </p></td>
+                  <td><p>ユーザ名 [required, max=20] </p></td>
                 </tr>
               
                 <tr>
@@ -1543,28 +1543,28 @@
                   <td>bio</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>ひとこと </p></td>
+                  <td><p>ひとこと [max=100] </p></td>
                 </tr>
               
                 <tr>
                   <td>gender</td>
                   <td><a href="#proto_enums.GenderType">proto_enums.GenderType</a></td>
                   <td></td>
-                  <td><p>性別（1: man, 2: woman, 3: unknown） </p></td>
+                  <td><p>性別（1: man, 2: woman, 3: unknown） [required] </p></td>
                 </tr>
               
                 <tr>
                   <td>phone</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>電話番号 </p></td>
+                  <td><p>電話番号 [max=15] </p></td>
                 </tr>
               
                 <tr>
                   <td>place</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>現在地的な。Twitterの真似 </p></td>
+                  <td><p>現在地的な。Twitterの真似 [max=30] </p></td>
                 </tr>
               
                 <tr>
@@ -1595,7 +1595,7 @@
                   <td>user_name</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>ユーザー名 </p></td>
+                  <td><p>ユーザー名 [required, max=20] </p></td>
                 </tr>
               
             </tbody>
@@ -1619,56 +1619,58 @@
                   <td>user_id</td>
                   <td><a href="#int64">int64</a></td>
                   <td></td>
-                  <td><p>更新したいユーザーのID </p></td>
+                  <td><p>更新したいユーザーのID [required] </p></td>
                 </tr>
               
                 <tr>
                   <td>name</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>表示名 </p></td>
+                  <td><p>表示名 [required, max=50] ← ユーザー入力がない場合は現在の値を埋め込むこと </p></td>
                 </tr>
               
                 <tr>
                   <td>user_name</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>ユーザ名 </p></td>
+                  <td><p>ユーザ名 [required, max=20, 他ユーザーと重複していない]
+←ユーザー入力がない場合は現在の値を埋め込むこと </p></td>
                 </tr>
               
                 <tr>
                   <td>thumbnail</td>
                   <td><a href="#bytes">bytes</a></td>
                   <td></td>
-                  <td><p>アイコンのURL </p></td>
+                  <td><p>アイコン画像 </p></td>
                 </tr>
               
                 <tr>
                   <td>bio</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>ひとこと </p></td>
+                  <td><p>ひとこと [max=100] </p></td>
                 </tr>
               
                 <tr>
                   <td>gender</td>
                   <td><a href="#proto_enums.GenderType">proto_enums.GenderType</a></td>
                   <td></td>
-                  <td><p>性別（1: man, 2: woman, 3: unknown） </p></td>
+                  <td><p>性別（1: man, 2: woman, 3: unknown） [required]
+←ユーザー入力がない場合は現在の値を埋め込むこと </p></td>
                 </tr>
               
                 <tr>
                   <td>phone</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>電話番号 </p></td>
+                  <td><p>電話番号 [max=15] </p></td>
                 </tr>
               
                 <tr>
                   <td>place</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>現在地的な。Twitterの真似 </p></td>
+                  <td><p>現在地的な。Twitterの真似 [max=30] </p></td>
                 </tr>
               
                 <tr>
@@ -1826,7 +1828,14 @@
                   <td>title</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>やりたいことボード名 </p></td>
+                  <td><p>やりたいことボード名 [required, max=30] </p></td>
+                </tr>
+              
+                <tr>
+                  <td>background_image</td>
+                  <td><a href="#bytes">bytes</a></td>
+                  <td></td>
+                  <td><p>新しい背景画像ファイル [空の場合はサーバー側でデフォルトの画像をセット] </p></td>
                 </tr>
               
             </tbody>
@@ -1850,7 +1859,7 @@
                   <td>wish_board_id</td>
                   <td><a href="#int64">int64</a></td>
                   <td></td>
-                  <td><p>削除したいやりたいことボードのID </p></td>
+                  <td><p>削除したいやりたいことボードのID [required] </p></td>
                 </tr>
               
             </tbody>
@@ -1874,14 +1883,14 @@
                   <td>wish_board_id</td>
                   <td><a href="#int64">int64</a></td>
                   <td></td>
-                  <td><p>取得開始位置を知らせるためのやりたいことボードID </p></td>
+                  <td><p>取得開始位置を知らせるためのやりたいことボードID [required] </p></td>
                 </tr>
               
                 <tr>
                   <td>limit</td>
                   <td><a href="#int64">int64</a></td>
                   <td></td>
-                  <td><p>最大取得件数 </p></td>
+                  <td><p>最大取得件数 [default=1, max=20] </p></td>
                 </tr>
               
             </tbody>
@@ -1905,7 +1914,7 @@
                   <td>wish_board_id</td>
                   <td><a href="#int64">int64</a></td>
                   <td></td>
-                  <td><p>やりたいことボードを特定するためのID </p></td>
+                  <td><p>やりたいことボードを特定するためのID [required] </p></td>
                 </tr>
               
             </tbody>
@@ -1929,14 +1938,14 @@
                   <td>wish_board_id</td>
                   <td><a href="#int64">int64</a></td>
                   <td></td>
-                  <td><p>やりたいことボードID </p></td>
+                  <td><p>やりたいことボードID [required] </p></td>
                 </tr>
               
                 <tr>
                   <td>background_image</td>
                   <td><a href="#bytes">bytes</a></td>
                   <td></td>
-                  <td><p>新しい背景画像ファイル </p></td>
+                  <td><p>新しい背景画像ファイル [required] </p></td>
                 </tr>
               
             </tbody>
@@ -1960,14 +1969,14 @@
                   <td>wish_board_id</td>
                   <td><a href="#int64">int64</a></td>
                   <td></td>
-                  <td><p>やりたいことボードID </p></td>
+                  <td><p>やりたいことボードID [required] </p></td>
                 </tr>
               
                 <tr>
                   <td>title</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>新しいやりたいことボード名 </p></td>
+                  <td><p>新しいやりたいことボード名 [required, max=30] </p></td>
                 </tr>
               
             </tbody>
@@ -1991,14 +2000,14 @@
                   <td>wish_board_id</td>
                   <td><a href="#int64">int64</a></td>
                   <td></td>
-                  <td><p>やりたいことボードID </p></td>
+                  <td><p>やりたいことボードID [required] </p></td>
                 </tr>
               
                 <tr>
                   <td>position</td>
                   <td><a href="#proto_wishboard.WishCategoryAndCardPosition">WishCategoryAndCardPosition</a></td>
                   <td>repeated</td>
-                  <td><p>やりたいことカテゴリーの並び順（IDの配列） </p></td>
+                  <td><p>やりたいことカテゴリーの並び順（IDの配列） [required] </p></td>
                 </tr>
               
             </tbody>
@@ -2105,7 +2114,7 @@
                   <td>wish_category_id</td>
                   <td><a href="#int64">int64</a></td>
                   <td></td>
-                  <td><p>やりたいことカテゴリーID </p></td>
+                  <td><p>やりたいことカテゴリーID [max_len=1] </p></td>
                 </tr>
               
                 <tr>
@@ -2211,14 +2220,14 @@
                   <td>wish_card_id</td>
                   <td><a href="#int64">int64</a></td>
                   <td></td>
-                  <td><p>タグを追加するやりたいことカードのID </p></td>
+                  <td><p>タグを追加するやりたいことカードのID [required] </p></td>
                 </tr>
               
                 <tr>
                   <td>tag_names</td>
                   <td><a href="#string">string</a></td>
                   <td>repeated</td>
-                  <td><p>追加したいタグの名前一覧（配列） </p></td>
+                  <td><p>追加したいタグの名前一覧（配列） [required, max=20] </p></td>
                 </tr>
               
             </tbody>
@@ -2242,35 +2251,35 @@
                   <td>wish_category_id</td>
                   <td><a href="#int64">int64</a></td>
                   <td></td>
-                  <td><p>やりたいことカテゴリーID </p></td>
+                  <td><p>やりたいことカテゴリーID [required] </p></td>
                 </tr>
               
                 <tr>
                   <td>activity</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>何をしたいのか </p></td>
+                  <td><p>何をしたいのか [required, max=50] </p></td>
                 </tr>
               
                 <tr>
                   <td>description</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>やりたいことの説明 </p></td>
+                  <td><p>やりたいことの説明 [max=100] </p></td>
                 </tr>
               
                 <tr>
                   <td>date</td>
                   <td><a href="#int64">int64</a></td>
                   <td></td>
-                  <td><p>いつやりたいか（UNIX） </p></td>
+                  <td><p>いつやりたいか（UNIX） [過去の日付ではない] </p></td>
                 </tr>
               
                 <tr>
                   <td>place</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>どこでそれをしたいのか </p></td>
+                  <td><p>どこでそれをしたいのか [required, max=200] </p></td>
                 </tr>
               
             </tbody>
@@ -2294,7 +2303,7 @@
                   <td>wish_card_id</td>
                   <td><a href="#int64">int64</a></td>
                   <td></td>
-                  <td><p>削除したいやりたいことカードのID </p></td>
+                  <td><p>削除したいやりたいことカードのID [required] </p></td>
                 </tr>
               
             </tbody>
@@ -2318,14 +2327,14 @@
                   <td>wish_card_id</td>
                   <td><a href="#int64">int64</a></td>
                   <td></td>
-                  <td><p>タグを削除するやりたいことカードのID </p></td>
+                  <td><p>タグを削除するやりたいことカードのID [required] </p></td>
                 </tr>
               
                 <tr>
                   <td>tag_ids</td>
                   <td><a href="#int64">int64</a></td>
                   <td>repeated</td>
-                  <td><p>削除したいタグのID一覧（配列） </p></td>
+                  <td><p>削除したいタグのID一覧（配列） [required] </p></td>
                 </tr>
               
             </tbody>
@@ -2349,14 +2358,14 @@
                   <td>wish_card_id</td>
                   <td><a href="#int64">int64</a></td>
                   <td></td>
-                  <td><p>カードのID </p></td>
+                  <td><p>カードのID [required] </p></td>
                 </tr>
               
                 <tr>
                   <td>activity</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>アクティビティ名 </p></td>
+                  <td><p>アクティビティ名 [required, max=50] </p></td>
                 </tr>
               
             </tbody>
@@ -2380,14 +2389,14 @@
                   <td>wish_card_id</td>
                   <td><a href="#int64">int64</a></td>
                   <td></td>
-                  <td><p>カードのID </p></td>
+                  <td><p>カードのID [required] </p></td>
                 </tr>
               
                 <tr>
                   <td>date</td>
                   <td><a href="#int64">int64</a></td>
                   <td></td>
-                  <td><p>日付 </p></td>
+                  <td><p>日付 [required, 過去の日付ではない] </p></td>
                 </tr>
               
             </tbody>
@@ -2411,14 +2420,14 @@
                   <td>wish_card_id</td>
                   <td><a href="#int64">int64</a></td>
                   <td></td>
-                  <td><p>カードのID </p></td>
+                  <td><p>カードのID [required] </p></td>
                 </tr>
               
                 <tr>
                   <td>description</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>説明 </p></td>
+                  <td><p>説明 [required, max=100] </p></td>
                 </tr>
               
             </tbody>
@@ -2442,14 +2451,14 @@
                   <td>wish_card_id</td>
                   <td><a href="#int64">int64</a></td>
                   <td></td>
-                  <td><p>カードのID </p></td>
+                  <td><p>カードのID [required] </p></td>
                 </tr>
               
                 <tr>
                   <td>place</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>場所 </p></td>
+                  <td><p>場所 [required, max=200] </p></td>
                 </tr>
               
             </tbody>
@@ -2618,17 +2627,17 @@
             <tbody>
               
                 <tr>
-                  <td>wish_list_id</td>
+                  <td>wish_board_id</td>
                   <td><a href="#int64">int64</a></td>
                   <td></td>
-                  <td><p>やりたいことリストID </p></td>
+                  <td><p>やりたいことボードID [required] </p></td>
                 </tr>
               
                 <tr>
                   <td>title</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>やりたいことカテゴリー名 </p></td>
+                  <td><p>やりたいことカテゴリー名 [required, max=30] </p></td>
                 </tr>
               
             </tbody>
@@ -2652,7 +2661,7 @@
                   <td>wish_category_id</td>
                   <td><a href="#int64">int64</a></td>
                   <td></td>
-                  <td><p>削除したいやりたいことカテゴリーのID </p></td>
+                  <td><p>削除したいやりたいことカテゴリーのID [required] </p></td>
                 </tr>
               
             </tbody>
@@ -2676,14 +2685,14 @@
                   <td>wish_category_id</td>
                   <td><a href="#int64">int64</a></td>
                   <td></td>
-                  <td><p>やりたいことカテゴリーID </p></td>
+                  <td><p>やりたいことカテゴリーID [required] </p></td>
                 </tr>
               
                 <tr>
                   <td>title</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>新規やりたいことカテゴリータイトル </p></td>
+                  <td><p>新規やりたいことカテゴリータイトル [required, max=30] </p></td>
                 </tr>
               
             </tbody>

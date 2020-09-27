@@ -31,27 +31,27 @@ service MemoryService {
 
 // 思い出情報取得用リクエスト
 message GetMemoryRequest {
-  // 思い出1件を特定するための思い出ID
+  // 思い出1件を特定するための思い出ID [required]
   int64 memory_id = 1;
 }
 
 // ユーザーに紐づく思い出一覧取得用リクエスト
 message GetUserMemoriesRequest {
-  // ユーザー名
+  // ユーザー名 [required, max=20]
   string user_name = 1;
 }
 
 // 思い出新規作成リクエスト
 message CreateMemoryRequest {
-  // 投稿した思い出を保存するアルバムのID
+  // 投稿した思い出を保存するアルバムのID [required]
   int64 album_id = 1;
-  // やったこと
+  // やったこと [required, max=50]
   string activity = 2;
-  // 日付(UNIX)
+  // 日付(UNIX) [required]
   int64 date = 3;
   // 思い出の説明
   string description = 4;
-  // 場所
+  // 場所 [required, max=200]
   string place = 5;
   // アップロードしたい画像一覧（配列）
   repeated proto_photo.Photo photos = 6;
@@ -61,53 +61,53 @@ message CreateMemoryRequest {
 
 // 思い出削除リクエスト
 message DeleteMemoryRequest {
-  // 削除する思い出のID
+  // 削除する思い出のID [required]
   int64 memory_id = 1;
 }
 
 // 思い出の基本情報更新用リクエスト
 message UpdateMemoryRequest {
-  // 更新する思い出のID
+  // 更新する思い出のID [required]
   int64 memory_id = 1;
-  // やったこと
+  // やったこと [required] ← ユーザー入力がない場合は現在の値を埋め込むこと
   string activity = 2;
-  // 日付(UNIX)
+  // 日付(UNIX) [required] ← ユーザー入力がない場合は現在の値を埋め込むこと
   int64 date = 3;
-  // 思い出の説明
+  // 思い出の説明 ← ユーザー入力がない場合は現在の値を埋め込むこと
   string description = 4;
-  // 場所
+  // 場所 [required, max=200] ← ユーザー入力がない場合は現在の値を埋め込むこと
   string place = 5;
 }
 
 // 思い出に新規画像を追加するためのリクエスト
 message CreateMemoryPhotosRequest {
-  // 画像を追加する思い出のID
+  // 画像を追加する思い出のID [required]
   int64 memory_id = 1;
-  // アップロードしたい画像ファイル(配列)
+  // アップロードしたい画像ファイル(配列) [required, max_len=5]
   repeated bytes photo_file = 2;
 }
 
 // 思い出に紐づく画像のうちから指定したものを削除するためのリクエスト
 message DeleteMemoryPhotosRequest {
-  // 画像を削除する思い出のID
+  // 画像を削除する思い出のID [required]
   int64 memory_id = 1;
-  // 削除したい画像のID一覧（配列）
+  // 削除したい画像のID一覧（配列） [required]
   repeated int64 photo_ids = 2;
 }
 
 // 思い出にタグを追加するためのリクエスト
 message AddMemoryTagsRequest {
-  // タグを追加する思い出のID
+  // タグを追加する思い出のID [required]
   int64 memory_id = 1;
-  // 追加したいタグの名前一覧（配列）
+  // 追加したいタグの名前一覧（配列） [required, max_len=20]
   repeated string tag_names = 2;
 }
 
 // 思い出のタグを削除するためのリクエスト
 message DeleteMemoryTagsRequest {
-  // タグを削除する思い出のID
+  // タグを削除する思い出のID [required]
   int64 memory_id = 1;
-  // 削除したいタグのID一覧（配列）
+  // 削除したいタグのID一覧（配列） [required]
   repeated int64 tag_ids = 2;
 }
 

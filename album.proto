@@ -21,35 +21,35 @@ service AlbumService {
 
 // アルバム作成リクエスト
 message CreateAlbumRequest {
-  // アルバム名
+  // アルバム名 [required, max=200]
   string title = 1;
 }
 
 // アルバム1件取得用リクエスト
 message GetAlbumRequest {
-  // アルバムを特定するためのID
+  // アルバムを特定するためのID [required]
   int64 album_id = 1;
 }
 
 // アルバム一覧（ID, title)取得用リクエスト
 message GetMyAlbumsRequest {
-  // 取得開始位置を知らせるためのアルバムID
+  // 取得開始位置を知らせるためのアルバムID [required]
   int64 album_id = 1;
-  // 最大取得件数
+  // 最大取得件数 [default=1, max=20]
   int64 limit = 2;
 }
 
 // アルバムタイトル変更用リクエスト
 message UpdateAlbumTitleRequest {
-  // 変更したいアルバムのID
+  // 変更したいアルバムのID [required]
   int64 album_id = 1;
-  // 変更したいアルバムタイトル
+  // 変更したいアルバムタイトル [required, max=200]
   string title = 2;
 }
 
 // アルバム削除用リクエスト
 message DeleteAlbumRequest {
-  // 削除したいアルバムのID
+  // 削除したいアルバムのID [required]
   int64 album_id = 1;
 }
 

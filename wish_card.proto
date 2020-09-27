@@ -33,69 +33,69 @@ service WishCardService {
 
 // やりたいことカード新規作成リクエスト
 message CreateWishCardRequest {
-  // やりたいことカテゴリーID
+  // やりたいことカテゴリーID [required]
   int64 wish_category_id = 1;
-  // 何をしたいのか
+  // 何をしたいのか [required, max=50]
   string activity = 2;
-  // やりたいことの説明
+  // やりたいことの説明 [max=100]
   string description = 3;
-  // いつやりたいか（UNIX）
+  // いつやりたいか（UNIX） [過去の日付ではない]
   int64 date = 4;
-  // どこでそれをしたいのか
+  // どこでそれをしたいのか [required, max=200]
   string place = 5;
 }
 
 // やりたいことカードのアクティビティ更新リクエスト
 message UpdateWishCardActivityRequest {
-  // カードのID
+  // カードのID [required]
   int64 wish_card_id = 1;
-  // アクティビティ名
+  // アクティビティ名 [required, max=50]
   string activity = 2;
 }
 
 // やりたいことカードの説明更新リクエスト
 message UpdateWishCardDescriptionRequest {
-  // カードのID
+  // カードのID [required]
   int64 wish_card_id = 1;
-  // 説明
+  // 説明 [required, max=100]
   string description = 2;
 }
 
 // やりたいことカードの日付変更リクエスト
 message UpdateWishCardDateRequest {
-  // カードのID
+  // カードのID [required]
   int64 wish_card_id = 1;
-  // 日付
+  // 日付 [required, 過去の日付ではない]
   int64 date = 2;
 }
 
 // やりたいことカードの場所変更リクエスト
 message UpdateWishCardPlaceRequest {
-  // カードのID
+  // カードのID [required]
   int64 wish_card_id = 1;
-  // 場所
+  // 場所 [required, max=200]
   string place = 2;
 }
 
 // やりたいことカードに新規タグの追加リクエスト
 message AddWishCardTagsRequest {
-  // タグを追加するやりたいことカードのID
+  // タグを追加するやりたいことカードのID [required]
   int64 wish_card_id = 1;
-  // 追加したいタグの名前一覧（配列）
+  // 追加したいタグの名前一覧（配列） [required, max=20]
   repeated string tag_names = 2;
 }
 
 // やりたいことカードからタグを削除
 message DeleteWishCardTagsRequest {
-  // タグを削除するやりたいことカードのID
+  // タグを削除するやりたいことカードのID [required]
   int64 wish_card_id = 1;
-  // 削除したいタグのID一覧（配列）
+  // 削除したいタグのID一覧（配列） [required]
   repeated int64 tag_ids = 2;
 }
 
 // やりたいことカード削除用リクエスト
 message DeleteWishCardRequest {
-  // 削除したいやりたいことカードのID
+  // 削除したいやりたいことカードのID [required]
   int64 wish_card_id = 1;
 }
 
