@@ -32,6 +32,8 @@ service WishBoardService {
 message CreateWishBoardRequest {
   // やりたいことボード名 [required, max=30]
   string title = 1;
+  // 新しい背景画像ファイル [空の場合はサーバー側でデフォルトの画像をセット]
+  bytes background_image = 2;
 }
 
 // やりたいことボード（ID, titleのみ）の配列を取得するためのリクエスト
