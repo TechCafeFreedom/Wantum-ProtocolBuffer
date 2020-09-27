@@ -20,8 +20,8 @@ service WishCategoryService {
 
 // やりたいことカテゴリー新規作成リクエスト
 message CreateWishCategoryRequest {
-  // やりたいことリストID [required]
-  int64 wish_list_id = 1;
+  // やりたいことボードID [required]
+  int64 wish_board_id = 1;
   // やりたいことカテゴリー名 [required, max=30]
   string title = 2;
 }
