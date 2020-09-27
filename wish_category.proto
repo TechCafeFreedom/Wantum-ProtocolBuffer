@@ -20,23 +20,23 @@ service WishCategoryService {
 
 // やりたいことカテゴリー新規作成リクエスト
 message CreateWishCategoryRequest {
-  // やりたいことリストID
+  // やりたいことリストID [required]
   int64 wish_list_id = 1;
-  // やりたいことカテゴリー名
+  // やりたいことカテゴリー名 [required, max=30]
   string title = 2;
 }
 
 // やりたいことカテゴリータイトル更新リクエスト
 message UpdateWishCategoryTitleRequest {
-  // やりたいことカテゴリーID
+  // やりたいことカテゴリーID [required]
   int64 wish_category_id = 1;
-  // 新規やりたいことカテゴリータイトル
+  // 新規やりたいことカテゴリータイトル [required, max=30]
   string title = 2;
 }
 
 // やりたいことカテゴリー削除用リクエスト
 message DeleteWishCategoryRequest {
-  // 削除したいやりたいことカテゴリーのID
+  // 削除したいやりたいことカテゴリーのID [required]
   int64 wish_category_id = 1;
 }
 
